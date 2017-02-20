@@ -65,16 +65,41 @@
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
     <div class="col-xs-4 col-sm-6 col-md-3">
-			<a href="detail.do?num=${tmp.num }">${tmp.content}</a>
+			<a data-toggle="modal" data-target="#myModal">${tmp.content}</a>
+			
+			
 	</div>
 	</c:forEach>
 </div>
 </div>
 
+<div id="myModal" class="modal">
 
+	<div class="modal-dialog">
+        <div class="">  
+               <div class="login-box well">
+		
+		
+			<h3>aaaaa</h3>
+			<c:forEach var="tmp" items="${list }"> 
+			<a href="">${tmp.content}</a>
+			</c:forEach>
+			
+
+          	
+	</div>
+		</div>  
+	</div>
+</div>
 
 <!-- 검색어 관련 form -->
-
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
+<script>
+$("#modalBtn").click(function(){
+	$("#myModal").modal("show");
+});
+</script>
 </body>
 </html>
 
