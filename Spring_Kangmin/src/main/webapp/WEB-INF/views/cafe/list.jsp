@@ -65,12 +65,13 @@
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
     <div class="col-xs-4 col-sm-6 col-md-3">
-			<a data-toggle="modal" data-target="#myModal">${tmp.content}</a>
+    <a href="${tmp.num }"></a>
+	<a  data-toggle="modal" data-target="#myModal">${tmp.content}</a>
 			
 			
 	</div>
 	</c:forEach>
-</div>
+</div> 
 </div>
 
 <div id="myModal" class="modal">
@@ -85,15 +86,16 @@
 
 		
 		
+			<h3>aa123122</h3>
+			   
 			
-			<c:forEach var="tmp" items="${list }"> 
 			
-			<td>${tmp.writer }</td>
-			<a href="">${tmp.content}</a>
-			</c:forEach>
+			<a href="">${dto.content }</a>
+			<a href="">${dto.title }</a>
+			
 			
 
-          	
+          	  
 	</div>
 		</div>  
 	</div>
@@ -103,9 +105,17 @@
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
+
 $("#modalBtn").click(function(){
-	$("#myModal").modal("show");
+	href="detail.do?num=${tmp.num}";
+	$("#myModal").modal("show").goPage();
+	
 });
+
+function goPage() {
+
+	href="detail.do?num=${tmp.num}";
+}
 </script>
 </body>
 </html>

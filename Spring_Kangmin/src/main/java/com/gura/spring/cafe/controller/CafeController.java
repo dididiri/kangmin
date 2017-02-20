@@ -47,7 +47,7 @@ public class CafeController {
 	@RequestMapping("/cafe/detail")
 	public ModelAndView detail(@RequestParam int num){
 		ModelAndView mView=cafeService.getData(num);
-		mView.setViewName("cafe/detail");
+		mView.setViewName("cafe/list");
 		return mView;
 	}
 	//글 삭제 요청 처리 
