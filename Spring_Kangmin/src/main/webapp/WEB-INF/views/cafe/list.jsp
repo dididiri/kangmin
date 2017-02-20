@@ -78,10 +78,17 @@
 	<div class="modal-dialog">
         <div class="">  
                <div class="login-box well">
+		   
+		<button class="close" data-dismiss="modal">&times;</button>
+			
+
+
 		
 		
-			<h3>aaaaa</h3>
+			
 			<c:forEach var="tmp" items="${list }"> 
+			
+			<td>${tmp.writer }</td>
 			<a href="">${tmp.content}</a>
 			</c:forEach>
 			
