@@ -22,17 +22,46 @@
 	.page_display a.muted{
 		color: #cecece;
 	}
+	#imgi1{
+	   
+	   float: left;
+	}
 	img{
 	  max-width: 100%;
-	 
+	  
+	}
+	#com1{
+	  position: relative;
+      left: 37%;
 	}
 	
 </style>
 </head>
-<body>
+<body>   
+<hr />
+<div class="com1" id="com1">
+    
+    <img id="imgi1" src="../resources/images/12345.png" alt="" />
+    <div class="con1">
+     <form action="list.do" method="post" id="keywordForm">
+	
+	<select name="condition" id="condition">
+		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
+		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
+		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
+	</select>
+	<input type="text" name="keyword" placeholder="검색어" 
+		value="${keyword }"/>
+	<button type="submit">검색</button>
+  </form>
+  </div>
+  
+</div>
+<hr />
+<div class="container">
 <h3>카페 글 목록입니다.</h3>
 <a href="private/insertform.do">새글쓰기</a>
-<div class="container">
+<hr />
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
     <div class="col-xs-4 col-sm-6 col-md-3">
@@ -45,17 +74,7 @@
 
 
 <!-- 검색어 관련 form -->
-<form action="list.do" method="post" id="keywordForm">
-	<label for="condition">검색 조건</label>
-	<select name="condition" id="condition">
-		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
-		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
-		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
-	</select>
-	<input type="text" name="keyword" placeholder="검색어" 
-		value="${keyword }"/>
-	<button type="submit">검색</button>
-</form>
+
 </body>
 </html>
 

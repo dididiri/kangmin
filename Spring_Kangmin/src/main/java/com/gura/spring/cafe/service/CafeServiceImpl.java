@@ -14,7 +14,7 @@ import com.gura.spring.cafe.dto.CafeDto;
 @Component
 public class CafeServiceImpl implements CafeService{
 	//한 페이지에 나타낼 로우의 갯수
-	private static final int PAGE_ROW_COUNT=5;
+	private static final int PAGE_ROW_COUNT=25;
 	//하단 디스플레이 페이지 갯수
 	private static final int PAGE_DISPLAY_COUNT=5;	
 	

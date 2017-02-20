@@ -57,7 +57,7 @@
 			           class="btn btn-default btn-block m-t-md" data-toggle="modal" data-target="#myModal"> 로그인</a>
 			           <a href="" class="btn btn-default btn-block m-t-md" 
 			               data-toggle="modal" data-target="#myModal3"> 회원가입</a>
-			           <a href="email/write.do" class="btn btn-default btn-block m-t-md">이메일 발송</a>
+			            
 			        </c:when>
 	              </c:choose>    
 			           <a href="cafe/private/insertform.do" class="btn btn-default btn-block m-t-md">회원 전용 카페글 쓰기</a>
