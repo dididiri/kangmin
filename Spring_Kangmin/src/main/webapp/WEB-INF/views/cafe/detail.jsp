@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/detail.jsp</title>
+
 </head>
 <body>
 <h3>상세글 내용 페이지</h3>
