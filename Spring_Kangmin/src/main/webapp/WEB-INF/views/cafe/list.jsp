@@ -26,15 +26,21 @@
 	   
 	   float: left;
 	}
-	img{
+	a img{
 	  max-width: 100%;
+	      width: 100%;  
 	  
 	}
 	#com1{
 	  position: relative;
       left: 37%;
 	}
-	
+	#col1{
+	padding-right: 5px;
+    padding-left: 5px;
+    margin-bottom: -20px;
+    }
+   
 </style>
 </head>
 <body>   
@@ -59,13 +65,13 @@
 </div>
 <hr />
 <div class="container">
-<h3>카페 글 목록입니다.</h3>
+
 <a href="private/insertform.do">새글쓰기</a>
 <hr />
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
-    <div class="col-xs-4 col-sm-6 col-md-3">
-			<a href="detail.do?num=${tmp.num }">${tmp.content}</a>
+    <div id="col1" class="col-xs-4 col-sm-6 col-md-3">
+			<a id="a1" href="detail.do?num=${tmp.num }">${tmp.content}</a>
 	</div>
 	</c:forEach>
 </div>
