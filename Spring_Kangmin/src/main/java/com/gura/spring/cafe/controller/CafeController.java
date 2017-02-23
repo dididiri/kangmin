@@ -2,6 +2,7 @@ package com.gura.spring.cafe.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.aspectj.asm.IElementHandleProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +16,7 @@ import com.gura.spring.cafe.service.CafeService;
 import com.gura.spring.cafe.service.CommentService;
 
 
+
 @Controller
 public class CafeController {
 	
@@ -22,7 +24,7 @@ public class CafeController {
 	private CafeService cafeService;
 	
 	@Autowired
-	private CommentService commentServce;
+	private CommentService commentService;
 	
 	//파라미터로 페이지 번호가 넘어올수도 있고 안넘어 올수도 있다.
 	//만일 안넘어 오면 default 값으로 1 을 넣어준다. 
@@ -50,17 +52,25 @@ public class CafeController {
 		return new ModelAndView("redirect:/cafe/list.do");
 	}
 	
-	@RequestMapping("/cafe/detail")
-	public ModelAndView detail(@RequestParam int num){
-		ModelAndView mView=cafeService.getData(num);
-		mView.setViewName("cafe/detail");
-		return mView;
-	}
+	
 	//글 삭제 요청 처리 
 	@RequestMapping("/cafe/private/delete")
 	public ModelAndView authDelete(@RequestParam int num){
-		cafeService.delete(num);
+		
 		return new ModelAndView("redirect:/cafe/list.do");
+	}
+	
+	@RequestMapping("/cafe/detail")
+	public ModelAndView detail( 
+			@RequestParam int num){
+		
+		ModelAndView mView=cafeService.getData(num);
+		
+		mView.addObject("commentList", commentService.getList(num));
+		
+		
+		mView.setViewName("cafe/detail");
+		return mView;
 	}
 	//글 수정폼 요청 처리
 	@RequestMapping("/cafe/private/updateform")
@@ -81,7 +91,7 @@ public class CafeController {
 	@RequestMapping("/cafe/comment_insert")
 	public ModelAndView authCommentInsert(@ModelAttribute CommentDto dto 
 			){
-		int seq=commentServce.getSequence();
+		int seq=commentService.getSequence();
 		dto.setNum(seq);
 		if(dto.getComment_group()==0){//원글에 대한 덧글인 경우
 			//덧글의 그룹번호를 덧글의 글번호와 같게 설정한다.
@@ -90,11 +100,13 @@ public class CafeController {
 			//파라미터로 넘어온 덧글의 그룹번호를 넣어준다.
 			dto.setComment_group(dto.getComment_group());
 		}
-		ModelAndView mview=new ModelAndView();
-		commentServce.insert(dto);
-		mview.setViewName("redirect:/cafe/detail.do?num="+dto.getRef_group());
-		return mview;
+		
+		commentService.insert(dto);
+		
+		return new ModelAndView("redirect:/cafe/detail.do");
 	}
+	
+	
 }
 
 

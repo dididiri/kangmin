@@ -6,7 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>/views/cafe/detail.jsp</title>
-
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
+<style>
+	.content{ 
+		border: 1px solid blue;
+	}
+	.comment textarea{
+		width:80%;
+		background-color: #fff;
+	}
+	.comment form{
+		display: none;
+	}
+	.comment{
+		position: relative;
+	}
+	.comment .reply_icon{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top:0;
+		left:-20px;
+		border-left: 2px solid green;
+		border-bottom: 2px solid green;
+	}
+</style>
 </head>
 <body>
 <h3>상세글 내용 페이지</h3>
@@ -72,6 +96,8 @@
 		</form>
 	</div>
 </div>
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
 	function deleteCheck(){
 		var isDelete=confirm("글을 삭제 하시겠습니까?");
@@ -79,21 +105,7 @@
 			location.href="private/delete.do?num=${dto.num}";
 		}
 	}
-var isLogin=${isLogin};
-	
-	//덧글 전송 이벤트가 일어 났을때 실행할 함수 등록 
-	$(".comment_form > form, .comment form").submit(function(){
-		if(!isLogin){//만일 로그인 하지 않았다면 
-			alert("로그인이 필요 합니다.");
-			//로그인 페이지로 이동 
-			location.href="${pageContext.request.contextPath}"+
-			"/users/signin_form.do"+
-			"?uri=${pageContext.request.contextPath}"+
-			"/cafe/detail.do?num=${dto.num}";
-			
-			return false; //폼전송 막기 
-		}
-	});
+
 	
 	//덧글 달기 혹은 취소 버튼을 눌렀을때 실행할 함수 등록 
 	$(".comment a").click(function(){
