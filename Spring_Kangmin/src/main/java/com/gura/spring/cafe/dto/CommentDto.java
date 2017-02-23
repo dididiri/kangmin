@@ -22,7 +22,7 @@ public class CommentDto {
 		this.ref_group = ref_group;
 		this.comment_group = comment_group;
 		this.regdate = regdate;
-	}
+	}     
 
 	public int getNum() {
 		return num;
