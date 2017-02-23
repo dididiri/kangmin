@@ -10,13 +10,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring.cafe.dto.CafeDto;
+import com.gura.spring.cafe.dto.CommentDto;
 import com.gura.spring.cafe.service.CafeService;
+import com.gura.spring.cafe.service.CommentService;
+
 
 @Controller
 public class CafeController {
 	
 	@Autowired
 	private CafeService cafeService;
+	
+	@Autowired
+	private CommentService commentServce;
 	
 	//파라미터로 페이지 번호가 넘어올수도 있고 안넘어 올수도 있다.
 	//만일 안넘어 오면 default 값으로 1 을 넣어준다. 
@@ -70,6 +76,24 @@ public class CafeController {
 	public ModelAndView authUpdate(@ModelAttribute CafeDto dto){
 		cafeService.update(dto);
 		return new ModelAndView("redirect:/cafe/list.do");
+	}
+	
+	@RequestMapping("/cafe/comment_insert")
+	public ModelAndView authCommentInsert(@ModelAttribute CommentDto dto 
+			){
+		int seq=commentServce.getSequence();
+		dto.setNum(seq);
+		if(dto.getComment_group()==0){//원글에 대한 덧글인 경우
+			//덧글의 그룹번호를 덧글의 글번호와 같게 설정한다.
+			dto.setComment_group(seq);
+		}else{//덧글의 덧글인 경우   
+			//파라미터로 넘어온 덧글의 그룹번호를 넣어준다.
+			dto.setComment_group(dto.getComment_group());
+		}
+		ModelAndView mview=new ModelAndView();
+		commentServce.insert(dto);
+		mview.setViewName("redirect:/cafe/detail.do?num="+dto.getRef_group());
+		return mview;
 	}
 }
 
