@@ -65,7 +65,7 @@ public class CafeController {
 			@RequestParam int num){
 		
 		ModelAndView mView=cafeService.getData(num);
-		
+	    
 		mView.addObject("commentList", commentService.getList(num));
 		
 		
@@ -103,7 +103,7 @@ public class CafeController {
 		
 		commentService.insert(dto);
 		
-		return new ModelAndView("redirect:/cafe/detail.do");
+		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getRef_group());
 	}
 	
 	
