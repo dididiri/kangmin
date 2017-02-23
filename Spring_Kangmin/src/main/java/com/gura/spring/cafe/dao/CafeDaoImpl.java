@@ -24,7 +24,7 @@ public class CafeDaoImpl implements CafeDao{
 	public void insert(CafeDto dto) {
 		session.insert("cafe.insert", dto);
 	}
-
+    
 	@Override
 	public CafeDto getData(int num) {
 		CafeDto dto=session.selectOne("cafe.getData", num);
