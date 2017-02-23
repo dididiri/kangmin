@@ -18,7 +18,7 @@ public class CafeDaoImpl implements CafeDao{
 	public List<CafeDto> getList(CafeDto dto) {
 		List<CafeDto> list=session.selectList("cafe.getList", dto);
 		return list;
-	}
+	}                
 
 	@Override
 	public void insert(CafeDto dto) {
