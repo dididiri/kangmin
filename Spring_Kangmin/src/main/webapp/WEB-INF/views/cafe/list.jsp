@@ -25,29 +25,37 @@
 	#imgi1{
 	   
 	   float: left;
+	   width: 150px;
+       height: 70px;
+       margin-top: -27px;
 	}
 	a img{
 	  max-width: 100%;
-	      width: 100%;  
+	      width: 350px;  
 	  
 	}
 	#com1{
 	  position: relative;
-      left: 37%;
+      left: 38%;
+      padding: 15px;
 	}
 	#col1{
 	padding-right: 5px;
     padding-left: 5px;
     margin-bottom: -20px;
     }
+    
+    body{  
+    background-image: url(../resources/images/bg.jpg);
+    }
    
 </style>
 </head>
-<body>   
+<body style="background-image: ">   
 <hr />
 <div class="com1" id="com1">
     
-    <img id="imgi1" src="../resources/images/12345.png" alt="" />
+    <!-- <img id="imgi1" src="../resources/images/12345.png" alt="" /> -->
     <div class="con1">
      <form action="list.do" method="post" id="keywordForm">
 	
@@ -70,7 +78,7 @@
 <hr />
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
-    <div id="col1" class="col-xs-4 col-sm-6 col-md-3">
+    <div id="col1" class="col-xs-12 col-sm-4 col-md-4">
 			<a id="a1" href="detail.do?num=${tmp.num }">${tmp.content}</a>
 	</div>
 	</c:forEach>

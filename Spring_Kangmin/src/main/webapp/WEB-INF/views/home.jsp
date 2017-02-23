@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 
 <style>    
+      #divBox{
+         background: initial;
+      }
      .container{
          width: 300px;
      }
@@ -27,6 +30,10 @@
 	  #block4{
 		display: none;
 	 }
+	  body{  
+    background-image: url(./resources/images/bg.jpg);
+     color: #ffffff;
+    }
 	
 </style>
 
@@ -34,12 +41,12 @@
 <body>
 	
 <div class="container" id="contain">  
-    <div class="row">  
+    <div class="row" >  
         
           
           
            <div class="">  
-               <div class="login-box well">
+               <div class="login-box well" id="divBox">
                <form accept-charset="UTF-8" role="form" method="post" action="">
 	              
 	              <c:choose>
@@ -83,7 +90,7 @@
 		  
 		   <div class="">
 			   	 <button class="close" data-dismiss="modal">&times;</button>
-				<div class="login-box well">
+				<div class="login-box well" id="dovBox">
 			
                     
 					<form action="signin.do?uri=${param.uri }" method="post"

@@ -9,11 +9,11 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
 	.content{ 
-		border: 1px solid blue;
+		border: 0.5px solid #cecece;
 	}
 	.comment textarea{
 		width:80%;
-		background-color: #fff;
+		
 	}
 	.comment form{
 		display: none;
@@ -30,6 +30,21 @@
 		border-left: 2px solid green;
 		border-bottom: 2px solid green;
 	}
+	img{
+	  width: 300px;   
+	  
+	}
+	 body{  
+    background-image: url(../resources/images/bg.jpg);
+        color: #ffffff;
+    }
+    
+    textarea{
+     background: initial;
+    }
+    #btn1{
+     color: #000000;
+    }
 </style>
 </head>
 <body>
@@ -77,7 +92,7 @@
 				<input type="hidden" name="target_id" value="${tmp.writer }" />
 				<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
 				<textarea name="content"></textarea>
-				<button type="submit">등록</button>
+				<button id="btn1" type="submit">등록</button>
 			</form>
 		</div>
 		
@@ -91,8 +106,8 @@
 			<input type="hidden" name="ref_group" value="${dto.num }" />
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${dto.writer }" />
-			<textarea name="content">sibla</textarea>
-			<button type="submit">등록</button>
+			<textarea name="content"></textarea>
+			<button id="btn1" type="submit">등록</button>
 		</form>
 	</div>
 </div>
