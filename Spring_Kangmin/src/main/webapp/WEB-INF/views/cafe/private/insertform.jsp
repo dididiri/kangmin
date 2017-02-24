@@ -21,10 +21,9 @@
 	<input type="text" name="title" id="title"/><br/>
 	<textarea name="content" id="ir1" style="width:766px;height:412px;display:none"></textarea>
 	<div>
-		<input type="button" onclick="pasteHTML();" value="본문에 내용 넣기" />
-		<input type="button" onclick="showHTML();" value="본문 내용 가져오기" />
-		<input type="button" onclick="submitContents(this);" value="서버로 내용 전송" />
-		<input type="button" onclick="setDefaultFont();" value="기본 폰트 지정하기 (궁서_24)" />
+		
+		<input type="button" onclick="submitContents(this);" value="작성" />
+		
 	</div>	
 </form>
 <script>

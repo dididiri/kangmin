@@ -31,7 +31,7 @@
 		display: none;
 	 }
 	  body{  
-    background-image: url(./resources/images/bg.jpg);
+    background-image: url(./resources/images/bg3.jpg);
      color: #ffffff;
     }
 	
@@ -39,7 +39,7 @@
 
 </head>
 <body>
-	
+<div class="big">	
 <div class="container" id="contain">  
     <div class="row" >  
         
@@ -76,6 +76,7 @@
               </div>     
          </div>   
     </div>
+</div>
 </div>
 <!-------------------------  Modal 소스 페이지    -------------------------  -->
 

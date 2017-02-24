@@ -11,10 +11,10 @@
 	.content{ 
 		border: 0.5px solid #cecece;
 	}
-	.comment textarea{
-		width:80%;
+	textarea{
+		width:50%;
 		
-	}
+	}     
 	.comment form{
 		display: none;
 	}
@@ -30,12 +30,13 @@
 		border-left: 2px solid green;
 		border-bottom: 2px solid green;
 	}
-	img{
-	  width: 300px;   
+	 img{
+	  width: 320px;
+      height: 430px;  
 	  
 	}
 	 body{  
-    background-image: url(../resources/images/bg.jpg);
+    background-image: url(../resources/images/bg3.jpg);
         color: #ffffff;
     }
     
@@ -48,7 +49,7 @@
 </style>
 </head>
 <body>
-<h3>상세글 내용 페이지</h3>
+<h1>상세글 내용 페이지</h1>
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
 <c:if test="${id eq dto.writer }">
 	<a href="private/updateform.do?num=${dto.num }">수정</a>
@@ -106,8 +107,8 @@
 			<input type="hidden" name="ref_group" value="${dto.num }" />
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${dto.writer }" />
-			<textarea name="content"></textarea>
-			<button id="btn1" type="submit">등록</button>
+			<textarea rows="5" disabled name="content"></textarea>
+			<button  id="btn1" type="submit">등록</button>
 		</form>
 	</div>
 </div>

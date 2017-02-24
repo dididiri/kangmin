@@ -32,6 +32,7 @@
 	a img{
 	  max-width: 100%;
 	      width: 350px;  
+	      height: 370px;  
 	  
 	}
 	#com1{
@@ -46,7 +47,7 @@
     }
     
     body{  
-    background-image: url(../resources/images/bg.jpg);
+    background-image: url(../resources/images/bg3.jpg);
     }
    
 </style>
@@ -78,7 +79,7 @@
 <hr />
 <div class="row">
     <c:forEach var="tmp" items="${list }"> 
-    <div id="col1" class="col-xs-12 col-sm-4 col-md-4">
+    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
 			<a id="a1" href="detail.do?num=${tmp.num }">${tmp.content}</a>
 	</div>
 	</c:forEach>
