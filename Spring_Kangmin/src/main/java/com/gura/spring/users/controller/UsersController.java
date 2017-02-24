@@ -29,7 +29,7 @@ public class UsersController {
 	@Inject
     EmailService emailService;
 	// "/users/private/delete.do" 개인정보 삭제 요청 처리
-	@RequestMapping("/users/private/delete")
+	@RequestMapping("cafe/delete")
 	public ModelAndView authDelete(HttpSession session){
 		//세션에 저장된 아이디 값을 읽어온다.
 	    String id=(String)session.getAttribute("id");
@@ -72,7 +72,7 @@ public class UsersController {
 
 	  
 	// "/users/signout.do" 로그 아웃 요청 처리
-	@RequestMapping("/users/signout")
+	@RequestMapping("cafe/signout")
 	public ModelAndView signout(HttpSession session){
 		//세션 초기화
 		//session.invalidate();
@@ -88,7 +88,7 @@ public class UsersController {
 	
 	
 	// "/users/signup.do" 요청처리
-	@RequestMapping("/mail/signup")
+	@RequestMapping("cafe/signup")
 	public ModelAndView signup(HttpServletRequest request,
 			@ModelAttribute UsersDto dto){
 		usersService.insert(dto);
@@ -102,7 +102,7 @@ public class UsersController {
 	
 	
 	// "/users/signin.do" 로그인 요청 처리  
-	@RequestMapping("signin")
+	@RequestMapping("cafe/signin")
 	public ModelAndView signin(@ModelAttribute UsersDto dto,
 			@RequestParam String uri, HttpSession session){
 		
@@ -118,12 +118,12 @@ public class UsersController {
 		
 		mView=usersService.getData(id);
 		//알림 페이지로 forward 이동 시킨다. 
-		mView.setViewName("home");
+		mView.setViewName("redirect:/cafe/list.do");
 		return mView;
 	}
 	
 	// ajax "/users/checkid.do" 요청 처리
-	@RequestMapping("/checkid")
+	@RequestMapping("cafe/checkid")
 	@ResponseBody
 	public Map<String, Object> checkid(@RequestParam String inputId,@RequestParam String inputPwd){
 		boolean canUse = false;
@@ -145,7 +145,7 @@ public class UsersController {
 	}
 	
 	// ajax "/users/checkid.do" 요청 처리
-		@RequestMapping("/checkid2")
+		@RequestMapping("cafe/checkid2")
 		@ResponseBody
 		public Map<String, Object> checkid2(@RequestParam String inputId2){
 			Map<String, Object> map=usersService.canUseId2(inputId2);
@@ -166,13 +166,13 @@ public class UsersController {
 	@RequestMapping("/send")
 	@ResponseBody
 	public String send(@RequestParam String senderName,@RequestParam String senderMail,
-			@RequestParam String receiveMail,@RequestParam String subject,
+			@RequestParam String email,@RequestParam String subject,
 			@RequestParam String message){
 		EmailVo vo=new EmailVo();
 		vo.setMessage2(message);
 	    vo.setSenderName(senderName);
 		vo.setSenderMail(senderMail);
-		vo.setReceiveMail(receiveMail);
+		vo.setEmail(email);
 		vo.setSubject(subject);
 		vo.setMessage(message);
 		System.out.println(message+":1234");
@@ -183,7 +183,7 @@ public class UsersController {
 			e.printStackTrace();
 			//model.addAttribute("message","이메일 발송 실패..");
 		}
-		return "home";
+		return "list";
 	}
 	
 	@RequestMapping("/ident")

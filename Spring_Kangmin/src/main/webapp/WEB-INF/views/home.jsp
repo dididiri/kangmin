@@ -53,6 +53,7 @@
 	              <c:when test="${not empty id }">
 	                   <div>  
 	                     <strong><a href="" data-toggle="modal" data-target="#myModal2">${id }</a></strong> 님 로그인중... 
+		                 <a href="cafe/private/insertimg.do"></a>
 		                 <a href="users/signout.do">로그아웃</a><hr />
 		               </div> 
 	              </c:when>
@@ -251,7 +252,7 @@
 			//ajax 요청을 이용해서 서버에 전송
 			
 			$.ajax({
-				url:"checkid.do",
+				url:"cafe/checkid.do",
 				method:"get",
 				data:{"inputId":inputId,"inputPwd":inputPwd},
 				success:function(data){
@@ -300,7 +301,7 @@
 	 		var inputId2=$("#id3").val();
 	 		//ajax 를 이용해서 서버에 전송하고 사용가능 여부 응답받기
 	 		$.ajax({
-	 			url:"checkid2.do",
+	 			url:"cafe/checkid2.do",
 	 			method:"get",
 	 			data:{"inputId2":inputId2},
 	 			success:function(data){
@@ -350,7 +351,7 @@
 			
 			//ajax 를 이용해서 서버에 전송하고 사용가능 여부 응답받기
 			$.ajax({
-				url:"send.do",
+				url:"cafe/send.do",
 				method:"post",
 				data:{"senderName":senderName,"senderMail":senderMail,
 					"receiveMail":receiveMail,"subject":subject,"message":message},

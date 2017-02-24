@@ -107,7 +107,7 @@
 			<input type="hidden" name="ref_group" value="${dto.num }" />
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${dto.writer }" />
-			<textarea rows="5" disabled name="content"></textarea>
+			<textarea rows="5" name="content"></textarea>
 			<button  id="btn1" type="submit">등록</button>
 		</form>
 	</div>
