@@ -84,6 +84,11 @@
        padding: 4px;
        background-color: #fff; 
     }  
+    #M_img2{
+       width: 40px;
+       height: 34px;
+       border-radius: 50%;
+    }
     
     
    
@@ -92,7 +97,7 @@
 <body >      
 <hr />
 <!-- 검색어 관련 form -->
- <div class="container" style="width: 27%;">
+ <div class="container" style="width: 30%;">
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	<div class="input-group-btn">
 	<select name="condition" id="condition" class="btn btn-default" style="
@@ -122,27 +127,42 @@
      
      
 	 <c:choose>
-	              <c:when test="${not empty id }">
-	                   <div style="color:#ffffff;">  
-	                     <strong style=color:#ffffff><a href="" data-toggle="modal" data-target="#myModal2">${id }</a>
+	              <c:when test="${not empty dto.saveFileName }">
+	                   <div style="color:#ffffff; position: relative; left: 400px; top: -25px;">    
+	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 	                     </strong> 님 로그인중... 
 		                 <a href="cafe/private/insertimg.do"></a>
-		                 <a href="signout.do">로그아웃</a>
-		                 
-		               </div> 
+		                 <a href="signout.do">SignOut</a>
+		                </div> 
 	                  
 	              </c:when>
-	              </c:choose>
+	             
+	              <c:when test="${not empty id }">
+	                   <c:if test="${empty dto.saveFileName}">
+	                   <div style="color:#ffffff; position: relative; left: 400px; top: -25px;">    
+	                     <strong style=color:#ffffff><img data-toggle=
+	                     "modal" data-target="#myModal2" id="M_img2" src=
+	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
+	                     </strong> 님 로그인중... 
+		                 <a href="cafe/private/insertimg.do"></a>
+		                 <a href="signout.do">SignOut</a>
+		                </div>    
+	                     </c:if>
+	              </c:when>
+	               </c:choose>
                  
                   <c:choose>
 	              <c:when test="${ empty id }">
-			           <a href="" data-toggle="modal" data-target="#myModal"> 로그인</a>
-			           <a href="" data-toggle="modal" data-target="#myModal3"> 회원가입</a>
-			            </c:when>
-	              </c:choose>    
+	              <div style=" position: relative; left: 400px; top: -25px;">
+			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
+                       color: #ffffff;"> or </strong>
+			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
+			      </div>      
+			      </c:when>
+	              </c:choose>       
 			           <c:choose>
 	              <c:when test="${not empty id }">
-                    <a href="private/insertform.do">새글쓰기</a>
+                    <a class="glyphicon glyphicon-pencil" href="private/insertform.do">새글쓰기</a>
                          </c:when>
 	              </c:choose>    
   </div> 
@@ -282,8 +302,8 @@
 				<form action="insert2.do" method="post" enctype="multipart/form-data">
 	            <input type="hidden" name="writer" value="${id }"/>
 	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
-				<input type="file" name="file" id="file" /><br/>
-				<button type="submit">업로드</button>
+				<input type="file" name="file" id="file" />
+				<button style="width: 100%;" type="submit">업로드</button>
                 </form>
 			  
 			</div>
