@@ -72,9 +72,7 @@
     background-image: url(../resources/images/bg3.jpg);
     }
     
-    #condition{
-          display: none;
-    }
+    
    
 </style>
 </head>
