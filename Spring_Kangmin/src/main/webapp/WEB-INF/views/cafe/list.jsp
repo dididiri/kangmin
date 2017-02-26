@@ -11,10 +11,16 @@
     #dovBox{
          background: initial;
              width: 300px;
+         color: #ffffff;
      }
      #dovBox2{
           background: initial;
              width: 400px;  
+     }
+     #upbox{
+             background-color: initial;
+             color: #ffffff;
+             width: 400px;
      }
      
      
@@ -97,7 +103,7 @@
 <body >      
 <hr />
 <!-- 검색어 관련 form -->
- <div class="container" style="width: 30%;">
+ <div class="container" style="width: 29%;">
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	<div class="input-group-btn">
 	<select name="condition" id="condition" class="btn btn-default" style="
@@ -208,24 +214,24 @@
 		  
 		   <div class="">
 			   	 <button class="close" data-dismiss="modal">&times;</button>
-				<div class="login-box well" id="dovBox" style="color:#ffffff;">
+				<div  class="login-box well" id="dovBox"  style="background: initial;">
 			
                     
 					<form action="signin.do?uri=${param.uri }" method="post"
 						name="sForm" novalidate id="myform">
 						<div class="form-group has-feedback">
-							<label class="control-label" for="id">아이디</label> 
+							<label class="control-label" for="id">ID</label> 
 							<input class="form-control" type="text" name="id" id="id" >
 							<p  id="block0" class="help-block">아이디 또는 비밀번호를 다시 확인하세요.</p>
 			                <span class="glyphicon form-control-feedback"></span>
                         </div>
 						<div class="form-group">
-							<label for="pwd">비밀번호</label> <input class="form-control"
+							<label for="pwd">password</label> <input class="form-control"
 							type="password" name="pwd" id="pwd" />
 						</div>
 						<div class="form-group">
 						
-							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">로그인</button>
+							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">SingIn</button>
 						
 						</div>
 					</form>
@@ -241,27 +247,24 @@
 <div id="myModal3" class="modal">
 
 	<div class="modal-dialog">
-
-		<div class="modal-content" id="dovBox2">
-		<button class="close" data-dismiss="modal">&times;</button>
-		<h3>회원가입 폼 입니다.</h3>
-        <hr />
-
-<div class="login-box well">
-
 		
+		
+
+<div class="login-box well" id="upbox">
+
+		          
 		   
 					<form action="signup.do?uri=${param.uri }" method="post"
 						name="sForm" novalidate id="myform">
 						<div class="form-group has-feedback">
-							<label class="control-label" for="id3">아이디</label> 
+							<label class="control-label" for="id3">ID</label> 
 							<input class="form-control" type="text" name="id" id="id3" >
 							<p id="block" class="help-block">이미 사용중인 아이디 입니다.</p>
 							<p id="block2" class="help-block">사용가능한 아이디 입니다.</p>
 			                <span class="glyphicon form-control-feedback"></span>
                         </div>
 						<div class="form-group">
-							<label for="pwd">비밀번호</label> <input class="form-control"
+							<label for="pwd">password</label> <input class="form-control"
 							type="password" name="pwd" id="pwd" />
 						</div>
 						
@@ -269,7 +272,7 @@
 						    <label class="control-label" for="id4"></label> 
 							<input type="hidden" id="senderName" name="senderName" value="김강민회사">
 							<input type="hidden" id="senderMail" name="senderMail" value="fjqngodys2@gmail.com"/>
-							<label for="email">이메일</label>
+							<label for="email">email</label>
 							<input name="email" id="email" class="form-control"/>
 							<input type="hidden" id="subject" name="subject" value="인증번호 입니다."/>
 							<input  type="hidden" id="message" name="message"  />
@@ -277,12 +280,12 @@
 							 <span class="glyphicon form-control-feedback"></span>
 							
 							
-							<button id="checkBtn10">인증전송</button><br />
+							<button style="color: #000000;" id="checkBtn10">인증전송</button><br />
 					        <span style="color:red;">${message }</span>  
 							<label for="">인증</label> <input class="form-control"
 							type="text" id="message2" name="message2" />
-							<button id="checkBtn12"  type="submit" >인증확인</button>
-							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">로그인</button>
+							<button style="color: #000000;" id="checkBtn12"  type="submit" >인증확인</button>
+							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">SingUp</button>
 						
 						
 						
@@ -291,7 +294,7 @@
      </div> 
    </div> 
 </div> 
-</div> 
+
 
 
 <!-- 동적으로 띄울 Modal 준비 -->
