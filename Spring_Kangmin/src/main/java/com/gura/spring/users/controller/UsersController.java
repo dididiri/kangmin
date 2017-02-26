@@ -118,7 +118,7 @@ public class UsersController {
 		
 		mView=usersService.getData(id);
 		//알림 페이지로 forward 이동 시킨다. 
-		mView.setViewName("redirect:/cafe/list.do");
+		mView.setViewName("redirect:/cafe/list.do?writer="+dto.getId());
 		return mView;
 	}
 	

@@ -39,8 +39,12 @@ public class CafeController {
 
 		ModelAndView mView=cafeService.getList(request, pageNum);
 		String writer= request.getParameter("writer");
+		
 		if(writer !=null){
+			
+			
 		mView.addObject("dto", fileService.getData(writer));
+		  
 		}
 		mView.setViewName("cafe/list");
 		//리턴해준다.
