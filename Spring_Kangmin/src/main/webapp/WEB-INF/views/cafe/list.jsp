@@ -53,8 +53,11 @@
 	}
 	a img{
 	  max-width: 100%;
-	      width: 350px;  
-	      height: 370px;  
+	      width: 280px;  
+	      
+	      height: 360px !important;  
+	      
+	      
 	  
 	}
 	#com1{
@@ -77,7 +80,9 @@
        width: 200px;
        height: 200px;
        position: relative;
-       left: 32%;
+       left: 41%;  
+       padding: 4px;
+       background-color: #fff; 
     }  
     
     
@@ -88,7 +93,7 @@
 <hr />
 <!-- 검색어 관련 form -->
  <div class="container" style="width: 27%;">
-<form action="list.do" method="post" id="keywordForm" class="input-group">
+<form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	<div class="input-group-btn">
 	<select name="condition" id="condition" class="btn btn-default" style="
     height: 34px;">
@@ -123,8 +128,9 @@
 	                     </strong> 님 로그인중... 
 		                 <a href="cafe/private/insertimg.do"></a>
 		                 <a href="signout.do">로그아웃</a>
+		                 
 		               </div> 
-	           
+	                  
 	              </c:when>
 	              </c:choose>
                  
@@ -134,23 +140,31 @@
 			           <a href="" data-toggle="modal" data-target="#myModal3"> 회원가입</a>
 			            </c:when>
 	              </c:choose>    
-			         
-  
-  
+			           <c:choose>
+	              <c:when test="${not empty id }">
+                    <a href="private/insertform.do">새글쓰기</a>
+                         </c:when>
+	              </c:choose>    
   </div> 
 
      
 <hr />  
 <div class="container">
 
-<a data-toggle="modal" data-target="#myModal2">프로필</a>
-<a href="private/insertform.do">새글쓰기</a>
+
+
 <c:choose>
+	
 	<c:when test="${not empty dto.saveFileName}">  
 	  
-	     <img id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
        
     </c:when>
+    <c:when test="${not empty id }">
+      <c:if test="${empty dto.saveFileName}">
+         <img data-toggle="modal" data-target="#myModal2" id="M_img" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
+    </c:if>
+     </c:when>
 </c:choose>
 
 <hr />
@@ -281,7 +295,9 @@
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 
 <script>
-	
+	$("p").find('img').addClass("img-thumbnail").removeAttr('height:auto');
+	    
+
 	
 	document.getElementById("message").value=Math.floor(Math.random()*800+1111);
 
