@@ -133,10 +133,11 @@
      
 <hr />  
 <div class="container">
-
+<a data-toggle="modal" data-target="#myModal2">프로필</a>
 <a href="private/insertform.do">새글쓰기</a>
+<img style="width: 100px;" src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 <hr />
-<div class="row">
+<div class="row">  
     <c:forEach var="tmp" items="${list }"> 
     <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
 			<a id="a1" href="detail.do?num=${tmp.num }">${tmp.content}</a>
@@ -243,46 +244,20 @@
 
 
 <!-- 동적으로 띄울 Modal 준비 -->
-<div id="myModal2" class="modal">
-
+<div id="myModal2" class="modal fade">
 	<div class="modal-dialog">
-
 		<div class="modal-content">
-		<button class="close" data-dismiss="modal">&times;</button>
-			<h3>  ${id }님에 회원 정보 </h3>
-
-<form action="">
-
-<div class="login-box well">
-
-<table class="table table-striped table-bordered table-hover">
-	<thead>
-		<tr class="">  
-			<th>항목</th>
-			<th>정보</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr class="">
-			<th>아이디</th>
-			<td>${dto.id }</td>
-		</tr>
-		<tr class="">
-			<th>이메일</th>
-			<td>${dto.email }</td>
-		</tr>
-		<tr class="">
-		    <th>가입일</th>
-		    <td>${dto.regdate }</td>
-		</tr>
-	</tbody>
-</table>
-<a href="users/private/updateform.do">가입정보 수정폼</a>
-<a href="javascript:userConfirm()">회원 탈퇴</a>
-</div>
-</form>
+			<div class="modal-header">
+				<form action="insert2.do" method="post" enctype="multipart/form-data">
+	            <input type="text" name="writer" value="${id }"/><br/>
+	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
+				<input type="file" name="file" id="file" /><br/>
+				<button type="submit">업로드</button>
+                </form>
+			
+			</div>
 		</div>
-	</div>  
+	</div>
 </div>
 <!-- 검색어 관련 form -->
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
