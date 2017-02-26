@@ -72,6 +72,14 @@
     background-image: url(../resources/images/bg3.jpg);
     }
     
+    #M_img{
+       border-radius:50%;
+       width: 200px;
+       height: 200px;
+       position: relative;
+       left: 32%;
+    }  
+    
     
    
 </style>
@@ -116,6 +124,7 @@
 		                 <a href="cafe/private/insertimg.do"></a>
 		                 <a href="signout.do">로그아웃</a>
 		               </div> 
+	           
 	              </c:when>
 	              </c:choose>
                  
@@ -133,9 +142,17 @@
      
 <hr />  
 <div class="container">
+
 <a data-toggle="modal" data-target="#myModal2">프로필</a>
 <a href="private/insertform.do">새글쓰기</a>
-<img style="width: 100px;" src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+<c:choose>
+	<c:when test="${not empty dto.saveFileName}">  
+	  
+	     <img id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+       
+    </c:when>
+</c:choose>
+
 <hr />
 <div class="row">  
     <c:forEach var="tmp" items="${list }"> 
@@ -249,12 +266,12 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<form action="insert2.do" method="post" enctype="multipart/form-data">
-	            <input type="text" name="writer" value="${id }"/><br/>
+	            <input type="hidden" name="writer" value="${id }"/>
 	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
 				<input type="file" name="file" id="file" /><br/>
 				<button type="submit">업로드</button>
                 </form>
-			
+			  
 			</div>
 		</div>
 	</div>

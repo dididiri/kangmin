@@ -1,6 +1,7 @@
 package com.gura.spring.cafe.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.aspectj.asm.IElementHandleProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,7 +62,8 @@ public class CafeController {
 	@RequestMapping("/cafe/private/insert")
 	public ModelAndView authInsert(@ModelAttribute CafeDto dto){
 		cafeService.insert(dto);
-		return new ModelAndView("redirect:/cafe/list.do");
+		dto.getWriter();
+		return new ModelAndView("redirect:/cafe/list.do?writer="+dto.getWriter());
 	}
 	
 	
@@ -74,10 +76,10 @@ public class CafeController {
 	
 	@RequestMapping("/cafe/detail")
 	public ModelAndView detail( 
-			@RequestParam int num){
+			@RequestParam int num,HttpSession session){
 		
 		ModelAndView mView=cafeService.getData(num);
-	    
+		
 		mView.addObject("commentList", commentService.getList(num));
 		
 		
