@@ -78,34 +78,26 @@
 </head>
 <body >      
 <hr />
-<div class="com1" id="com1">
-    
-    <!-- <img id="imgi1" src="../resources/images/12345.png" alt="" /> -->
-    <div>
-     <form action="list.do" method="post" id="keywordForm">
-	 <div class="input-group-btn" style="
-    left: 67px;">
-	<select name="condition" id="condition" class="btn btn-default">
-		
+<!-- 검색어 관련 form -->
+ <div class="container" style="width: 27%;">
+<form action="list.do" method="post" id="keywordForm" class="input-group">
+	<div class="input-group-btn">
+	<select name="condition" id="condition" class="btn btn-default" style="
+    height: 34px;">
+		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
+		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
-	</select>
-	<div class="input-group">
-        
-          <input type="text" class="form-control" value="${keyword }" placeholder="검색어">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="submit">
-              <span class="sr-only">검색</span>
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>
-        
-     </div>
-     </div>
-     </form>
-     </div>
-     
-     
-     
+	</select>  
+	<input class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
+		value="${keyword }"/>
+	
+	<button type="submit" class="btn btn-default">
+	    <span class="sr-only">검색</span>
+        <span class="glyphicon glyphicon-search"></span>
+	</button>
+	</div>  
+</form>
+
      
      
      
@@ -136,8 +128,8 @@
 			         
   
   
-  
- </div>
+  </div> 
+
      
 <hr />  
 <div class="container">
