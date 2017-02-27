@@ -9,33 +9,39 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
     #dovBox{
-         background: initial;
-             width: 300px;
-         color: #ffffff;
-     }
-     #dovBox2{
-          background: initial;
-             width: 400px;  
-     }
-     #upbox{
-             background-color: initial;
-             color: #ffffff;
-             width: 400px;
-     }
+        background-image: url(../resources/images/bg3.jpg);
+        width: 300px;
+        color: #ffffff;
+        position: relative;
+	    left: 123px;
+	    bottom: -127px;
+    }
+    #dovBox2{
+        background-image: url(../resources/images/bg3.jpg);
+        width: 400px;  
+    }
+    #upbox{
+        background-image: url(../resources/images/bg3.jpg);
+        color: #ffffff;
+        width: 400px;
+        position: relative;
+	    left: 86px;
+	    bottom: -127px;
+    }
      
      
-     #block0{  
+    #block0{  
         display: none;
-     }
-     #block{
+    }
+    #block{
 		display: none;
-	 }
-	  #block2{
+	}
+	#block2{
 		display: none;
-	 }
-	  #block4{
+	}
+    #block4{
 		display: none;
-	 }
+	}
 
 	.page_display a{
 		text-decoration: none;
@@ -51,34 +57,29 @@
 		color: #cecece;
 	}
 	#imgi1{
-	   
-	   float: left;
-	   width: 150px;
-       height: 70px;
-       margin-top: -27px;
+	 	float: left;
+	    width: 150px;
+        height: 70px;
+        margin-top: -27px;
 	}
 	a img{
-	  max-width: 100%;
-	      width: 280px;  
-	      
-	      height: 360px !important;  
-	      
-	      
-	  
+	    max-width: 100%;
+	    width: 280px;  
+	    height: 360px !important;  
 	}
 	#com1{
-	  position: relative;
-      left: 38%;
-      padding: 15px;
+	    position: relative;
+	    left: 38%;
+	    padding: 15px;
 	}
 	#col1{
-	padding-right: 5px;
-    padding-left: 5px;
-    margin-bottom: -20px;
+		padding-right: 5px;
+	    padding-left: 5px;
+	   	margin-bottom: -20px;
     }
     
     body{  
-    background-image: url(../resources/images/bg3.jpg);
+    	background-image: url(../resources/images/bg3.jpg);
     }
     
     #M_img{
@@ -91,10 +92,56 @@
        background-color: #fff; 
     }  
     #M_img2{
-       width: 40px;
-       height: 34px;
+       width: 37px;
+       height: 35px;
        border-radius: 50%;
     }
+    
+
+	.filebox label { 
+		display: inline-block; 
+		padding: .5em .75em; 
+		font-size: inherit; 
+		line-height: normal; 
+		vertical-align: middle; 
+		background-color: #fdfdfd; 
+		cursor: pointer; 
+		border: 1px solid #ebebeb; 
+		border-bottom-color: #e2e2e2; 
+		border-radius: .25em; 
+		width: 100%;
+		text-align: center;
+		font-size: 15pt;
+        font-weight: bold;
+       
+		
+     }             
+     .filebox{
+        position: relative;
+	    bottom: 20px;
+	    height: 70px;
+     } 
+	.filebox input[type="file"] { 
+		 position: absolute; 
+		 width: 1px; 
+		 height: 1px; 
+		 padding: 0; 
+		 margin: -1px; 
+		 overflow: hidden; 
+		 clip:rect(0,0,0,0); 
+		 border: 0; 
+		 
+    }
+
+    #fileBtn{
+         width: 100%;
+	     background-color: #fdfdfd;
+	     padding: .5em .75em;
+	     border: 1px solid #ebebeb;  
+	     font-size: 15pt;
+         font-weight: bold;
+         border-radius: 4px;
+    }     
     
     
    
@@ -103,7 +150,7 @@
 <body >      
 <hr />
 <!-- 검색어 관련 form -->
- <div class="container" style="width: 29%;">
+ <div class="container" style="width: 23%;">   
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	<div class="input-group-btn">
 	<select name="condition" id="condition" class="btn btn-default" style="
@@ -214,7 +261,7 @@
 		  
 		   <div class="">
 			   	 <button class="close" data-dismiss="modal">&times;</button>
-				<div  class="login-box well" id="dovBox"  style="background: initial;">
+				<div  class="login-box well" id="dovBox">
 			
                     
 					<form action="signin.do?uri=${param.uri }" method="post"
@@ -298,15 +345,16 @@
 
 
 <!-- 동적으로 띄울 Modal 준비 -->
-<div id="myModal2" class="modal fade">
+<div id="myModal2" class="modal fade" style="top: 350px;">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="filebox">
 				<form action="insert2.do" method="post" enctype="multipart/form-data">
 	            <input type="hidden" name="writer" value="${id }"/>
 	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
-				<input type="file" name="file" id="file" />
-				<button style="width: 100%;" type="submit">업로드</button>
+				<label for="ex_file">사진 업로드</label>
+				<input type="file" name="file" id="ex_file" />
+				<button id="fileBtn" style="width: 100%;" type="submit">업로드</button>
                 </form>
 			  
 			</div>
@@ -319,9 +367,6 @@
 
 <script>
 	$("p").find('img').addClass("img-thumbnail").removeAttr('height:auto');
-	    
-
-	
 	document.getElementById("message").value=Math.floor(Math.random()*800+1111);
 
 
@@ -339,6 +384,7 @@
 			$("#myModal3").modal("show");
 		});
 		
+	
 		
 	 	 $("#myform").submit(function(){
 			//입력한 아이디 읽어오기

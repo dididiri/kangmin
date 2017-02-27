@@ -10,9 +10,10 @@
 <style>
 	.content{ 
 		border: 0.5px solid #cecece;
+		height: 602px;
 	}
 	textarea{
-		width:50%;
+		    width: 100%;
 		
 	}     
 	.comment form{
@@ -31,8 +32,8 @@
 		border-bottom: 2px solid green;
 	}
 	 img{
-	  width: 320px;
-      height: 430px;  
+	   width: 100%;
+       height: 600px; 
 	  
 	}
 	 body{  
@@ -46,9 +47,23 @@
     #btn1{
      color: #000000;
     }
+    
+    @media (min-width: 620px){
+
+    .container{
+      width: 620px;
+     
+    }
+     
+    @media (min-width: 992px ){
+        .container{
+                width: 620px;        
+        }
+    }
 </style>
 </head>
 <body>
+<div class="container">
 <h1>상세글 내용 페이지</h1>
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
 <c:if test="${id eq dto.writer }">
@@ -69,6 +84,7 @@
 		<td>${dto.title }</td>
 	</tr>
 </table>
+
 <div class="content">${dto.content }</div>
 
 <div class="comments">
@@ -83,7 +99,7 @@
 				<strong>to ${tmp.target_id }</strong>
 				<a href="javascript:">답글</a>
 			</div>
-			<textarea rows="5" disabled>${tmp.content }</textarea><br/>
+			<textarea rows="3" disabled>${tmp.content }</textarea><br/>
 			<form action="comment_insert.do" method="post">
 				<!-- 덧글 작성자 -->
 				<input type="hidden" name="writer" value="${id }"/>
@@ -107,10 +123,11 @@
 			<input type="hidden" name="ref_group" value="${dto.num }" />
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${dto.writer }" />
-			<textarea rows="5" name="content"></textarea>
+			<textarea rows="2" name="content"></textarea>
 			<button  id="btn1" type="submit">등록</button>
 		</form>
 	</div>
+</div>
 </div>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
