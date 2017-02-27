@@ -64,6 +64,19 @@
        width: 37px;
        height: 35px;
        border-radius: 50%;
+       
+    }
+    .titlebox{
+    width: 100%;
+   
+    border: 1px solid #cecece;
+    color: #000000;
+   
+    background-color: #ffffff;
+    }
+    .imgbox{
+          width: 100%;
+    border: 1px solid #cecece;
     }
 </style>
 </head>
@@ -75,23 +88,14 @@
 	<a href="private/updateform.do?num=${dto.num }">수정</a>
 	<a href="javascript:deleteCheck()">삭제</a>
 </c:if>
-<table>
-	<tr>
-		<th>글번호</th>
-		<td>${dto.num }</td>
-	</tr>
-	<tr>
+
 		
-		<td><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }</td>
-	</tr>
-	<tr>
-		<th>제목</th>
-		<td>${dto.title }</td>
-	</tr>
-</table>
+	<div class="imgbox"><img data-toggle="modal" data-target="#myModal2" 
+	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }</td>
+    </div>
   
 <div class="content">${dto.content }</div>
-
+<div class="titlebox">${dto.title }</div>
 <div class="comments">
 	<c:forEach var="tmp" items="${commentList }">
 		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:100px"</c:if> >	

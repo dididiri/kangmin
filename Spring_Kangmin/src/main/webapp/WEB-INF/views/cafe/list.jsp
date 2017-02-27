@@ -89,11 +89,23 @@
        max-width: 100%;
        padding: 4px;
        background-color: #fff; 
+       width: 181px;
+	   height: 186px;
     }  
     #M_img2{
        width: 37px;
        height: 35px;
        border-radius: 50%;
+       
+    }
+    #M_img3{
+        border-radius: 50%;
+	    position: relative;
+	    max-width: 100%;
+	    padding: 4px;
+	    background-color: #fff;
+	    width: 181px;
+	    height: 186px;
     }
     
 
@@ -237,7 +249,7 @@
     </c:when>
     <c:when test="${not empty id }">
       <c:if test="${empty dto.saveFileName}">
-         <img data-toggle="modal" data-target="#myModal2" id="M_img" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
+         <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
     </c:if>
      </c:when>
 </c:choose>
