@@ -60,6 +60,11 @@
                 width: 620px;        
         }
     }
+    #M_img2{
+       width: 37px;
+       height: 35px;
+       border-radius: 50%;
+    }
 </style>
 </head>
 <body>
@@ -76,15 +81,15 @@
 		<td>${dto.num }</td>
 	</tr>
 	<tr>
-		<th>작성자</th>
-		<td>${dto.writer }</td>
+		
+		<td><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }</td>
 	</tr>
 	<tr>
 		<th>제목</th>
 		<td>${dto.title }</td>
 	</tr>
 </table>
-
+  
 <div class="content">${dto.content }</div>
 
 <div class="comments">

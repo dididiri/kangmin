@@ -75,13 +75,19 @@ public class CafeController {
 	}
 	
 	@RequestMapping("/cafe/detail")
-	public ModelAndView detail( 
+	public ModelAndView detail(@RequestParam String writer, 
 			@RequestParam int num,HttpSession session){
 		
 		ModelAndView mView=cafeService.getData(num);
 		
 		mView.addObject("commentList", commentService.getList(num));
+	    
 		
+		
+			
+			
+		mView.addObject("dto1", fileService.getData(writer));
+		  
 		
 		mView.setViewName("cafe/detail");
 		return mView;
@@ -117,7 +123,8 @@ public class CafeController {
 		
 		commentService.insert(dto);
 		
-		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getRef_group());
+		return new ModelAndView("redirect:/cafe/detail."
+				+ "do?num="+dto.getRef_group()+"&writer="+dto.getWriter());
 	}
 	
 	
