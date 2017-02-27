@@ -84,10 +84,9 @@
     
     #M_img{
        border-radius:50%;
-       width: 200px;
-       height: 200px;
+       
        position: relative;
-       left: 41%;  
+       max-width: 100%;
        padding: 4px;
        background-color: #fff; 
     }  
@@ -150,8 +149,9 @@
 <body >      
 <hr />
 <!-- 검색어 관련 form -->
- <div class="container" style="width: 23%;">   
+ <div class="container" style=" text-align: center;">   
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
+	
 	<div class="input-group-btn">
 	<select name="condition" id="condition" class="btn btn-default" style="
     height: 34px;">
@@ -166,6 +166,7 @@
 	    <span class="sr-only">검색</span>
         <span class="glyphicon glyphicon-search"></span>
 	</button>
+	  
 	</div>  
 </form>
 
@@ -173,7 +174,8 @@
      
      
      
-     
+
+       
      
     
      
@@ -181,7 +183,7 @@
      
 	 <c:choose>
 	              <c:when test="${not empty dto.saveFileName }">
-	                   <div style="color:#ffffff; position: relative; left: 400px; top: -25px;">    
+	                   <div style="color:#ffffff; position: relative; left: 340px; top: -34px;">    
 	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 	                     </strong> 님 로그인중... 
 		                 <a href="cafe/private/insertimg.do"></a>
@@ -192,7 +194,7 @@
 	             
 	              <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
-	                   <div style="color:#ffffff; position: relative; left: 400px; top: -25px;">    
+	                   <div style="color:#ffffff; position: relative; left: 340px; top: -34px;">    
 	                     <strong style=color:#ffffff><img data-toggle=
 	                     "modal" data-target="#myModal2" id="M_img2" src=
 	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
@@ -206,7 +208,7 @@
                  
                   <c:choose>
 	              <c:when test="${ empty id }">
-	              <div style=" position: relative; left: 400px; top: -25px;">
+	              <div style=" position: relative; left: 340px; top: -25px;">
 			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
                        color: #ffffff;"> or </strong>
 			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
@@ -222,7 +224,7 @@
 
      
 <hr />  
-<div class="container">
+<div class="container" style="text-align: center;">    
 
 
 
