@@ -52,6 +52,13 @@
 
     .container{
       width: 620px;
+      }
+      #M_img2{
+       width: 37px;
+       height: 35px;
+       border-radius: 50%;
+       
+       }
      
     }
      
@@ -59,6 +66,12 @@
         .container{
                 width: 620px;        
         }
+       #M_img2{
+       width: 37px;
+       height: 35px;
+       border-radius: 50%;
+       
+       }
     }
     #M_img2{
        width: 37px;

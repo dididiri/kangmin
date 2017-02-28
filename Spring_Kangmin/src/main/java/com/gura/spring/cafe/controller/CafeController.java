@@ -124,7 +124,7 @@ public class CafeController {
 		commentService.insert(dto);
 		
 		return new ModelAndView("redirect:/cafe/detail."
-				+ "do?num="+dto.getRef_group()+"&writer="+dto.getWriter());
+				+ "do?num="+dto.getRef_group()+"&writer="+dto.getTarget_id());
 	}
 	
 	

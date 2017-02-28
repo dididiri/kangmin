@@ -152,7 +152,26 @@
 	     font-size: 15pt;
          font-weight: bold;
          border-radius: 4px;
-    }     
+    }
+    @media (max-width: 768px){
+
+	     a img{
+	        height: 240px !important; 
+	     }
+	}          
+    
+    @media (max-width: 992px){
+
+	     .container {
+	        width: 100%;
+         }
+         a img{
+		    
+		    width: 180%;
+		    
+		   
+	     }
+    }        
     
     
    
@@ -195,7 +214,7 @@
      
 	 <c:choose>
 	              <c:when test="${not empty dto.saveFileName }">
-	                   <div style="color:#ffffff; position: relative; left: 340px; top: -34px;">    
+	                   <div style="color:#ffffff;">    
 	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 	                     </strong> 님 로그인중... 
 		                 <a href="cafe/private/insertimg.do"></a>
@@ -206,7 +225,7 @@
 	             
 	              <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
-	                   <div style="color:#ffffff; position: relative; left: 340px; top: -34px;">    
+	                   <div style="color:#ffffff; ">    
 	                     <strong style=color:#ffffff><img data-toggle=
 	                     "modal" data-target="#myModal2" id="M_img2" src=
 	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
@@ -220,7 +239,7 @@
                  
                   <c:choose>
 	              <c:when test="${ empty id }">
-	              <div style=" position: relative; left: 340px; top: -25px;">
+	              <div >
 			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
                        color: #ffffff;"> or </strong>
 			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
