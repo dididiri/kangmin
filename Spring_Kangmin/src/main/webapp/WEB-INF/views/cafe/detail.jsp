@@ -58,20 +58,13 @@
        height: 35px;
        border-radius: 50%;
        
-       }
-     
-    }
+      }         
+    }                     
      
     @media (min-width: 992px ){
         .container{
                 width: 620px;        
         }
-       #M_img2{
-       width: 37px;
-       height: 35px;
-       border-radius: 50%;
-       
-       }
     }
     #M_img2{
        width: 37px;
@@ -104,7 +97,7 @@
 
 		
 	<div class="imgbox"><img data-toggle="modal" data-target="#myModal2" 
-	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }</td>
+	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }
     </div>
   
 <div class="content">${dto.content }</div>
