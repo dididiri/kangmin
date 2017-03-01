@@ -217,21 +217,24 @@
 	                   <div style="color:#ffffff;">    
 	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
 	                     </strong> 님 로그인중... 
-		                 <a href="cafe/private/insertimg.do"></a>
-		                 <a href="signout.do">SignOut</a>
+		                 <a href="list2.do?writer=${dto.writer }">YourPorofile</a>
+		                 <strong style=color:#ffffff> ro</strong>
+		               	 <a href="signout.do">SignOut</a>
 		                </div> 
 	                  
 	              </c:when>
 	             
 	              <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
-	                   <div style="color:#ffffff; ">    
+	                  <div style="color:#ffffff; ">    
 	                     <strong style=color:#ffffff><img data-toggle=
 	                     "modal" data-target="#myModal2" id="M_img2" src=
 	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
 	                     </strong> 님 로그인중... 
-		                 <a href="cafe/private/insertimg.do"></a>
-		                 <a href="signout.do">SignOut</a>
+		                 
+		                 <a href="list2.do?writer=${dto.writer }">YourPorofile</a>
+		                 <strong style=color:#ffffff> ro</strong>
+		               	 <a href="signout.do">SignOut</a>
 		                </div>    
 	                     </c:if>
 	              </c:when>
@@ -246,11 +249,7 @@
 			      </div>      
 			      </c:when>
 	              </c:choose>       
-			           <c:choose>
-	              <c:when test="${not empty id }">
-                    <a class="glyphicon glyphicon-pencil" href="private/insertform.do">새글쓰기</a>
-                         </c:when>
-	              </c:choose>    
+			   
   </div> 
 
      

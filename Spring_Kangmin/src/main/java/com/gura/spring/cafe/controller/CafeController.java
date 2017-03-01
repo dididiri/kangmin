@@ -84,7 +84,7 @@ public class CafeController {
 	public ModelAndView authInsert(@ModelAttribute CafeDto dto){
 		cafeService.insert(dto);
 		dto.getWriter();
-		return new ModelAndView("redirect:/cafe/list.do?writer="+dto.getWriter());
+		return new ModelAndView("redirect:/cafe/list2.do?writer="+dto.getWriter());
 	}
 	
 	

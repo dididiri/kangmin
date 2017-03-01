@@ -98,13 +98,17 @@
 	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
        
     </c:when>
-    <c:when test="${not empty id }">
-      <c:if test="${empty dto.saveFileName}">
+      <c:when test="${not empty id }">
+         <c:if test="${empty dto.saveFileName}">
          <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
     </c:if>
-     </c:when>
-</c:choose>
-
+       </c:when>
+    </c:choose>
+    <c:if test="${id eq dto.writer }">
+    <div>
+         <a class="glyphicon glyphicon-pencil" href="private/insertform.do">새글쓰기</a>
+         </div>
+     </c:if> 
 <hr />
 
 <div class="row">  
@@ -118,7 +122,7 @@
 
 
 <!-- 프로필  Modal 준비 -->
-<div id="myModal2" class="modal fade" style="top: 350px;">
+<div id="myModal2" class="modal fade" style="top: 238px;">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="filebox">
