@@ -93,8 +93,8 @@
 	   height: 186px;
     }  
     #M_img2{
-       width: 37px;
-       height: 35px;
+       width: 40px;
+       height: 40px;
        border-radius: 50%;
        
     }
@@ -171,29 +171,45 @@
 		    
 		   
 	     }
-    }        
+    }     
+    .dropdown-menu{
+        position: absolute;
+       left: 16px;
+        top: 40px;
     
-    
+    }
+    #meunA{
+      color: #ffffff;
+      font-size: 18px;
+    position: relative;
+    top: 7px;
+    }
+    #meunDiv{
+        
+   position: absolute;
+    right: 150px;
+    top: 55px;
+    }             
    
 </style>
 </head>
 <body >      
-<hr />
+
 <!-- 검색어 관련 form -->
- <div class="container" style=" text-align: center;">   
+ <div class="container" style="margin-bottom: 55px;text-align: center;margin-top: 55px;">   
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	
 	<div class="input-group-btn">
-	<select name="condition" id="condition" class="btn btn-default" style="
-    height: 34px;">
+	<select style="height: 40px;" name="condition" id="condition" class="btn btn-default" style="
+    height: 40px;">
 		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
 		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
 	</select>  
-	<input class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
+	<input style="height: 40px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
 		value="${keyword }"/>
 	
-	<button type="submit" class="btn btn-default">
+	<button style=" height: 40px;" type="submit" class="btn btn-default">
 	    <span class="sr-only">검색</span>
         <span class="glyphicon glyphicon-search"></span>
 	</button>
@@ -214,19 +230,24 @@
      
 	 <c:choose>
 	              <c:when test="${not empty dto.saveFileName }">
-	                   <div style="color:#ffffff;">    
+	                   <div id="meunDiv" style="color:#ffffff;">    
 	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-	                     </strong> 님 로그인중... 
-		                 <a href="list2.do?writer=${dto.writer }">YourPorofile</a>
-		                 <strong style=color:#ffffff> ro</strong>
-		               	 <a href="signout.do">SignOut</a>
+	                     </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
+		                 <ul class="dropdown-menu">
+							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
+							<li><a href="signout.do">SignOut</a></li>
+		                </ul>
+		                 
+		                 
+		                 
+		               	 
 		                </div> 
 	                  
 	              </c:when>
 	             
 	              <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
-	                  <div style="color:#ffffff; ">    
+	                  <div id="meunDiv" style="color:#ffffff; ">    
 	                     <strong style=color:#ffffff><img data-toggle=
 	                     "modal" data-target="#myModal2" id="M_img2" src=
 	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
@@ -242,7 +263,7 @@
                  
                   <c:choose>
 	              <c:when test="${ empty id }">
-	              <div >
+	              <div  style="position: relative; top: 32px; font-size: 17px;">
 			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
                        color: #ffffff;"> or </strong>
 			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
@@ -253,26 +274,31 @@
   </div> 
 
      
-<hr />  
+
 <div class="container" style="text-align: center;">    
 
 
 
-<%-- <c:choose>
+ <%-- <c:choose>
 	
-	<c:when test="${not empty dto.saveFileName}">  
+	<c:when test="${id != dto.writer }">  
 	  
-	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+	     <img  id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
        
+    </c:when>
+    <c:when test="${id eq dto.writer }">  
+	  <c:if test="${not empty id }">
+	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+     </c:if>
     </c:when>
     <c:when test="${not empty id }">
       <c:if test="${empty dto.saveFileName}">
          <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
     </c:if>
      </c:when>
-</c:choose>
-
-<hr /> --%>
+</c:choose> --%>
+  
+<hr /> 
 <div class="row">  
     <c:forEach var="tmp" items="${list }"> 
     <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
@@ -292,7 +318,7 @@
 		
 		  
 		   <div class="">
-			   	 <button class="close" data-dismiss="modal">&times;</button>
+			   	
 				<div  class="login-box well" id="dovBox">
 			
                     

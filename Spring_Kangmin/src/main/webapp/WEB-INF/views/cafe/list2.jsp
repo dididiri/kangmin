@@ -26,6 +26,7 @@
        background-color: #fff; 
        width: 181px;
 	   height: 186px;
+	   margin-top: 60px; 
     }  
     #M_img3{
         border-radius: 50%;
@@ -36,6 +37,7 @@
 	    width: 181px;
 	    height: 186px;
 	    text-align: center;
+	    margin-top: 60px; 
     }
     
 	.filebox label { 
@@ -82,11 +84,41 @@
          font-weight: bold;
          border-radius: 4px;
     }
+    h2{
+      color: rgba(255, 255, 255, 0.65);   
+      margin-bottom: 20px;
+      margin-top: 60px;  
+          font-size: x-large;
+    }
+    
+    #icon{
+       color: rgba(255, 255, 255, 0.65); 
+       font-size: 25px;
+       border: solid 1px rgba(255, 255, 255, 0.25);
+       background-color: rgba(255, 255, 255, 0.075);
+       border-radius: 50%;
+       padding: 0.5em;
+       margin-left: 15px;
+	   margin-right: 15px;
+	   margin-bottom: 15px;
+	   margin-top: 15px;
+    }
+    ul a{
+      color: #000000 !important;
+      font-size: -25px !important;
+    }
+    
+    .dropdown-menu{
+      position: absolute;
+    left: 688px;
+    top: 450px;
+    
+    }
    
 </style>
 </head>
 <body >      
-<hr />
+
 
 
 
@@ -110,10 +142,34 @@
     </c:if>
        </c:when>
     </c:choose>
+    <h2>This is Visualize, a responsive site template designed by TEMPLATED
+	and released for free under the Creative Commons License.</h2>
     <c:if test="${id eq dto.writer }">
-    <div>
-         <a class="glyphicon glyphicon-pencil" href="private/insertform.do">새글쓰기</a>
-         </div>
+    <div >
+     
+         <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
+        <a id="icon" class="glyphicon glyphicon-home" href="list.do?writer=${ id}"></a>
+       
+      <a id="icon" class="glyphicon glyphicon-user" data-toggle="dropdown" ></a>
+		
+		<ul class="dropdown-menu">
+			<li><a href="signout.do">SignOut</a></li>
+			
+		</ul>
+	
+        <a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
+       
+    </div>
+     </c:if> 
+     <c:if test="${id != dto.writer }">
+    <div >
+     
+         <a id="icon" class="glyphicon glyphicon-heart" href="list.do?writer=${ id}"></a>
+        <a id="icon" class="glyphicon glyphicon-home" href="list.do?writer=${ id}"></a>
+        <a id="icon" class="glyphicon glyphicon-user" href="list.do?writer=${ id}"></a>
+        <a id="icon" class="glyphicon glyphicon-envelope" href="list.do?writer=${ id}"></a>
+       
+    </div>
      </c:if> 
 <hr />
 
@@ -143,6 +199,8 @@
 		</div>
 	</div>
 </div>
+
+
 
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
