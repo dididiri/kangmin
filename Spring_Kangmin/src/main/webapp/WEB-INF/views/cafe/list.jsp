@@ -385,7 +385,7 @@
 				<form action="insert2.do" method="post" enctype="multipart/form-data">
 	            <input type="hidden" name="writer" value="${id }"/>
 	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
-				<label for="ex_file">사진 업로드</label>
+				<label for="ex_file">프로필 선택</label>
 				<input type="file" name="file" id="ex_file" />
 				<button id="fileBtn" style="width: 100%;" type="submit">업로드</button>
                 </form>
