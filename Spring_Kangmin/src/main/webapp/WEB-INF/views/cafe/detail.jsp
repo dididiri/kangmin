@@ -96,10 +96,10 @@
 </c:if>
 
 		
-	<div class="imgbox"><img data-toggle="modal" data-target="#myModal2" 
+	<div class="imgbox"><a href="list2.do?writer=${dto.writer }"><img data-toggle="modal" data-target="#myModal2" 
 	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${dto.writer }
-    </div>
-  
+    </a></div>
+
 <div class="content">${dto.content }</div>
 <div class="titlebox">${dto.title }</div>
 <div class="comments">

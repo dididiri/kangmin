@@ -22,6 +22,12 @@ public class CafeServiceImpl implements CafeService{
 	private CafeDao cafeDao;
 	
 	@Override
+	public List<CafeDto> getList2(String writer) {
+		List<CafeDto> list2=cafeDao.getList2(writer);
+		
+		return list2;
+	}
+	@Override
 	public ModelAndView getList(HttpServletRequest request,int pageNum) {
 		//검색과 관련된 파라미터를 읽어와 본다.
 		String keyword=request.getParameter("keyword");
@@ -119,6 +125,8 @@ public class CafeServiceImpl implements CafeService{
 		//리턴해준다. 
 		return mView;
 	}
+
+	
 
 }
 

@@ -6,6 +6,7 @@ import com.gura.spring.cafe.dto.CafeDto;
 
 public interface CafeDao {
 	public List<CafeDto> getList(CafeDto dto);
+	public List<CafeDto> getList2(String writer);
 	public void insert(CafeDto dto);
 	public CafeDto getData(int num);
 	public void increaseViewCount(int num);

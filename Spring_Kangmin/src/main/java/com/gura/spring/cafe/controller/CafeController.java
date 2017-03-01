@@ -1,5 +1,7 @@
 package com.gura.spring.cafe.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -48,6 +50,20 @@ public class CafeController {
 		  
 		}
 		mView.setViewName("cafe/list");
+		//리턴해준다.
+		return mView;
+	}
+	@RequestMapping("/cafe/list2")
+	public ModelAndView list(HttpServletRequest request){
+		
+		
+		String writer= request.getParameter("writer");
+		List<CafeDto> list2=cafeService.getList2(writer);
+		
+		ModelAndView mView=new ModelAndView();
+		
+		mView.addObject("list2", list2);
+		mView.setViewName("cafe/list2");
 		//리턴해준다.
 		return mView;
 	}

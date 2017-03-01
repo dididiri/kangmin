@@ -19,6 +19,11 @@ public class CafeDaoImpl implements CafeDao{
 		List<CafeDto> list=session.selectList("cafe.getList", dto);
 		return list;
 	}
+	@Override
+	public List<CafeDto> getList2(String writer) {
+		List<CafeDto> list2=session.selectList("cafe.getList2",writer);
+		return list2;
+	}
 
 	@Override
 	public void insert(CafeDto dto) {
@@ -51,6 +56,8 @@ public class CafeDaoImpl implements CafeDao{
 		int count=session.selectOne("cafe.getCount");
 		return count;
 	}
+
+	
 
 }
 

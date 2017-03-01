@@ -27,6 +27,11 @@
 		WHERE 
 		<![CDATA[ rnum >= #{startRowNum} AND rnum <= #{endRowNum} ]]>
 	</select>	
+	<select id="getList2" resultType="cafeDto" parameterType="string">
+		SELECT <include refid="cafeColumns"/> FROM board_cafe
+        WHERE writer=#{writer}
+		
+	</select>	
 	<insert id="insert" parameterType="cafeDto">
 		INSERT INTO board_cafe
 		(num, writer, title, content, viewCount, regdate)
