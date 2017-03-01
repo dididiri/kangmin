@@ -93,11 +93,17 @@
 <div class="container" style="text-align: center;">
 <c:choose>
 	
-	<c:when test="${not empty dto.saveFileName}">  
+	<c:when test="${id != dto.writer }">  
+	  
+	     <img  id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+       
+    </c:when>
+    <c:when test="${id eq dto.writer }">  
 	  
 	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
        
     </c:when>
+    
       <c:when test="${not empty id }">
          <c:if test="${empty dto.saveFileName}">
          <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
