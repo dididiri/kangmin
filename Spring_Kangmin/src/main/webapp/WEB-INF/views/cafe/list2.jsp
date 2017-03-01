@@ -125,22 +125,31 @@
 <div class="container" style="text-align: center;">
 <c:choose>
 	
-	<c:when test="${id != dto.writer }">  
-	  
-	     <img  id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-       
-    </c:when>
+	
+   
+   
     <c:when test="${id eq dto.writer }">  
-	  
+	   <c:if test="${not empty dto.saveFileName}">
 	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-       
-    </c:when>
-    
-      <c:when test="${not empty id }">
-         <c:if test="${empty dto.saveFileName}">
+        </c:if>
+    </c:when>        
+         <c:when test="${empty dto.saveFileName }">
+	 
          <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
-    </c:if>
-       </c:when>
+   
+       </c:when>          
+    </c:choose>
+    <c:choose>
+    <c:when test="${id ne dto.writer }">  
+	   <c:if test="${not empty dto.saveFileName}">
+	     <img  id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+        </c:if>
+    </c:when>        
+         <c:when test="${id ne dto.writer }">
+	     <c:if test="${ empty dto.saveFileName}">
+         <img id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
+          </c:if>
+     </c:when>          
     </c:choose>
     <h2>This is Visualize, a responsive site template designed by TEMPLATED
 	and released for free under the Creative Commons License.</h2>

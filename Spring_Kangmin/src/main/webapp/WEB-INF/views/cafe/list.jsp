@@ -243,20 +243,21 @@
 		                </div> 
 	                  
 	              </c:when>
-	             
-	              <c:when test="${not empty id }">
+	             <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
-	                  <div id="meunDiv" style="color:#ffffff; ">    
-	                     <strong style=color:#ffffff><img data-toggle=
-	                     "modal" data-target="#myModal2" id="M_img2" src=
-	                     "${pageContext.request.contextPath }/resources/images/kkk.jpg" />
-	                     </strong> 님 로그인중... 
+	                   <div id="meunDiv" style="color:#ffffff;">    
+	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/resources/images/kkk.jpg"/>
+	                     </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
+		                 <ul class="dropdown-menu">
+							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
+							<li><a href="signout.do">SignOut</a></li>
+		                </ul>
 		                 
-		                 <a href="list2.do?writer=${dto.writer }">YourPorofile</a>
-		                 <strong style=color:#ffffff> ro</strong>
-		               	 <a href="signout.do">SignOut</a>
-		                </div>    
-	                     </c:if>
+		                 
+		                 
+		               	 
+		                </div> 
+	                      </c:if>
 	              </c:when>
 	               </c:choose>
                  
