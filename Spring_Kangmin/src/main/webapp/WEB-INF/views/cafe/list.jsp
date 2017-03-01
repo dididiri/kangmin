@@ -65,7 +65,7 @@
 	a img{
 	    max-width: 100%;
 	    width: 280px;  
-	    height: 360px !important;  
+	    height: 330px !important;  
 	}
 	#com1{
 	    position: relative;
@@ -92,9 +92,9 @@
        width: 181px;
 	   height: 186px;
     }  
-    #M_img2{
-       width: 40px;
-       height: 40px;
+    #M_img2{   
+       width: 45px;
+       height: 45px;
        border-radius: 50%;
        
     }
@@ -200,16 +200,15 @@
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	
 	<div class="input-group-btn">
-	<select style="height: 40px;" name="condition" id="condition" class="btn btn-default" style="
-    height: 40px;">
+	<select style="height: 45px;" name="condition" id="condition" class="btn btn-default"  >
 		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
 		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
 	</select>  
-	<input style="height: 40px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
+	<input style="height: 45px;width: 240px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
 		value="${keyword }"/>
 	
-	<button style=" height: 40px;" type="submit" class="btn btn-default">
+	<button style=" height: 45px;" type="submit" class="btn btn-default">
 	    <span class="sr-only">검색</span>
         <span class="glyphicon glyphicon-search"></span>
 	</button>
@@ -263,7 +262,7 @@
                  
                   <c:choose>
 	              <c:when test="${ empty id }">
-	              <div  style="position: relative; top: 32px; font-size: 17px;">
+	              <div  style="position: relative; top: 32px; font-size: 20px;">
 			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
                        color: #ffffff;"> or </strong>
 			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
