@@ -163,7 +163,7 @@ public class UsersController {
 
 	
 	  
-	@RequestMapping("/send")
+	@RequestMapping("cafe/send")
 	@ResponseBody
 	public String send(@RequestParam String senderName,@RequestParam String senderMail,
 			@RequestParam String email,@RequestParam String subject,
@@ -186,7 +186,7 @@ public class UsersController {
 		return "list";
 	}
 	
-	@RequestMapping("/ident")
+	@RequestMapping("cafe/ident")
 	@ResponseBody
 	public Map<String, Object> checkid3(@RequestParam String message2
 			,@RequestParam String message){
