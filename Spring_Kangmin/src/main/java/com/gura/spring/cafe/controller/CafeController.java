@@ -61,7 +61,12 @@ public class CafeController {
 		List<CafeDto> list2=cafeService.getList2(writer);
 		
 		ModelAndView mView=new ModelAndView();
-		
+		if(writer !=null){
+			
+			
+			mView.addObject("dto", fileService.getData(writer));
+			  
+	    }
 		mView.addObject("list2", list2);
 		mView.setViewName("cafe/list2");
 		//리턴해준다.

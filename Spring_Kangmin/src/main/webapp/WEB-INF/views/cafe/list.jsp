@@ -259,7 +259,7 @@
 
 
 
-<c:choose>
+<%-- <c:choose>
 	
 	<c:when test="${not empty dto.saveFileName}">  
 	  
@@ -273,7 +273,7 @@
      </c:when>
 </c:choose>
 
-<hr />
+<hr /> --%>
 <div class="row">  
     <c:forEach var="tmp" items="${list }"> 
     <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  

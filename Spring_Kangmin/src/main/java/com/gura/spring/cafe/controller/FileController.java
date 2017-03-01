@@ -21,8 +21,7 @@ public class FileController {
 	@Autowired //의존 객체를 주입 받기위한 어노 테이션 
 	private FileService fileService;
 	
-	@Autowired
-	private CafeService cafeService;
+	
 	
 	// "/file/delete.do" 요청 처리
 	@RequestMapping("/file/delete")
@@ -49,6 +48,14 @@ public class FileController {
 		dto.getWriter();
 		//리다일렉트 이동 
 		return "redirect:/cafe/list.do?writer="+dto.getWriter();
+	}
+	
+	@RequestMapping(value="cafe/insert3")
+	public String insert2(HttpServletRequest request,@ModelAttribute FileDto dto){
+		fileService.insert(request, dto);
+		dto.getWriter();
+		//리다일렉트 이동 
+		return "redirect:/cafe/list2.do?writer="+dto.getWriter();
 	}
 	
 	// /file/insertform.do 요청 처리
