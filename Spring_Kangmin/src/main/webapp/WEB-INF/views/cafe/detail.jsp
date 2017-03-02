@@ -4,7 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+
+<meta charset=" UTF-8" name="viewport" 
+content="width=device-width, initial-scale=1, 
+minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+
 <title>/views/cafe/detail.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
@@ -86,12 +91,26 @@
     }
     a{
       color: #ffffff;
+     
     }
+    @media (max-width: 768px){
+	  .content {
+	    border: 0.5px solid #cecece;
+	    height: 381px;
+	}
+	img {
+    width: 100%;
+    height: 380px;
+     }
+    
+   }
+   
+    
 </style>
 </head>
 <body>
 <div class="container">
-<h1>상세글 내용 페이지</h1>
+<h3></h3>
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
 <c:if test="${id eq dto.writer }">
 	<a href="private/updateform.do?num=${dto.num }">수정</a>

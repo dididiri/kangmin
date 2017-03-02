@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta charset=" UTF-8" name="viewport" 
+content="width=device-width, initial-scale=1, 
+minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>/views/cafe/list.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
@@ -14,8 +16,9 @@
     }
     a img{
 	    max-width: 100%;
-	    width: 280px;  
+	    width:100%;      
 	    height: 360px !important;  
+	    
 	}
         #M_img{
        border-radius:50%;
@@ -114,7 +117,60 @@
     top: 450px;
     
     }
+   
+ 
+@media (max-width: 992px){
+   p{
     
+    margin: -12px -15px -8px;
+    
+   }
+   a img{
+	    max-width: 100%;
+	    width:100%;      
+	    
+	    height: 175px !important;
+	}
+	.img-thumbnail {
+    
+    padding: 0px;
+    border-radius: 0px;
+    background-color: #fff;
+    border: 0.5px solid #fff;
+    }
+    #M_img {
+    border-radius: 50%;
+    position: relative;
+    max-width: 100%;
+    padding: 2px;
+    background-color: #fff;
+    width: 150px;
+    height: 150px;
+    margin-top: 60px;
+    }
+    h2 {
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+    margin-top: 50px;
+    /* font-size: x-small; */
+    /* font-size: large; */
+    font-size: larger;
+}
+#icon {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 25px;
+    border: solid 1px rgba(255, 255, 255, 0.25);
+    background-color: rgba(255, 255, 255, 0.075);
+    border-radius: 50%;
+    padding: 0.3em;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+   
+	
+}
 
    
 </style>

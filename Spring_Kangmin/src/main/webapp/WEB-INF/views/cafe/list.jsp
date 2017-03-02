@@ -192,7 +192,31 @@
    position: absolute;
    
     top: 55px;
-    }             
+    }     
+    #icon{
+       color: rgba(255, 255, 255, 0.65); 
+       font-size: 30px;
+       border: solid 1px rgba(255, 255, 255, 0.25);
+       background-color: rgba(255, 255, 255, 0.075);
+       border-radius: 50%;
+       padding: 0.5em;
+       margin-left: 15px;
+	   margin-right: 15px;
+	   margin-bottom: 15px;
+	   margin-top: 15px;
+    }     
+    
+     @media (min-width: 992px){
+       #mobile{
+          display: none;
+       }
+	}
+	
+	 @media (max-width: 992px){
+       #meunDiv{
+          display: none;
+       }
+	}
    
 </style>
 </head>
@@ -219,33 +243,26 @@
 	</div>  
 </form>
 
+ 
+    <div id="mobile" >
      
-     
-     
-     
-
+         
+         <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
+        <a id="icon" class="glyphicon glyphicon-user" href="list2.do?writer=${dto.writer }"></a>
        
-     
-    
-     
-     
-     
-	 <c:choose>
-	              <c:when test="${not empty dto.saveFileName }">
-	                   <div id="meunDiv" style="color:#ffffff;">    
-	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-	                     </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
-		                 <ul class="dropdown-menu">
-							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
+       
+      </div>
+          <c:choose>
+	             <c:when test="${not empty dto.saveFileName }">
+	                    <div id="meunDiv" style="color:#ffffff;">    
+	                    <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
+	                    </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
+		                <ul class="dropdown-menu">
+					        <li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
 							<li><a href="signout.do">SignOut</a></li>
 		                </ul>
-		                 
-		                 
-		                 
-		               	 
 		                </div> 
-	                  
-	              </c:when>
+	             </c:when>
 	             <c:when test="${not empty id }">
 	                   <c:if test="${empty dto.saveFileName}">
 	                   <div id="meunDiv" style="color:#ffffff;">    
@@ -255,12 +272,8 @@
 							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
 							<li><a href="signout.do">SignOut</a></li>
 		                </ul>
-		                 
-		                 
-		                 
-		               	 
 		                </div> 
-	                      </c:if>
+	                    </c:if>
 	              </c:when>
 	               </c:choose>
                  
