@@ -76,13 +76,16 @@
     width: 100%;
    
     border: 1px solid #cecece;
-    color: #000000;
+    color: #ffffff;
    
-    background-color: #ffffff;
+    
     }
     .imgbox{
           width: 100%;
     border: 1px solid #cecece;
+    }
+    a{
+      color: #ffffff;
     }
 </style>
 </head>

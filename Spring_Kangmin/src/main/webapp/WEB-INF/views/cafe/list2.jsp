@@ -114,6 +114,8 @@
     top: 450px;
     
     }
+    
+
    
 </style>
 </head>
@@ -181,10 +183,10 @@
     </div>
      </c:if> 
 <hr />
-
+                                
 <div class="row">  
     <c:forEach var="tmp" items="${list2 }"> 
-    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
+    <div id="col1" class="col-xs-4 col-sm-4 col-md-3 col-lg-3">  
 			<a id="a1" href="detail.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
 	</div>
 	</c:forEach>

@@ -18,16 +18,16 @@ public class EmailService {
     public void sendMail(EmailVo vo){
     	try {
 			MimeMessage msg=mailSender.createMimeMessage();
-			//이메일 수신자
+			
 			msg.addRecipient(RecipientType.TO
 					, new InternetAddress(vo.getEmail()));
-			//이메일 발신자
+			
 			msg.addFrom(new InternetAddress[]{
 	new InternetAddress(vo.getSenderMail(),vo.getSenderName())
 			});
-			//이메일 제목
+			
 			msg.setSubject(vo.getSubject(),"utf-8");
-			//이메일 내용
+			
 			msg.setText(vo.getMessage(),"utf-8");
 			mailSender.send(msg);
 		} catch (Exception e) {

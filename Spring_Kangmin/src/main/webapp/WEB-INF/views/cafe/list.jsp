@@ -93,8 +93,8 @@
 	   height: 186px;
     }  
     #M_img2{   
-       width: 45px;
-       height: 45px;
+       width: 55px;
+       height:55px;
        border-radius: 50%;
        
     }
@@ -106,6 +106,9 @@
 	    background-color: #fff;
 	    width: 181px;
 	    height: 186px;
+    }
+    a{
+     color:#ffffff;  
     }
     
 
@@ -187,7 +190,7 @@
     #meunDiv{
         
    position: absolute;
-    right: 150px;
+   
     top: 55px;
     }             
    
@@ -200,15 +203,15 @@
 <form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
 	
 	<div class="input-group-btn">
-	<select style="height: 45px;" name="condition" id="condition" class="btn btn-default"  >
+	<select style="height: 55px;" name="condition" id="condition" class="btn btn-default"  >
 		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
 		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
 	</select>  
-	<input style="height: 45px;width: 240px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
+	<input style="height: 55px;width: 240px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
 		value="${keyword }"/>
 	
-	<button style=" height: 45px;" type="submit" class="btn btn-default">
+	<button style=" height: 55px;" type="submit" class="btn btn-default">
 	    <span class="sr-only">검색</span>
         <span class="glyphicon glyphicon-search"></span>
 	</button>
