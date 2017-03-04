@@ -102,15 +102,22 @@ public class CafeController {
 		ModelAndView mView=cafeService.getData(num);
 		
 		mView.addObject("commentList", commentService.getList(num));
-	    
-		
-		
-			
-			
-		mView.addObject("dto1", fileService.getData(writer));
-		  
-		
+	    mView.addObject("dto1", fileService.getData(writer));
 		mView.setViewName("cafe/detail");
+		return mView;
+	}
+	@RequestMapping("/cafe/detail2")
+	public ModelAndView detail2(@RequestParam String writer, 
+			@RequestParam int num,HttpSession session){
+		
+		List<CafeDto> list3=cafeService.getData2();
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("list3", list3);	
+		mView.addObject("dto1", fileService.getData(writer));
+		mView.addObject("commentList", commentService.getList2());
+	      
+		
+		mView.setViewName("cafe/detail2");
 		return mView;
 	}
 	//글 수정폼 요청 처리
@@ -148,6 +155,24 @@ public class CafeController {
 				+ "do?num="+dto.getRef_group()+"&writer="+dto.getTarget_id());
 	}
 	
+	@RequestMapping("/cafe/comment_insert2")
+	public ModelAndView authCommentInsert2(@ModelAttribute CommentDto dto 
+			){
+		int seq=commentService.getSequence();
+		dto.setNum(seq);
+		if(dto.getComment_group()==0){//원글에 대한 덧글인 경우
+			//덧글의 그룹번호를 덧글의 글번호와 같게 설정한다.
+			dto.setComment_group(seq);
+		}else{//덧글의 덧글인 경우   
+			//파라미터로 넘어온 덧글의 그룹번호를 넣어준다.
+			dto.setComment_group(dto.getComment_group());
+		}
+		
+		commentService.insert(dto);
+		
+		return new ModelAndView("redirect:/cafe/detail2."
+				+ "do?num="+dto.getRef_group()+"&writer="+dto.getTarget_id());
+	}
 	
 	
 	

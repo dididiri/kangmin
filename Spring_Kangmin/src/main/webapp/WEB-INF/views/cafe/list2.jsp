@@ -209,8 +209,8 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
           </c:if>
      </c:when>          
     </c:choose>
-    <h2>This is Visualize, a responsive site template designed by TEMPLATED
-	and released for free under the Creative Commons License.</h2>
+    <h2>Hello Welcome to Kim Kang-min's personal portfolio instagram First upload your profile photo and write i
+    t to let your friends know your nearest point.</h2>
     <c:if test="${id eq dto.writer }">
     <div >
      

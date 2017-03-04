@@ -9,6 +9,7 @@ public interface CafeDao {
 	public List<CafeDto> getList2(String writer);
 	public void insert(CafeDto dto);
 	public CafeDto getData(int num);
+	public List<CafeDto> getData2(CafeDto dto);
 	public void increaseViewCount(int num);
 	public void update(CafeDto dto);
 	public void delete(int num);

@@ -104,6 +104,15 @@ public class CafeServiceImpl implements CafeService{
 		//리턴해준다.
 		return mView;
 	}
+	@Override
+	public List<CafeDto> getData2() {
+		CafeDto dto=new CafeDto();
+		List<CafeDto> list3=cafeDao.getData2(dto);
+		//3. 글정보를 ModelAndView 객체에 담는다.
+		
+		//리턴해준다.
+		return list3;
+	}
 
 	@Override
 	public void update(CafeDto dto) {
@@ -125,6 +134,7 @@ public class CafeServiceImpl implements CafeService{
 		//리턴해준다. 
 		return mView;
 	}
+	
 
 	
 
