@@ -10,7 +10,7 @@ content="width=device-width, initial-scale=1,
 minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 
-<title>/views/cafe/detail.jsp</title>
+<title>/views/cafe/detail2.jsp</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <style>
 	.content{ 
@@ -109,26 +109,22 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 </style>
 </head>
 <body>
-<c:forEach var="tmp" items="${list3 }">
 <div class="container">
 <h3></h3>
-
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
 <c:if test="${id eq dto.writer }">
 	<a href="private/updateform.do?num=${dto.num }">수정</a>
 	<a href="javascript:deleteCheck()">삭제</a>
 </c:if>
 
-		
+	<c:forEach var="tmp" items="${list3}">	
 	<div class="imgbox"><a href="list2.do?writer=${tmp.writer }"><img data-toggle="modal" data-target="#myModal2" 
 	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${tmp.writer }
     </a></div>
 
 <div class="content">${tmp.content }</div>
 <div class="titlebox">${tmp.title }</div>
-
-  
-
+</c:forEach>
 <div class="comments">
 	<c:forEach var="tmp" items="${commentList }">
 		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:100px"</c:if> >	
@@ -142,13 +138,23 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 				<a href="javascript:">답글</a>
 			</div>
 			<textarea rows="3" disabled>${tmp.content }</textarea><br/>
-			
+			<form action="comment_insert.do" method="post">
+				<!-- 덧글 작성자 -->
+				<input type="hidden" name="writer" value="${id }"/>
+				<!-- 덧글 그룹 -->
+				<input type="hidden" name="ref_group" value="${dto.num }" />
+				<!-- 덧글 대상 -->
+				<input type="hidden" name="target_id" value="${tmp.writer }" />
+				<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
+				<textarea name="content"></textarea>
+				<button id="btn1" type="submit">등록</button>
+			</form>
 		</div>
 		
 	</c:forEach>
 
 	<div class="comment_form">
-		<form action="comment_insert2.do" method="post">
+		<form action="comment_insert.do" method="post">
 			<!-- 덧글 작성자 -->
 			<input type="hidden" name="writer" value="${id }"/>
 			<!-- 덧글 그룹 -->
@@ -160,9 +166,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 		</form>
 	</div>
 </div>
-
 </div>
-</c:forEach>
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>

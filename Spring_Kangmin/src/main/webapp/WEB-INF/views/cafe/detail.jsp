@@ -124,6 +124,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <div class="content">${dto.content }</div>
 <div class="titlebox">${dto.title }</div>
+
 <div class="comments">
 	<c:forEach var="tmp" items="${commentList }">
 		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:100px"</c:if> >	
