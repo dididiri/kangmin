@@ -103,7 +103,7 @@ public class CafeController {
 		
 		mView.addObject("commentList", commentService.getList(num));
 	    mView.addObject("dto1", fileService.getData(writer));
-		mView.setViewName("cafe/detail2");
+		mView.setViewName("cafe/detail");
 		return mView;
 	}
 	
@@ -116,9 +116,10 @@ public class CafeController {
 		List<CafeDto> list3=cafeService.getData2();
 		ModelAndView mView=new ModelAndView();
 		
+		mView.addObject("num", num);
 		mView.addObject("list3", list3);	
 		
-		mView.addObject("dto1", fileService.getData(writer));
+		mView.addObject("list5", fileService.getData2());
 		mView.addObject("commentList", commentService.getList2());
 	      
 		

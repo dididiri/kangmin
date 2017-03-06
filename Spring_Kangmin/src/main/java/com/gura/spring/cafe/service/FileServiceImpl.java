@@ -88,6 +88,12 @@ public class FileServiceImpl implements FileService{
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public List<FileDto> getData2() {
+		List<FileDto> list5=fileDao.getData2();
+		return list5;
+	}
 	
 }
 

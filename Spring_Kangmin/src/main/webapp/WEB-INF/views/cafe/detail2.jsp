@@ -72,8 +72,8 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
         }
     }
     #M_img2{
-       width: 37px;
-       height: 35px;
+       width: 45px;
+       height: 45px;
        border-radius: 50%;
        
     }
@@ -117,40 +117,52 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<a href="javascript:deleteCheck()">삭제</a>
 </c:if>
 
-	<c:forEach var="tmp" items="${list3}">	
-	<div class="imgbox"><a href="list2.do?writer=${tmp.writer }"><img data-toggle="modal" data-target="#myModal2" 
-	id="M_img2" src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}"/>${tmp.writer }
+<c:forEach var="tmp" items="${list3}">	
+
+	<div class="imgbox"><a href="list2.do?writer=${tmp.writer }">
+	
+	<c:forEach var="img" items="${list5}">	
+	<c:if test="${tmp.writer eq img.writer }">
+	<img class="${tmp.num }" data-toggle="modal" data-target="#myModal2" id="M_img2" src="${pageContext.request.contextPath }/upload/${img.saveFileName}"/>${tmp.writer }
+    </c:if>
+    </c:forEach>
+   
     </a></div>
 
-<div class="content">${tmp.content }</div>
+    
+<div class="content" <c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>>${tmp.content }</div>
 <div class="titlebox">${tmp.title }</div>
-</c:forEach>
+
 <div class="comments">
-	<c:forEach var="tmp" items="${commentList }">
-		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:100px"</c:if> >	
-			<c:if test="${tmp.num ne tmp.comment_group }">
+	<c:forEach var="ip" items="${commentList }">
+	<c:choose>
+	   <c:when test="${ ip.ref_group eq tmp.num}"> 
+		<div class="comment" <c:if test="${ip.num ne ip.comment_group }">style="margin-left:100px"</c:if> >	
+			<c:if test="${ip.num ne ip.comment_group }">
 				<div class="reply_icon"></div>
 			</c:if>
 			<div>		
-				<strong>from ${tmp.writer }</strong>
-				${tmp.regdate }<br/>
-				<strong>to ${tmp.target_id }</strong>
+				<strong>from ${ip.writer }</strong>
+				${ip.regdate }<br/>
+				<strong>to ${ip.target_id }</strong>
 				<a href="javascript:">답글</a>
+				
 			</div>
-			<textarea rows="3" disabled>${tmp.content }</textarea><br/>
+			<textarea rows="3" disabled>${ip.content }</textarea><br/>
 			<form action="comment_insert.do" method="post">
 				<!-- 덧글 작성자 -->
 				<input type="hidden" name="writer" value="${id }"/>
 				<!-- 덧글 그룹 -->
 				<input type="hidden" name="ref_group" value="${dto.num }" />
 				<!-- 덧글 대상 -->
-				<input type="hidden" name="target_id" value="${tmp.writer }" />
-				<input type="hidden" name="comment_group" value="${tmp.comment_group }" />
+				<input type="hidden" name="target_id" value="${ip.writer }" />
+				<input type="hidden" name="comment_group" value="${ip.comment_group }" />
 				<textarea name="content"></textarea>
 				<button id="btn1" type="submit">등록</button>
 			</form>
 		</div>
-		
+	  </c:when>
+	</c:choose> 
 	</c:forEach>
 
 	<div class="comment_form">
@@ -166,10 +178,22 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 		</form>
 	</div>
 </div>
+
+</c:forEach>
 </div>
+
+<input type="text" id="getFocus" value="${num }">
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
+	window.onload = function(){
+		var selectImg = $("#getFocus").val();
+		
+		
+	}
+	var inputId=$("#id10").val();
+	
+	
 	function deleteCheck(){
 		var isDelete=confirm("글을 삭제 하시겠습니까?");
 		if(isDelete){
@@ -203,6 +227,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 			location.href="private/delete.do?num=${dto.num}";
 		}
 	}
+	
+	var a=$("#clickedImg").offset().top;
+	$("body").scrollTop(a-150);
 </script>
 </body>
 </html>

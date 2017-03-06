@@ -1,5 +1,7 @@
 package com.gura.spring.cafe.service;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.servlet.ModelAndView;
@@ -13,4 +15,5 @@ public interface FileService {
 	public ModelAndView list();
 	public void delete(HttpServletRequest request, int num);
 	public FileDto getData(String writer);
+	public List<FileDto> getData2();
 }

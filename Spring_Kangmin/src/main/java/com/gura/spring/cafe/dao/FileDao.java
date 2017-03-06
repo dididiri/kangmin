@@ -9,4 +9,5 @@ public interface FileDao {
 	public void delete(int num);
 	public List<FileDto> getList();
 	public FileDto getData(String writer);
+	public List<FileDto> getData2();
 }

@@ -18,7 +18,7 @@
 		regdate
 		FROM board_cafe_comment
 		WHERE ref_group=#{num} 
-		ORDER BY comment_group ASC, num ASC
+		
 	</select>
 	<select id="getList2"  parameterType="commentDto"
 		resultType="commentDto">
@@ -26,8 +26,9 @@
 		regdate
 		FROM board_cafe_comment
 		
-		ORDER BY num DESC
+		ORDER BY comment_group ASC, num ASC
 	</select>
+	
 	
 </mapper>
 

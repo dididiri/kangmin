@@ -40,6 +40,12 @@ public class FileDaoImpl implements FileDao{
 		return session.selectOne("file.getData", writer);
 	}
 
+	@Override
+	public List<FileDto> getData2() {
+		List<FileDto> list5=session.selectList("file.getData2");
+		return list5;
+	}
+
 }
 
 

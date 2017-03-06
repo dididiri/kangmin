@@ -21,6 +21,13 @@
 		FROM board_data
 		ORDER BY num DESC
 	</select>
+	<select id="getData2" resultType="fileDto">
+		SELECT num,writer,title,orgFileName,saveFileName,fileSize,regdate
+		FROM board_data
+		ORDER BY num DESC
+	</select>
+	
+	
 </mapper>
 
 
