@@ -109,6 +109,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 </style>
 </head>
 <body>
+
 <div class="container">
 <h3></h3>
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>

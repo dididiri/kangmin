@@ -49,6 +49,21 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     textarea{
      background: initial;
     }
+    .comment form{
+		display: none;
+	}
+	.comment{
+		position: relative;
+	}
+	.comment .reply_icon{
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		top:0;
+		left:-20px;
+		border-left: 2px solid green;
+		border-bottom: 2px solid green;
+	}
     #btn1{
      color: #000000;
     }
@@ -112,13 +127,14 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 <div class="container">
 <h3></h3>
 <%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
-<c:if test="${id eq dto.writer }">
+<%-- <c:if test="${id eq dto.writer }">
 	<a href="private/updateform.do?num=${dto.num }">수정</a>
 	<a href="javascript:deleteCheck()">삭제</a>
-</c:if>
+</c:if> --%>
 
 <c:forEach var="tmp" items="${list3}">	
-
+<br />
+<br />
 	<div class="imgbox"><a href="list2.do?writer=${tmp.writer }">
 	
 	<c:forEach var="img" items="${list5}">	
@@ -149,7 +165,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 				
 			</div>
 			<textarea rows="3" disabled>${ip.content }</textarea><br/>
-			<form action="comment_insert.do" method="post">
+			<form action="comment_insert2.do" method="post">
 				<!-- 덧글 작성자 -->
 				<input type="hidden" name="writer" value="${id }"/>
 				<!-- 덧글 그룹 -->
@@ -166,13 +182,13 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	</c:forEach>
 
 	<div class="comment_form">
-		<form action="comment_insert.do" method="post">
+		<form action="comment_insert2.do" method="post">
 			<!-- 덧글 작성자 -->
 			<input type="hidden" name="writer" value="${id }"/>
 			<!-- 덧글 그룹 -->
-			<input type="hidden" name="ref_group" value="${dto.num }" />
+			<input type="hidden" name="ref_group" value="${tmp.num }" />
 			<!-- 덧글 대상 -->
-			<input type="hidden" name="target_id" value="${dto.writer }" />
+			<input type="hidden" name="target_id" value="${tmp.writer }" />
 			<textarea rows="2" name="content"></textarea>
 			<button  id="btn1" type="submit">등록</button>
 		</form>
@@ -229,7 +245,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	}
 	
 	var a=$("#clickedImg").offset().top;
-	$("body").scrollTop(a-150);
+	$("body").scrollTop(a-100);
 </script>
 </body>
 </html>
