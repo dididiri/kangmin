@@ -13,7 +13,7 @@ import com.gura.spring.cafe.dto.FileDto;
 public interface FileService {
 	public void insert(HttpServletRequest request, FileDto dto);
 	public ModelAndView list();
-	public void delete(HttpServletRequest request, int num);
+	
 	public FileDto getData(String writer);
 	public List<FileDto> getData2();
 }

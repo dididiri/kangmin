@@ -87,6 +87,15 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
          font-weight: bold;
          border-radius: 4px;
     }
+    #fileBtn2{
+         width: 100%;
+	     background-color: #fdfdfd;
+	     padding: .5em .75em;
+	     border: 1px solid #ebebeb;  
+	     font-size: 15pt;
+         font-weight: bold;
+         border-radius: 4px;
+    }
     h2{
       color: rgba(255, 255, 255, 0.65);   
       margin-bottom: 20px;
@@ -260,12 +269,16 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	            <input type="hidden" name="title" id="title" value="zzz"/><br/>
 				<label for="ex_file">사진 선택</label>
 				<input type="file" name="file" id="ex_file" />
+			
+				
 				<button id="fileBtn" style="width: 100%;" type="submit">업로드</button>
-                </form>
+				
+                </form> 
 			</div>
 		</div>
 	</div>
 </div>
+
 
 
 
@@ -274,6 +287,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <script>
 $("p").find('img').addClass("img-thumbnail");	
+
+
+
 </script>
 </body>
 </html>

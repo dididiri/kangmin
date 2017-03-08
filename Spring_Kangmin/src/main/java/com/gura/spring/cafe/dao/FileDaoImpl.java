@@ -23,10 +23,7 @@ public class FileDaoImpl implements FileDao{
 		session.insert("file.insert", dto);
 	}
 
-	@Override
-	public void delete(int num) {
-		session.delete("file.delete", num);
-	}
+	
 
 	@Override
 	public List<FileDto> getList() {

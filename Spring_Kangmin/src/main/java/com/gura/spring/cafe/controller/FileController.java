@@ -23,22 +23,10 @@ public class FileController {
 	
 	
 	
-	// "/file/delete.do" 요청 처리
-	@RequestMapping("/file/delete")
-	public String delete
-		(HttpServletRequest request, @RequestParam int num){
-		//FileService 를 이용해서 파일을 삭제하는 작업을 한다.
-		fileService.delete(request, num);
-		//리다일렉트 이동 
-		return "redirect:/file/list.do";
-	}
 	
 	
-	// "/file/download.do" 요청 처리
-	/*
-	 *  @RequestParam int num 에서 num 은  "file/download.do?num=x"
-	 *  의 파라미터 명과 동일하게 변수명을 지정하면 된다. 
-	 */
+	
+	
 	
 	
 	// /file/insert.do 요청 처리 

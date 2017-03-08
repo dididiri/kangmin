@@ -153,7 +153,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<c:forEach var="ip" items="${commentList }">
 	<c:choose>
 	   <c:when test="${ ip.ref_group eq tmp.num}"> 
-		<div class="comment" <c:if test="${ip.num ne ip.comment_group }">style="margin-left:100px"</c:if> >	
+		<div class="comment" <c:if test="${ip.num ne ip.comment_group }">style="margin-left:20px"</c:if> >	
 			<c:if test="${ip.num ne ip.comment_group }">
 				<div class="reply_icon"></div>
 			</c:if>
@@ -169,7 +169,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 				<!-- 덧글 작성자 -->
 				<input type="hidden" name="writer" value="${id }"/>
 				<!-- 덧글 그룹 -->
-				<input type="hidden" name="ref_group" value="${dto.num }" />
+				<input type="hidden" name="ref_group" value="${ip.ref_group }" />
 				<!-- 덧글 대상 -->
 				<input type="hidden" name="target_id" value="${ip.writer }" />
 				<input type="hidden" name="comment_group" value="${ip.comment_group }" />
@@ -245,7 +245,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	}
 	
 	var a=$("#clickedImg").offset().top;
-	$("body").scrollTop(a-100);
+	$("body").scrollTop(a-80);
 </script>
 </body>
 </html>

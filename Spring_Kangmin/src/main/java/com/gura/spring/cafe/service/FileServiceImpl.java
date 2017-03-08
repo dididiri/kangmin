@@ -83,11 +83,7 @@ public class FileServiceImpl implements FileService{
 		return dto;
 	}
 
-	@Override
-	public void delete(HttpServletRequest request, int num) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public List<FileDto> getData2() {

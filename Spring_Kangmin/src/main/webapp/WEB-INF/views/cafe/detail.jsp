@@ -128,7 +128,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <div class="comments">
 	<c:forEach var="tmp" items="${commentList }">
-		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:100px"</c:if> >	
+		<div class="comment" <c:if test="${tmp.num ne tmp.comment_group }">style="margin-left:20px"</c:if> >	
 			<c:if test="${tmp.num ne tmp.comment_group }">
 				<div class="reply_icon"></div>
 			</c:if>
@@ -201,8 +201,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	function deleteCheck(){
 		var isDelete=confirm("글을 삭제 하시겠습니까?");
 		if(isDelete){
-			location.href="private/delete.do?num=${dto.num}";
+			location.href="private/delete.do?num=${dto.num}&writer=${dto.writer}";
 		}
+		
 	}
 </script>
 </body>

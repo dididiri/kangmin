@@ -90,9 +90,10 @@ public class CafeController {
 	
 	//글 삭제 요청 처리 
 	@RequestMapping("/cafe/private/delete")
-	public ModelAndView authDelete(@RequestParam int num){
-		
-		return new ModelAndView("redirect:/cafe/list.do");
+	public ModelAndView authDelete(@RequestParam int num,@ModelAttribute CafeDto dto){
+		dto.getWriter();
+		cafeService.delete(num);
+		return new ModelAndView("redirect:/cafe/list2.do?writer="+dto.getWriter());
 	}
 	
 	@RequestMapping("/cafe/detail")
@@ -138,8 +139,10 @@ public class CafeController {
 	}
 	@RequestMapping("/cafe/private/update")
 	public ModelAndView authUpdate(@ModelAttribute CafeDto dto){
+		
 		cafeService.update(dto);
-		return new ModelAndView("redirect:/cafe/list.do");
+		dto.getWriter();
+		return new ModelAndView("redirect:/cafe/list2.do?writer="+dto.getWriter());
 	}
 	
 	@RequestMapping("/cafe/comment_insert")
