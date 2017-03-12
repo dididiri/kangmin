@@ -244,12 +244,13 @@
 </form>
 
  
-    <div id="mobile" >
+    <div id="mobile" style="position: relative; top: 30px;">
      
-         
+         <c:if test="${not empty id }">
          <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
         <a id="icon" class="glyphicon glyphicon-user" href="list2.do?writer=${dto.writer }"></a>
-       
+        <a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
+       </c:if> 
        
       </div>
           <c:choose>

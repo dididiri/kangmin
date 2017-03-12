@@ -223,17 +223,10 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     <c:if test="${id eq dto.writer }">
     <div >
      
-         <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
-        <a id="icon" class="glyphicon glyphicon-home" href="list.do?writer=${ id}"></a>
-       
-      <a id="icon" class="glyphicon glyphicon-user" data-toggle="dropdown" ></a>
-		
-		<ul class="dropdown-menu">
-			<li><a href="signout.do">SignOut</a></li>
-			
-		</ul>
-	
-        <a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
+      <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
+      <a id="icon" class="glyphicon glyphicon-home" href="list.do?writer=${ id}"></a>
+      <a id="icon" class="glyphicon glyphicon-option-vertical" data-toggle="modal" data-target="#myModal5"></a>
+	  <a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
        
     </div>
      </c:if> 
@@ -260,6 +253,23 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 
 <!-- 프로필  Modal 준비 -->
+<div id="myModal5" class="modal fade" style="top: 238px;">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="filebox">
+				
+	           <button id="fileBtn" class="singoutBtn" style="width: 100%;" type="submit">로그아웃</button>
+			
+				
+				<button id="fileBtn" data-dismiss="modal" style="width: 100%;" type="submit">취소</button>
+				
+            
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- 프로필  Modal 준비 -->
 <div id="myModal2" class="modal fade" style="top: 238px;">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -281,7 +291,6 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 
 
-
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 
@@ -289,7 +298,14 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 $("p").find('img').addClass("img-thumbnail");	
 
 
+	
 
+	$(".singoutBtn").click(function(){
+		
+		
+			location.href="signout.do";
+		
+	});
 </script>
 </body>
 </html>
