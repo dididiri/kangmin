@@ -107,6 +107,19 @@ public class CafeController {
 		mView.setViewName("cafe/detail");
 		return mView;
 	}
+	@RequestMapping("/cafe/likeup")
+	public ModelAndView likeup( @RequestParam String writer, 
+			@RequestParam int num){
+		CafeDto dto=new CafeDto();
+		dto.setNum(num);
+		dto.setWriter(writer);
+		
+		cafeService.likeUp(num);
+		
+		
+	    
+		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getNum()+"&writer="+dto.getWriter());
+	}
 	
 	
 	

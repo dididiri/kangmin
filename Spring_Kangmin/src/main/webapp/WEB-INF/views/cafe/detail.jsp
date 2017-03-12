@@ -91,6 +91,8 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     }
     a{
       color: #ffffff;
+      text-decoration: none;
+      
      
     }
     @media (max-width: 768px){
@@ -132,7 +134,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <div class="titlebox"><p id="result" style="
     margin-top: 15px;
-    margin-bottom: 10px;">좋아요0개</p><a href="list2.do?writer=${dto.writer }">${dto.writer }</a> ${dto.title }
+    margin-bottom: 10px;">좋아요 ${dto.viewCount }개</p><a href="list2.do?writer=${dto.writer }">${dto.writer }</a> ${dto.title }
 
 <div class="comments">  
 	<c:forEach var="tmp" items="${commentList }">
@@ -188,17 +190,16 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 		}
 	}
 	
-	var clickCount=0;
-	//	id 가 result 인 p 요소의 참조값을 얻어와서 변수에 담아 놓기 
-	var result=document.querySelector("#result");
-	//var count = function(){};
+	
     var num=0;
 	function count(){
 		num++;
-		clickCount++; 
-		if(num ==1){
+		
+		if(num <= 2){
 		heart.style.color="red";
-		result.innerText="좋아요"+clickCount+"개";
+		location.href="likeup.do?num=${dto.num}&writer=${dto.writer}";
+		}else{
+			return false;
 		}
 	}
 
