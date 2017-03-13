@@ -120,6 +120,19 @@ public class CafeController {
 	    
 		return new ModelAndView("redirect:/cafe/detail.do?num="+dto.getNum()+"&writer="+dto.getWriter());
 	}
+	@RequestMapping("/cafe/likeup2")
+	public ModelAndView likeup2( @RequestParam String writer, 
+			@RequestParam int num){
+		CafeDto dto=new CafeDto();
+		dto.setNum(num);
+		dto.setWriter(writer);
+		
+		cafeService.likeUp(num);
+		
+		
+	    
+		return new ModelAndView("redirect:/cafe/detail2.do?num="+dto.getNum()+"&writer="+dto.getWriter());
+	}
 	
 	
 	
@@ -129,10 +142,12 @@ public class CafeController {
 		
 		List<CafeDto> list3=cafeService.getData2();
 		ModelAndView mView=new ModelAndView();
+		CafeDto dto=new CafeDto();
 		
 		mView.addObject("num", num);
 		mView.addObject("list3", list3);	
-		
+		mView.addObject("dto", dto.getNum());
+		mView.addObject("dto", dto.getWriter());
 		mView.addObject("list5", fileService.getData2());
 		mView.addObject("commentList", commentService.getList2());
 	      

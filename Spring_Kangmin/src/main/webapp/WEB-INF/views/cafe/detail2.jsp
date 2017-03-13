@@ -94,7 +94,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     }
     .titlebox{
     width: 100%;
-   
+   padding-left: 20px;
     border: 1px solid #cecece;
     color: #ffffff;
    
@@ -119,7 +119,10 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
      }
     
    }
-   
+   #inputText{
+    background: initial;
+    border: none;
+}
     
 </style>
 </head>
@@ -135,7 +138,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 <c:forEach var="tmp" items="${list3}">	
 <br />
 <br />
-	<div class="imgbox"><a href="list2.do?writer=${tmp.writer }">
+	<div class="imgbox" style="padding-top: 10px;padding-bottom: 10px;"><a href="list2.do?writer=${tmp.writer }">
 	
 	<c:forEach var="img" items="${list5}">	
 	<c:if test="${tmp.writer eq img.writer }">
@@ -147,7 +150,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
     
 <div class="content" <c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>>${tmp.content }</div>
-<div class="titlebox">${tmp.title }</div>
+<div class="titlebox"><p id="result" style="
+    margin-top: 15px;
+    margin-bottom: 10px;"><a href=""></a>좋아요 ${tmp.viewCount }개</p><a href="list2.do?writer=${tmp.writer }">${tmp.writer }</a> ${tmp.title }
 
 <div class="comments">
 	<c:forEach var="ip" items="${commentList }">
@@ -158,13 +163,10 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 				<div class="reply_icon"></div>
 			</c:if>
 			<div>		
-				<strong>from ${ip.writer }</strong>
-				${ip.regdate }<br/>
-				<strong>to ${ip.target_id }</strong>
-				<a href="javascript:">답글</a>
 				
+				<a href="list2.do?writer=${ip.writer}" style="float: left; margin-right: 0.5em; ">${ip.writer }</a>
 			</div>
-			<textarea rows="3" disabled>${ip.content }</textarea><br/>
+			<div style="margin-bottom: 7px;margin-top: 7px;">${ip.content }</div>
 			<form action="comment_insert2.do" method="post">
 				<!-- 덧글 작성자 -->
 				<input type="hidden" name="writer" value="${id }"/>
@@ -182,20 +184,23 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	</c:forEach>
 
 	<div class="comment_form">
-		<form action="comment_insert2.do" method="post">
+		<form action="comment_insert2.do" method="post" style=" margin-right: 1.5em;">
 			<!-- 덧글 작성자 -->
 			<input type="hidden" name="writer" value="${id }"/>
 			<!-- 덧글 그룹 -->
 			<input type="hidden" name="ref_group" value="${tmp.num }" />
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${tmp.writer }" />
-			<textarea rows="2" name="content"></textarea>
-			<button  id="btn1" type="submit">등록</button>
+			<hr />   
+			<span><a  href="likeup2.do?num=${tmp.num}&writer=${tmp.writer}" class="glyphicon glyphicon-heart"  id="heart" style=" font-size: 20px;"></a></span>
+			<input style="margin-bottom: 18px;font-size: 20px;margin-left: 0.5em;" id="inputText"type="text" name="content" placeholder="댓글 달기..."></input>
+			<button  id="btn1" type="submit" style="display:  none;">등록</button>
 		</form>
 	</div>
 </div>
-
+</div>
 </c:forEach>
+
 </div>
 
 <input type="text" id="getFocus" value="${num }">
@@ -207,35 +212,14 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 		
 		
 	}
+	
 	var inputId=$("#id10").val();
 	
 	
-	function deleteCheck(){
-		var isDelete=confirm("글을 삭제 하시겠습니까?");
-		if(isDelete){
-			location.href="private/delete.do?num=${dto.num}";
-		}
-	}
+	
 
 	
-	//덧글 달기 혹은 취소 버튼을 눌렀을때 실행할 함수 등록 
-	$(".comment a").click(function(){
-		if($(this).text()=="답글"){
-			$(this)
-			.text("취소")
-			.parent()
-			.parent()
-			.find("form")
-			.slideToggle();	
-		}else{
-			$(this)
-			.text("답글")
-			.parent()
-			.parent()
-			.find("form")
-			.slideToggle();
-		}
-	});
+	
 	
 	function deleteCheck(){
 		var isDelete=confirm("글을 삭제 하시겠습니까?");

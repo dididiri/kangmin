@@ -183,12 +183,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
    
-	function deleteCheck(){
-		var isDelete=confirm("글을 삭제 하시겠습니까?");
-		if(isDelete){
-			location.href="private/delete.do?num=${dto.num}";
-		}
-	}
+	
 	
 	
     var num=0;

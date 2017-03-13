@@ -63,7 +63,12 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
      }             
      .filebox{
         position: relative;
-	    bottom: 20px;
+	    top: -21px;
+	    height: 70px;
+     } 
+     .filebox2{
+        position: relative;
+	    
 	    height: 70px;
      } 
 	.filebox input[type="file"] { 
@@ -94,7 +99,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	     border: 1px solid #ebebeb;  
 	     font-size: 15pt;
          font-weight: bold;
-         border-radius: 4px;
+         
     }
     h2{
       color: rgba(255, 255, 255, 0.65);   
@@ -233,9 +238,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
      <c:if test="${id != dto.writer }">
     <div >
      
-         <a id="icon" class="glyphicon glyphicon-heart" href="list.do?writer=${ id}"></a>
+         <a id="icon" class="glyphicon glyphicon-heart" href="#"></a>
         <a id="icon" class="glyphicon glyphicon-home" href="list.do?writer=${ id}"></a>
-        <a id="icon" class="glyphicon glyphicon-user" href="list.do?writer=${ id}"></a>
+        <a id="icon" class="glyphicon glyphicon-user" href="#"></a>
         <a id="icon" class="glyphicon glyphicon-envelope" href="list.do?writer=${ id}"></a>
        
     </div>
@@ -256,12 +261,12 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 <div id="myModal5" class="modal fade" style="top: 238px;">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="filebox">
-				
-	           <button id="fileBtn" class="singoutBtn" style="width: 100%;" type="submit">로그아웃</button>
+			<div class="filebox2">
+				<button id="fileBtn" class="singoutBtn2" style="width: 100%;" type="submit">프로필편집</button>
+	           <button id="fileBtn" class="singoutBtn1" style="width: 100%;" type="submit">로그아웃</button>
 			
 				
-				<button id="fileBtn" data-dismiss="modal" style="width: 100%;" type="submit">취소</button>
+				<button id="fileBtn" data-dismiss="modal" style="width: 100%; margin-top: -4px;" type="submit">취소</button>
 				
             
 			</div>
@@ -281,7 +286,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 				<input type="file" name="file" id="ex_file" />
 			
 				
-				<button id="fileBtn" style="width: 100%;" type="submit">업로드</button>
+				<button id="fileBtn" style="width: 100%;margin-top: -6px;" type="submit">업로드</button>
 				
                 </form> 
 			</div>
@@ -300,12 +305,19 @@ $("p").find('img').addClass("img-thumbnail");
 
 	
 
-	$(".singoutBtn").click(function(){
+	$(".singoutBtn1").click(function(){
 		
 		
 			location.href="signout.do";
 		
 	});
+	
+	$(".singoutBtn2").click(function(){
+		
+		
+		location.href="../users/private/updateform.do";
+	
+});
 </script>
 </body>
 </html>
