@@ -26,8 +26,8 @@
     }
     
      #M_img2{
-       width: 40px;
-       height: 35px;
+       width: 100px;
+       height: 100px;
        border-radius: 50%;
        
     }  
@@ -41,10 +41,11 @@
 <br />  
 <form action="update.do" method="post" id="updateForm">
     <div>
-    <img style="float: left;"  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
+    <img style="float: left;margin-top: -35px;"  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
 	<h3 id="h3Id">${dto.id }</h3>
 	</div>
-	<div>
+	<div style="
+    margin-top: 40px;">
 	<input type="hidden" name="id" value="${dto.id }"/>
 	
 	<label style="margin-top: 3.5em; font-size: 20px;" for="pwd">새 비밀번호 입력</label>
@@ -66,8 +67,10 @@
 		var inputPwd=document.querySelector("#pwd").value;
 		var inputPwd2=document.querySelector("#pwd2").value;
 		if(inputPwd != inputPwd2){
-			alert("비밀번호를 확인 하세요");
+			alert("비밀번호를 확인 하세요~");
 			event.preventDefault();//폼전송 막기 
+		}else{
+			alert("비밀번호 변경이 됬습니다!");
 		}
 	});
 </script>

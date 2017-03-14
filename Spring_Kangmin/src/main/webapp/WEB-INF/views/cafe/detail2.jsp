@@ -123,6 +123,11 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     background: initial;
     border: none;
 }
+   #heart{
+       
+      font-size: 20px;
+     
+    }
     
 </style>
 </head>
@@ -192,7 +197,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 			<!-- 덧글 대상 -->
 			<input type="hidden" name="target_id" value="${tmp.writer }" />
 			<hr />   
-			<span><a  href="likeup2.do?num=${tmp.num}&writer=${tmp.writer}" class="glyphicon glyphicon-heart"  id="heart" style=" font-size: 20px;"></a></span>
+			<span><a  href="likeup2.do?num=${tmp.num}&writer=${tmp.writer}" class="glyphicon glyphicon-heart"  
+			
+			id="heart" ></a></span>
 			<input style="margin-bottom: 18px;font-size: 20px;margin-left: 0.5em;" id="inputText"type="text" name="content" placeholder="댓글 달기..."></input>
 			<button  id="btn1" type="submit" style="display:  none;">등록</button>
 		</form>
@@ -229,7 +236,9 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	}
 	
 	var a=$("#clickedImg").offset().top;
-	$("body").scrollTop(a-80);
+	$("body").scrollTop(a+100);
+	
+	
 </script>
 </body>
 </html>
