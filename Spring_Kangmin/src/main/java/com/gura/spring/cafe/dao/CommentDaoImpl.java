@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+
 import com.gura.spring.cafe.dto.CommentDto;
 
 
@@ -32,6 +33,12 @@ public class CommentDaoImpl implements CommentDao{
 		List<CommentDto> list = session.selectList("Comment.getList", num);
 		return list;
 		
+	}
+
+	@Override
+	public List<CommentDto> getList2(CommentDto dto) {
+		List<CommentDto> list = session.selectList("Comment.getList2", dto);
+		return list;
 	}
 
 }

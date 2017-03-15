@@ -13,4 +13,5 @@ public interface CommentService {
 	public void insert(CommentDto dto);
 	public int getSequence();
 	public List<CommentDto> getList(int num);
+	public List<CommentDto> getList2();
 }

@@ -27,6 +27,12 @@
 		WHERE 
 		<![CDATA[ rnum >= #{startRowNum} AND rnum <= #{endRowNum} ]]>
 	</select>	
+	<select id="getList2" resultType="cafeDto" parameterType="string">
+		SELECT <include refid="cafeColumns"/> FROM board_cafe
+        WHERE writer=#{writer}
+        ORDER BY num DESC
+		
+	</select>	
 	<insert id="insert" parameterType="cafeDto">
 		INSERT INTO board_cafe
 		(num, writer, title, content, viewCount, regdate)
@@ -37,6 +43,11 @@
 		SELECT <include refid="cafeColumns"/>
 		FROM board_cafe
 		WHERE num=#{num}
+	</select>
+	<select id="getData2" parameterType="cafeDto" resultType="cafeDto">
+		SELECT <include refid="cafeColumns"/>
+		FROM board_cafe
+		ORDER BY num DESC
 	</select>
 	
 	<update id="increaseViewCount" parameterType="int">

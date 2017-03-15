@@ -4,20 +4,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8"/>
+<meta charset=" UTF-8" name="viewport" 
+content="width=device-width, initial-scale=1, 
+minimum-scale=1, maximum-scale=1, user-scalable=no">
 <title>views/cafe/private/insertform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <!-- SmartEditor 관련 javascript 로딩 -->
 <script src="${pageContext.request.contextPath }/
 	SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
+<style>
+     body{  
+    	background-image: url(../../resources/images/bg3.jpg);
+    	
+    }
+     h3 {
+       color :#ffffff;
+    }
+    th{
+        color :#ffffff;
+    }
+    
+    td{
+       color :#ffffff;
+    }
+</style>
+
 <body>
-<h3>카페 새글 입력 페이지 입니다.</h3>
+<div class="container">
+<h3>이미지 게시판 입력 페이지 입니다.</h3>
 <form action="insert.do" method="post">
 	<input type="hidden" name="writer" value="${id }" />
-	<label for="writer">작성자</label>
-	<input type="text" id="writer" 
+	
+	<input type="hidden" id="writer" 
 		value="${id }" disabled="disabled"/><br/>
-	<label for="title">제목</label>
+	<label style="
+    color: #ffffff;" for="title">제목</label>
 	<input type="text" name="title" id="title"/><br/>
 	<textarea name="content" id="ir1" style="width:766px;height:412px;display:none"></textarea>
 	<div>
@@ -26,6 +48,7 @@
 		
 	</div>	
 </form>
+</div>	
 <script>
 var oEditors = [];
 
@@ -38,8 +61,8 @@ nhn.husky.EZCreator.createInIFrame({
 	sSkinURI: "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",	
 	htParams : {
 		bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-		bUseVerticalResizer : true,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-		bUseModeChanger : true,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
+		bUseVerticalResizer : false,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
+		bUseModeChanger : false,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
 		//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
 		fOnBeforeUnload : function(){
 			//alert("완료!");

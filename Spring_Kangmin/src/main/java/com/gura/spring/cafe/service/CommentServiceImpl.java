@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.gura.spring.cafe.dao.CommentDao;
-
+import com.gura.spring.cafe.dto.CafeDto;
 import com.gura.spring.cafe.dto.CommentDto;
 
 
@@ -32,6 +32,14 @@ public class CommentServiceImpl implements CommentService{
 	public List<CommentDto> getList(int num) {
 		
 		List<CommentDto> list = commentDao.getList(num);
+		
+		return list;
+	}
+
+	@Override
+	public List<CommentDto> getList2() {
+		CommentDto dto=new CommentDto();
+		List<CommentDto> list = commentDao.getList2(dto);
 		
 		return list;
 	}

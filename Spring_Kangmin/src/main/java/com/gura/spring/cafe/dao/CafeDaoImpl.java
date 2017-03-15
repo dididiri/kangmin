@@ -19,6 +19,11 @@ public class CafeDaoImpl implements CafeDao{
 		List<CafeDto> list=session.selectList("cafe.getList", dto);
 		return list;
 	}
+	@Override
+	public List<CafeDto> getList2(String writer) {
+		List<CafeDto> list2=session.selectList("cafe.getList2",writer);
+		return list2;
+	}
 
 	@Override
 	public void insert(CafeDto dto) {
@@ -29,6 +34,12 @@ public class CafeDaoImpl implements CafeDao{
 	public CafeDto getData(int num) {
 		CafeDto dto=session.selectOne("cafe.getData", num);
 		return dto;
+	}
+	@Override
+	public List<CafeDto> getData2(CafeDto dto) {
+		
+		List<CafeDto> list3=session.selectList("cafe.getData2", dto);
+		return list3;
 	}
 
 	@Override
@@ -45,12 +56,15 @@ public class CafeDaoImpl implements CafeDao{
 	public void delete(int num) {
 		session.delete("cafe.delete", num);
 	}
-	//전체 글 갯수를 리턴하는 메소드 
+	
 	@Override
 	public int getCount() {
 		int count=session.selectOne("cafe.getCount");
 		return count;
 	}
+	
+
+	
 
 }
 

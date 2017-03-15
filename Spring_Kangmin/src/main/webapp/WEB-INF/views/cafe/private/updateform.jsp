@@ -6,14 +6,33 @@
 <head>
 <meta charset="UTF-8"/>
 <title>/views/cafe/private/updateform.jsp</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath }/resources/css/bootstrap.css"/>
 <!-- SmartEditor 관련 javascript 로딩 -->
 <script src="${pageContext.request.contextPath }/
 	SmartEditor/js/HuskyEZCreator.js"></script>
 </head>
+<style>
+     body{  
+    	background-image: url(../../resources/images/bg3.jpg);
+    	
+    }
+    h3 {
+       color :#ffffff;
+    }
+    th{
+        color :#ffffff;
+    }
+    
+    td{
+       color :#ffffff;
+    }
+</style>
 <body>
+<div class="container">
 <h3>카페글 수정 페이지 입니다.</h3>
 <form action="update.do" method="post">
 	<input type="hidden" name="num" value="${dto.num }"/>
+	<input type="hidden" name="writer" value="${dto.writer }"/>
 	<table>
 		<tr>
 			<th>글번호</th>
@@ -25,7 +44,7 @@
 		</tr>
 		<tr>
 			<th>제목</th>
-			<td><input type="text" name="title" value="${dto.title }"/></td>
+			<td><input style="color: #000000;" type="text" name="title" value="${dto.title }"/></td>
 		</tr>
 		<tr>
 			<th>조회수</th>
@@ -38,6 +57,7 @@
 		<input type="button" onclick="submitContents(this);" value="수정확인" />
 	</div>	
 </form>
+</div>	
 <script>
 var oEditors = [];
 
