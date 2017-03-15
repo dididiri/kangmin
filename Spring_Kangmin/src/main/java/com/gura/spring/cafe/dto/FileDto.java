@@ -10,7 +10,7 @@ public class FileDto {
 	private String saveFileName;
 	private long fileSize;
 	private String regdate;
-	private MultipartFile file; //Spring 에서 파일 업로드 처리하기 위한 필드 
+	private MultipartFile file; 
 	
 	public FileDto(){}
 

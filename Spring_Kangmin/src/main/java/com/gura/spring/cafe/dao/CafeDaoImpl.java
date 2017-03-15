@@ -56,7 +56,7 @@ public class CafeDaoImpl implements CafeDao{
 	public void delete(int num) {
 		session.delete("cafe.delete", num);
 	}
-	//전체 글 갯수를 리턴하는 메소드 
+	
 	@Override
 	public int getCount() {
 		int count=session.selectOne("cafe.getCount");

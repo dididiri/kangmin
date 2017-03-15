@@ -5,9 +5,9 @@ public class CommentDto {
 	private int num;
 	private String writer;
 	private String content;
-	private String target_id; //덧글의 대상이 되는 아이디
-	private int ref_group; //덧글의 그룹
-	private int comment_group; //덧글 내에서의 그룹
+	private String target_id; 
+	private int ref_group; 
+	private int comment_group;
 	private String regdate;
 	
 	public CommentDto(){}

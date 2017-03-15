@@ -27,7 +27,6 @@ public class EmailService {
 			});
 			
 			msg.setSubject(vo.getSubject(),"utf-8");
-			
 			msg.setText(vo.getMessage(),"utf-8");
 			mailSender.send(msg);
 		} catch (Exception e) {

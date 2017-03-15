@@ -223,203 +223,185 @@
 <body >      
 
 <!-- 검색어 관련 form -->
- <div class="container" style="margin-bottom: 55px;text-align: center;margin-top: 55px;">   
-<form action="list.do?writer=${id }" method="post" id="keywordForm" class="input-group">
-	
-	<div class="input-group-btn">
-	<select style="height: 55px;" name="condition" id="condition" class="btn btn-default"  >
-		<option value="titlecontent" <c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
-		<option value="title" <c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
-		<option value="writer" <c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
-	</select>  
-	<input style="height: 55px;width: 240px;" class="btn btn-default" type="text" name="keyword" placeholder="검색어" 
-		value="${keyword }"/>
-	
-	<button style=" height: 55px;" type="submit" class="btn btn-default">
-	    <span class="sr-only">검색</span>
-        <span class="glyphicon glyphicon-search"></span>
-	</button>
-	  
-	</div>  
-</form>
+	<div class="container"
+		style="margin-bottom: 55px; text-align: center; margin-top: 55px;">
+		<form action="list.do?writer=${id }" method="post" id="keywordForm"
+			class="input-group">
 
- 
-    <div id="mobile" style="position: relative; top: 30px;">
-     
-         <c:if test="${not empty id }">
-         <a id="icon" class="glyphicon glyphicon-pencil" href="private/insertform.do"></a>
-        <a id="icon" class="glyphicon glyphicon-user" href="list2.do?writer=${dto.writer }"></a>
-        <a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
-       </c:if> 
-       
-      </div>
-          <c:choose>
-	             <c:when test="${not empty dto.saveFileName }">
-	                    <div id="meunDiv" style="color:#ffffff;">    
-	                    <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-	                    </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
-		                <ul class="dropdown-menu">
-					        <li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
-							<li><a href="signout.do">SignOut</a></li>
-		                </ul>
-		                </div> 
-	             </c:when>
-	             <c:when test="${not empty id }">
-	                   <c:if test="${empty dto.saveFileName}">
-	                   <div id="meunDiv" style="color:#ffffff;">    
-	                     <strong style=color:#ffffff><img data-toggle="modal" data-target="#myModal2" id="M_img2"  src="${pageContext.request.contextPath }/resources/images/kkk.jpg"/>
-	                     </strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom" data-toggle="dropdown"></a>
-		                 <ul class="dropdown-menu">
-							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
-							<li><a href="signout.do">SignOut</a></li>
-		                </ul>
-		                </div> 
-	                    </c:if>
-	              </c:when>
-	               </c:choose>
-                 
-                  <c:choose>
-	              <c:when test="${ empty id }">
-	              <div  style="position: relative; top: 32px; font-size: 20px;">
-			           <a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong style="
-                       color: #ffffff;"> or </strong>
-			           <a href="" data-toggle="modal" data-target="#myModal3">SignUp</a>
-			      </div>      
-			      </c:when>
-	              </c:choose>       
-			   
-  </div> 
+			<div class="input-group-btn">
+				<select style="height: 55px;" name="condition" id="condition"
+					class="btn btn-default">
+					<option value="titlecontent"
+						<c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
+					<option value="title"
+						<c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
+					<option value="writer"
+						<c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
+				</select> <input style="height: 55px; width: 240px;" class="btn btn-default"
+					type="text" name="keyword" placeholder="검색어" value="${keyword }" />
 
-     
+				<button style="height: 55px;" type="submit" class="btn btn-default">
+					<span class="sr-only">검색</span> <span
+						class="glyphicon glyphicon-search"></span>
+				</button>
 
-<div class="container" style="text-align: center;">    
+			</div>
+		</form>
 
 
+		<div id="mobile" style="position: relative; top: 30px;">
 
- <%-- <c:choose>
-	
-	<c:when test="${id != dto.writer }">  
-	  
-	     <img  id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-       
-    </c:when>
-    <c:when test="${id eq dto.writer }">  
-	  <c:if test="${not empty id }">
-	     <img data-toggle="modal" data-target="#myModal2" id="M_img"  src="${pageContext.request.contextPath }/upload/${dto.saveFileName}"/>
-     </c:if>
-    </c:when>
-    <c:when test="${not empty id }">
-      <c:if test="${empty dto.saveFileName}">
-         <img data-toggle="modal" data-target="#myModal2" id="M_img3" src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
-    </c:if>
-     </c:when>
-</c:choose> --%>
-  
-<hr /> 
-<div class="row">  
-    <c:forEach var="tmp" items="${list }"> 
-    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
-			<a id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
-	</div>
-	</c:forEach>
-</div>
-</div>
-
-<!-- 로그인 Modal -->  
-<div id="myModal" class="modal fade">
-    <div class="modal-dialog">
-       
-		    	
-		   <div class="container">
-		     
-		
-		  
-		   <div class="">
-			   	
-				<div  class="login-box well" id="dovBox">
-			
-                    
-					<form action="signin.do?uri=${param.uri }" method="post"
-						name="sForm" novalidate id="myform">
-						<div class="form-group has-feedback">
-							<label class="control-label" for="id">ID</label> 
-							<input class="form-control" type="text" name="id" id="id" >
-							<p  id="block0" class="help-block">아이디 또는 비밀번호를 다시 확인하세요.</p>
-			                <span class="glyphicon form-control-feedback"></span>
-                        </div>
-						<div class="form-group">
-							<label for="pwd">password</label> <input class="form-control"
-							type="password" name="pwd" id="pwd" />
-						</div>
-						<div class="form-group">
-						
-							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">SingIn</button>
-						
-						</div>
-					</form>
-				</div>
+			<c:if test="${not empty id }">
+				<a id="icon" class="glyphicon glyphicon-pencil"
+					href="private/insertform.do"></a>
+				<a id="icon" class="glyphicon glyphicon-user"
+					href="list2.do?writer=${dto.writer }"></a>
+				<a id="icon" class="glyphicon glyphicon-envelope" href="#"></a>
+			</c:if>
 
 		</div>
+		<c:choose>
+			<c:when test="${not empty dto.saveFileName }">
+				<div id="meunDiv" style="color: #ffffff;">
+					<strong style="color: #ffffff"><img data-toggle="modal"
+						data-target="#myModal2" id="M_img2"
+						src="${pageContext.request.contextPath }/upload/${dto.saveFileName}" />
+					</strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom"
+						data-toggle="dropdown"></a>
+					<ul class="dropdown-menu">
+						<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
+						<li><a href="signout.do">SignOut</a></li>
+					</ul>
+				</div>
+			</c:when>
+			<c:when test="${not empty id }">
+				<c:if test="${empty dto.saveFileName}">
+					<div id="meunDiv" style="color: #ffffff;">
+						<strong style="color: #ffffff"><img data-toggle="modal"
+							data-target="#myModal2" id="M_img2"
+							src="${pageContext.request.contextPath }/resources/images/kkk.jpg" />
+						</strong><a id="meunA" href="" class="glyphicon glyphicon-triangle-bottom"
+							data-toggle="dropdown"></a>
+						<ul class="dropdown-menu">
+							<li><a href="list2.do?writer=${dto.writer }">YourPorofile</a></li>
+							<li><a href="signout.do">SignOut</a></li>
+						</ul>
+					</div>
+				</c:if>
+			</c:when>
+		</c:choose>
+
+		<c:choose>
+			<c:when test="${ empty id }">
+				<div style="position: relative; top: 32px; font-size: 20px;">
+					<a href="" data-toggle="modal" data-target="#myModal">SignIn</a><strong
+						style="color: #ffffff;"> or </strong> <a href=""
+						data-toggle="modal" data-target="#myModal3">SignUp</a>
+				</div>
+			</c:when>
+		</c:choose>
+    </div>
+    <div class="container" style="text-align: center;">    
+
+
+
+  
+	<hr /> 
+	<div class="row">  
+	    <c:forEach var="tmp" items="${list }"> 
+	    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
+				<a id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
+		</div>
+		</c:forEach>
 	</div>
-	  
 	</div>
-</div> 
 
-<!-- 동적으로 띄울 Modal 준비 -->  
-<div id="myModal3" class="modal">
+	<!-- 로그인 Modal -->
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="container">
+				<div class="">
+					<div class="login-box well" id="dovBox">
+						<form action="signin.do?uri=${param.uri }" method="post"
+							name="sForm" novalidate id="myform">
+							<div class="form-group has-feedback">
+								<label class="control-label" for="id">ID</label> <input
+									class="form-control" type="text" name="id" id="id">
+								<p id="block0" class="help-block">아이디 또는 비밀번호를 다시 확인하세요.</p>
+								<span class="glyphicon form-control-feedback"></span>
+							</div>
+							<div class="form-group">
+								<label for="pwd">password</label> <input class="form-control"
+									type="password" name="pwd" id="pwd" />
+							</div>
+							<div class="form-group">
 
-	<div class="modal-dialog">
-		
-		
+								<button id="id2" type="submit"
+									class="btn btn-default btn-block m-t-md">SingIn</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<div class="login-box well" id="upbox">
+	<!-- 동적으로 띄울 Modal 준비 -->
+	<div id="myModal3" class="modal">
+		<div class="modal-dialog">
+			<div class="login-box well" id="upbox">
 
-		          
-		   
-					<form action="signup.do?uri=${param.uri }" method="post"
-						name="sForm" novalidate id="myform">
-						<div class="form-group has-feedback">
-							<label class="control-label" for="id3">ID</label> 
-							<input class="form-control" type="text" name="id" id="id3" >
-							<p id="block" class="help-block">이미 사용중인 아이디 입니다.</p>
-							<p id="block2" class="help-block">사용가능한 아이디 입니다.</p>
-			                <span class="glyphicon form-control-feedback"></span>
-                        </div>
-						<div class="form-group">
-							<label for="pwd">password</label> <input class="form-control"
+
+
+				<form action="signup.do?uri=${param.uri }" method="post"
+					name="sForm" novalidate id="myform">
+					<div class="form-group has-feedback">
+						<label class="control-label" for="id3">ID</label> <input
+							class="form-control" type="text" name="id" id="id3">
+						<p id="block" class="help-block">이미 사용중인 아이디 입니다.</p>
+						<p id="block2" class="help-block">사용가능한 아이디 입니다.</p>
+						<span class="glyphicon form-control-feedback"></span>
+					</div>
+					<div class="form-group">
+						<label for="pwd">password</label> <input class="form-control"
 							type="password" name="pwd" id="pwd" />
-						</div>
-						
-						
-						    <label class="control-label" for="id4"></label> 
-							<input type="hidden" id="senderName" name="senderName" value="김강민회사">
-							<input type="hidden" id="senderMail" name="senderMail" value="fjqngodys2@gmail.com"/>
-							<label for="email">email</label>
-							<input name="email" id="email" class="form-control"/>
-							<input type="hidden" id="subject" name="subject" value="인증번호 입니다."/>
-							<input  type="hidden" id="message" name="message"  />
-							<p id="block4" class="help-block">인증번호가 전송됬습니다.</p>
-							 <span class="glyphicon form-control-feedback"></span>
-							
-							
-							<button style="color: #000000;" id="checkBtn10">인증전송</button><br />
-					        <span style="color:red;">${message }</span>  
-							<label for="">인증</label> <input class="form-control"
-							type="text" id="message2" name="message2" />
-							<button style="color: #000000;" id="checkBtn12"  type="submit" >인증확인</button>
-							<button id="id2"  type="submit" class="btn btn-default btn-block m-t-md">SingUp</button>
-						
-						
-						
-						
-		 </form>
-     </div> 
-   </div> 
-</div> 
+					</div>
+					<label class="control-label" for="id4"></label> <input
+						type="hidden" id="senderName" name="senderName" value="김강민회사">
+					<input type="hidden" id="senderMail" name="senderMail"
+						value="fjqngodys2@gmail.com" /> <input type="hidden" id="subject"
+						name="subject" value="인증번호 입니다." /> <input type="hidden"
+						id="message" name="message" /> <label for="email">email</label>
+					<div class="input-group">
+						<input name="email" id="email" class="form-control" /> <span
+							class="input-group-btn">
+							<button class="btn btn-info" id="checkBtn10">
+								<span>인증전송</span>
+							</button>
+							<br />
+						</span>
+					</div>
+
+					<label for="">인증</label>
+					<div class="input-group">
+						<input class="form-control" type="text" id="message2"
+							name="message2" /> <span class="input-group-btn">
+							<button class="btn btn-info" id="checkBtn12" type="submit">
+								<span>인증확인</span>
+							</button>
+						</span>
+					</div>
+					<label for=""></label>
+					<button id="id2" type="submit"
+						class="btn btn-default btn-block m-t-md">SingUp</button>
+				</form>
+			</div>
+		</div>
+	</div>
 
 
 
-<!-- 동적으로 띄울 Modal 준비 -->
+	<!-- 동적으로 띄울 Modal 준비 -->
 <div id="myModal2" class="modal fade" style="top: 350px;">
 	<div class="modal-dialog">
 		<div class="modal-content">
@@ -592,8 +574,10 @@
 				console.log(data);
 				if(data.canUse){
 					alert("인증번호가 확인되었습니다.");
+					return true;
 				}else{
 					alert("인증번호 일치하지 않습니다.");
+					return false;
 				   }
 					
 				}

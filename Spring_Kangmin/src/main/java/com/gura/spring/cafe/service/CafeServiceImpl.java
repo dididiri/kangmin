@@ -29,22 +29,21 @@ public class CafeServiceImpl implements CafeService{
 	}
 	@Override
 	public ModelAndView getList(HttpServletRequest request,int pageNum) {
-		//검색과 관련된 파라미터를 읽어와 본다.
+		
 		String keyword=request.getParameter("keyword");
 		String condition=request.getParameter("condition");
 		
-		//CafeDto 객체를 생성해서
 		CafeDto dto=new CafeDto();
-		if(keyword != null){ //검색어가 전달된 경우
-			if(condition.equals("titlecontent")){ //제목+내용 검색
+		if(keyword != null){ 
+			if(condition.equals("titlecontent")){ 
 				dto.setTitle(keyword);
 				dto.setContent(keyword);
-			}else if(condition.equals("title")){//제목 검색
+			}else if(condition.equals("title")){
 				dto.setTitle(keyword);
-			}else if(condition.equals("writer")){//작성자 검색
+			}else if(condition.equals("writer")){
 				dto.setWriter(keyword);
 			}
-			// list.jsp 뷰페이지에서 필요한 내용을 request 에 담는다.
+	
 			request.setAttribute("condition", condition);
 			request.setAttribute("keyword", keyword);
 		}		
@@ -94,31 +93,23 @@ public class CafeServiceImpl implements CafeService{
 
 	@Override
 	public ModelAndView getData(int num) {
-		//1. 글정보를 얻어온다.
+	
 		CafeDto dto=cafeDao.getData(num);
-		
-		//3. 글정보를 ModelAndView 객체에 담는다.
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", dto);
-		//리턴해준다.
+	
 		return mView;
 	}
 	@Override
 	public void likeUp(int num) {
-		//1. 글정보를 얻어온다.
 		
 		cafeDao.increaseViewCount(num);
-		//3. 글정보를 ModelAndView 객체에 담는다.
-		
-		
 	}
 	@Override
 	public List<CafeDto> getData2() {
 		CafeDto dto=new CafeDto();
 		List<CafeDto> list3=cafeDao.getData2(dto);
-		//3. 글정보를 ModelAndView 객체에 담는다.
 		
-		//리턴해준다.
 		return list3;
 	}
 
@@ -134,12 +125,11 @@ public class CafeServiceImpl implements CafeService{
 
 	@Override
 	public ModelAndView updateForm(int num) {
-		//수정할 글정보를 얻어온다. 
+		
 		CafeDto dto=cafeDao.getData(num);
-		//수정할 글정보를 ModelAndView 객체에 담고 
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", dto);
-		//리턴해준다. 
+		
 		return mView;
 	}
 	

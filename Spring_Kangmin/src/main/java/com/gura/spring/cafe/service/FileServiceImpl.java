@@ -15,11 +15,11 @@ import com.gura.spring.cafe.dto.FileDto;
 
 
 
-@Component //bean 으로 만들기위한 어노테이션 
+@Component
 public class FileServiceImpl implements FileService{
 	
-	//의존객체
-	@Autowired // 의존 객체를 주입 받기 위한 어노테이션 
+	
+	@Autowired
 	private FileDao fileDao;
 	
 	@Override
@@ -61,9 +61,7 @@ public class FileServiceImpl implements FileService{
 
 	@Override
 	public ModelAndView list() {
-		//FileDao 객체를 이용해서 파일 목록을 얻어온다. 
 		List<FileDto> list=fileDao.getList();
-		//ModelAndView 객체에 담아서 리턴해준다.
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("list", list);
 		
@@ -74,12 +72,10 @@ public class FileServiceImpl implements FileService{
 
 	@Override
 	public FileDto getData(String writer) {
-		//다운로드 시켜줄 파일의 정보를 읽어온다.
 		FileDto dto=fileDao.getData(writer);
-		// 파일의 정보를 ModelAndView 객체에 담아서
 		ModelAndView mView=new ModelAndView();
 		mView.addObject("dto", dto);
-		//리턴해준다. 
+		
 		return dto;
 	}
 

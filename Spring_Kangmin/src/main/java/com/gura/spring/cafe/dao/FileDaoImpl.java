@@ -10,16 +10,15 @@ import com.gura.spring.cafe.dto.FileDto;
 
 
 
-@Repository //Dao 를 bean 으로 만들때 사용하는 어노테이션 
+@Repository
 public class FileDaoImpl implements FileDao{
 	
-	//의존객체
-	@Autowired //의존객체 주입 받는 어노테이션 
+	
+	@Autowired 
 	private SqlSession session;
 	
 	@Override
 	public void insert(FileDto dto) {
-		//업로드된 파일의 정보를 DB 에 저장하기 
 		session.insert("file.insert", dto);
 	}
 
@@ -33,7 +32,6 @@ public class FileDaoImpl implements FileDao{
 
 	@Override
 	public FileDto getData(String writer) {
-		
 		return session.selectOne("file.getData", writer);
 	}
 

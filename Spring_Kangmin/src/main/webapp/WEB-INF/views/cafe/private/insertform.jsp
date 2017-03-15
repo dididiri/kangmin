@@ -32,7 +32,7 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 
 <body>
 <div class="container">
-<h3>카페 새글 입력 페이지 입니다.</h3>
+<h3>이미지 게시판 입력 페이지 입니다.</h3>
 <form action="insert.do" method="post">
 	<input type="hidden" name="writer" value="${id }" />
 	
