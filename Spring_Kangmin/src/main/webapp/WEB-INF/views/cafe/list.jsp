@@ -364,7 +364,7 @@
 					</div>
 					<div class="form-group">
 						<label for="pwd">password</label> <input class="form-control"
-							type="password" name="pwd" id="pwd" />
+							type="password" name="pwd" id="pwd3" />
 					</div>
 					<label class="control-label" for="id4"></label> <input
 						type="hidden" id="senderName" name="senderName" value="김강민회사">
@@ -392,7 +392,7 @@
 						</span>
 					</div>
 					<label for=""></label>
-					<button id="id2" type="submit"
+					<button id="id10" type="submit"
 						class="btn btn-default btn-block m-t-md">SingUp</button>
 				</form>
 			</div>
@@ -532,11 +532,81 @@
 	 			}
 	 		});
 	 		
-	 		return false; //폼전송 막기 
+	 		
 	 	});
         
-	 	
-	 
+	 	var b=false;
+	 	$("#id10").click(function(){
+	 		var inputId2=$("#id3").val();
+	 		$.ajax({
+	 			url:"checkid2.do",
+	 			method:"get",
+	 			data:{"inputId2":inputId2},
+	 			success:function(data){
+	 				console.log(data);
+	 				
+	 				if(data.canUse){
+	 				 
+	 				  b=true;
+	 				  if($("#id3").val() == ""){
+	 					 alert("아이디를 입력하세요.");
+	 					 b=false;
+	 				  }else if($("#pwd3").val() == ""){
+	 					 alert("비밀번호를 입력하세요.");
+	 					 b=false; 
+	 				  }else if($("#email").val() == ""){
+		 					 alert("이메일를 입력하세요.");
+		 					 b=false; 
+		 			   }else if($("#message2").val() == ""){
+		 					 alert("인증번호를 입력하세요.");
+		 					 b=false; 
+		 			   }else{
+		 			    	var message2=$("#message2").val();
+		 					var message=$("#message").val();
+		 			    	$.ajax({
+		 						url:"ident.do",
+		 						method:"post",
+		 						data:{"message2":message2,"message":message},
+		 						success:function(data){
+		 						console.log(data);
+		 						if(data.canUse){
+		 							
+		 							b=true;
+		 							
+		 						}else{
+		 							
+		 							
+		 							b=false;
+		 						   }
+		 						
+		 						}
+		 						
+		 						
+		 			    	});
+		 			    	if(b==false){
+		 						return false;
+		 					}else if(b==true){
+		 						return true;
+		 					}	
+		 				
+		 			    
+		 			    }
+		 			
+	 				}else{
+	 				    b=false; 
+	 					      
+	 					           
+	 				}
+	 			}
+	 		    
+	 		
+	     	});   
+	 		if(b==false){
+	 		 return false;
+	 		}else if(b==true){
+	 			return true;
+	 		} 
+		});
 	 	
 		$("#checkBtn10").click(function(){
 			//입력한 id 읽어오기
@@ -554,10 +624,16 @@
 				data:{"senderName":senderName,"senderMail":senderMail,
 					"email":email,"subject":subject,"message":message},
 				success:function(data){
-					
+					if($("#email").val() == ""){
+				    	alert("이메일를 입력하세요.");
+				    	return false;
+				    }else if($("#email").val() != ""){
+				    	alert("인증번호가 전송됬습니다.");
+				    	return true;
+				    }
 				}
-			});
-			alert("인증번호가 전송됬습니다.");
+			});   
+		
 			return false; //폼전송 막기 
 		});
         
@@ -574,6 +650,9 @@
 				console.log(data);
 				if(data.canUse){
 					alert("인증번호가 확인되었습니다.");
+					return true;
+				}else if($("#message2").val() == ""){
+					alert("인증번호를 입력하세요.");
 					return true;
 				}else{
 					alert("인증번호 일치하지 않습니다.");
