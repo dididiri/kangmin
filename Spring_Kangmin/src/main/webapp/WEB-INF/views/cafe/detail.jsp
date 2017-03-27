@@ -77,8 +77,8 @@ textarea {
 }
 
 #M_img2 {
-	width: 37px;
-	height: 35px;
+	width: 45px;
+	height: 45px;   
 	border-radius: 50%;
 }
 
@@ -127,11 +127,17 @@ a {
 		</c:if>
 
 
-		<div class="imgbox" style="padding-top: 10px; padding-bottom: 10px;">
-			<a href="list2.do?writer=${dto.writer }"><img data-toggle="modal"
+		<div class="imgbox" style="padding-top: 10px;height: 67px; padding-left: 12px;">
+			<a href="list2.do?writer=${dto.writer }">
+			<img data-toggle="modal"
 				data-target="#myModal2" id="M_img2"
 				src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}" />${dto.writer }
+			      
+			<c:if test="${tmp.writer eq img.writer }">
+			<div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">${dto.regdate }분</div>
+			 </c:if>
 			</a>
+			
 		</div>
 
 		<div class="content">${dto.content }</div>

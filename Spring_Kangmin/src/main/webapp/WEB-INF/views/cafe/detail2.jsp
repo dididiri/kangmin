@@ -149,16 +149,18 @@ a {
 		<c:forEach var="tmp" items="${list3}">
 			<br />
 			<br />
-			<div class="imgbox" style="padding-top: 10px; padding-bottom: 10px;">
+			<div class="imgbox" style="padding-top: 10px; height: 67px; padding-left: 12px;">
 				<a href="list2.do?writer=${tmp.writer }"> <c:forEach var="img"
 						items="${list5}">
 						<c:if test="${tmp.writer eq img.writer }">
 							<img class="${tmp.num }" data-toggle="modal"
 								data-target="#myModal2" id="M_img2"
 								src="${pageContext.request.contextPath }/upload/${img.saveFileName}" />${tmp.writer }
-    </c:if>
+                            
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">${tmp.regdate }분</div>    
+                    </c:if>
 					</c:forEach>
-
+   
 				</a>
 			</div>
 
@@ -171,7 +173,8 @@ a {
 				</p>
 				<a href="list2.do?writer=${tmp.writer }">${tmp.writer }</a>
 				${tmp.title }
-
+				
+                
 				<div class="comments">
 					<c:forEach var="ip" items="${commentList }">
 						<c:choose>

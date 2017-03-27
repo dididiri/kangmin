@@ -3,7 +3,8 @@
 <mapper namespace="cafe">
 	<sql id="cafeColumns">
 		num,writer,title,content,viewCount,
-		TO_CHAR(regdate, 'YY.MM.DD HH24:MI') AS regdate
+		TO_CHAR(SYSDATE, 'HH12MI')+1- TO_CHAR(REGDATE, 'HH12MI') AS regdate
+		
 	</sql>
 	<select id="getList" resultType="cafeDto" parameterType="cafeDto">
 		SELECT *
