@@ -72,8 +72,8 @@ public class CafeController {
 	}
 
 	@RequestMapping("/cafe/private/insert")
-	public ModelAndView authInsert(@ModelAttribute CafeDto dto) {
-		cafeService.insert(dto);
+	public ModelAndView authInsert(HttpServletRequest request,@ModelAttribute CafeDto dto) {
+		cafeService.insert(request,dto);
 		dto.getWriter();
 		return new ModelAndView("redirect:/cafe/list2.do?writer=" + dto.getWriter());
 	}

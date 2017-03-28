@@ -54,21 +54,36 @@
 		<input style="width: 250px; height: 32px;" type="password" id="pwd2" /><br/>
 		<input type="hidden" name="email" id="email" 
 			value="${dto.email }"/><br/>
-		<button type="submit">비밀번호 변경</button>
+		<button id="upBtn" type="submit">비밀번호 변경</button>
 	</div>
 </form>
 </div >
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
 	document.querySelector("#updateForm")
 	.addEventListener("submit", function(event){
 		var inputPwd=document.querySelector("#pwd").value;
 		var inputPwd2=document.querySelector("#pwd2").value;
 		if(inputPwd != inputPwd2){
-			alert("비밀번호를 확인 하세요~");
+			alert("비밀번호가 일치하지 않습니다.");
 			event.preventDefault();//폼전송 막기 
 		}else{
-			alert("비밀번호 변경이 됬습니다!");
+			alert("비밀번호 변경이 됬습니다.");
 		}
+	});
+	
+	$("#upBtn").click(function(){
+		 if($("#pwd").val() == ""){
+			 alert("비밀번호를 입력하세요.");
+		  
+	     }else if($("#pwd2").val() == ""){
+	    	 alert("비밀번호를 입력하세요.");
+	     }
+		 else{  
+			  return true;
+		  }
+		return false;
 	});
 </script>
 </body>

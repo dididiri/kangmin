@@ -73,9 +73,9 @@
 	    padding: 15px;
 	}
 	#col1{
-		padding-right: 5px;
-	    padding-left: 5px;
-	   	margin-bottom: -20px;
+		padding-right: 3px;
+	    padding-left: 3px;  
+	   	margin-bottom: 5px;  
     }
     
     body{  
@@ -310,7 +310,7 @@
 	<div class="row">  
 	    <c:forEach var="tmp" items="${list }"> 
 	    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
-				<a id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
+				<a class="img-thumbnail" id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}"><img src="${pageContext.request.contextPath }/upload/${tmp.content}" alt="" /></a>
 		</div>
 		</c:forEach>
 	</div>
@@ -423,7 +423,7 @@
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 
 <script>
-	$("p").find('img').addClass("img-thumbnail").removeAttr('height:auto');
+	/* $("#a1").find('img').addClass("img-thumbnail").removeAttr('height:auto'); */
 	document.getElementById("message").value=Math.floor(Math.random()*800+1111);
 
 
@@ -663,6 +663,16 @@
 			});
 		
 			return false; //폼전송 막기 
+		});
+		
+		$("#fileBtn").click(function(){
+			 if($("#ex_file").val() == ""){
+				 alert("사진을 선택하세요.");
+			  
+		      }else{  
+				  return true;
+			  }
+			return false;
 		});
 		
 </script>

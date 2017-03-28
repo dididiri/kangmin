@@ -135,6 +135,10 @@ a {
 #heart {
 	font-size: 20px;
 }
+
+ a:hover{
+    color: #ffffff;
+ }
 </style>
 </head>
 <body>
@@ -150,7 +154,7 @@ a {
 			<br />
 			<br />
 			<div class="imgbox" style="padding-top: 10px; height: 67px; padding-left: 12px;">
-				<a href="list2.do?writer=${tmp.writer }"> <c:forEach var="img"
+				<a style="text-decoration: none;" href="list2.do?writer=${tmp.writer }"> <c:forEach var="img"
 						items="${list5}">
 						<c:if test="${tmp.writer eq img.writer }">
 							<img class="${tmp.num }" data-toggle="modal"
@@ -166,12 +170,12 @@ a {
 
 
 			<div class="content"
-				<c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>>${tmp.content }</div>
+				<c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>><img src="${pageContext.request.contextPath }/upload/${tmp.content}" alt="" /></div>
 			<div class="titlebox">
 				<p id="result" style="margin-top: 15px; margin-bottom: 10px;">
-					<a href=""></a>좋아요 ${tmp.viewCount }개
+					<a style="text-decoration: none;" href=""></a>좋아요 ${tmp.viewCount }개
 				</p>
-				<a href="list2.do?writer=${tmp.writer }">${tmp.writer }</a>
+				<a style="text-decoration: none;" href="list2.do?writer=${tmp.writer }">${tmp.writer }</a>
 				${tmp.title }
 				
                 
@@ -185,7 +189,7 @@ a {
 										<div class="reply_icon"></div>
 									</c:if>
 									<div>
-										<a href="list2.do?writer=${ip.writer}"
+										<a style="text-decoration: none;" href="list2.do?writer=${ip.writer}"
 											style="float: left; margin-right: 0.5em;">${ip.writer }</a>
 									</div>
 									<div style="margin-bottom: 7px; margin-top: 7px;">${ip.content }</div>
@@ -216,7 +220,7 @@ a {
 							<!-- 덧글 대상 -->
 							<input type="hidden" name="target_id" value="${tmp.writer }" />
 							<hr />
-							<span><a
+							<span><a style="text-decoration: none;"
 								href="likeup2.do?num=${tmp.num}&writer=${tmp.writer}"
 								class="glyphicon glyphicon-heart" id="heart"></a></span> <input
 								style="margin-bottom: 18px; font-size: 20px; margin-left: 0.5em;"

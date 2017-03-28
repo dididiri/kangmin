@@ -114,6 +114,11 @@ a {
 	background: initial;
 	border: none;
 }
+
+a:hover{
+    color: #ffffff;
+ }
+
 </style>
 </head>
 <body>
@@ -122,13 +127,13 @@ a {
 		<h3></h3>
 		<%-- 로그인한 회원이 작성한 글이라면 수정 링크를 제공해준다. --%>
 		<c:if test="${id eq dto.writer }">
-			<a href="private/updateform.do?num=${dto.num }">수정</a>
-			<a href="javascript:deleteCheck()">삭제</a>
+			<a style="text-decoration: none;" href="private/updateform.do?num=${dto.num }">수정</a>
+			<a style="text-decoration: none;" href="javascript:deleteCheck()">삭제</a>
 		</c:if>
 
 
 		<div class="imgbox" style="padding-top: 10px;height: 67px; padding-left: 12px;">
-			<a href="list2.do?writer=${dto.writer }">
+			<a style="text-decoration: none;" href="list2.do?writer=${dto.writer }">
 			<img data-toggle="modal"
 				data-target="#myModal2" id="M_img2"
 				src="${pageContext.request.contextPath }/upload/${dto1.saveFileName}" />${dto.writer }
@@ -140,12 +145,12 @@ a {
 			
 		</div>
 
-		<div class="content">${dto.content }</div>
+		<img src="${pageContext.request.contextPath }/upload/${dto.content}" alt="" />
 
 		<div class="titlebox">
 			<p id="result" style="margin-top: 15px; margin-bottom: 10px;">좋아요
 				${dto.viewCount }개</p>
-			<a href="list2.do?writer=${dto.writer }">${dto.writer }</a>
+			<a style="text-decoration: none;" href="list2.do?writer=${dto.writer }">${dto.writer }</a>
 			${dto.title }
 
 			<div class="comments">
@@ -156,7 +161,7 @@ a {
 							<div class="reply_icon"></div>
 						</c:if>
 						<div>
-							<a href="list2.do?writer=${tmp.writer}"
+							<a style="text-decoration: none;" href="list2.do?writer=${tmp.writer}"
 								style="float: left; margin-right: 0.5em;">${tmp.writer }</a>
 
 						</div>
@@ -187,8 +192,8 @@ a {
 					<!-- 덧글 대상 -->
 					<input type="hidden" name="target_id" value="${dto.writer }" />
 					<hr />
-					<span><a onclick="count()" class="glyphicon glyphicon-heart"
-						id="heart" style="font-size: 20px;"></a></span> <input
+					<span><a  onclick="count()" class="glyphicon glyphicon-heart"
+						id="heart" style="text-decoration: none; font-size: 20px;"></a></span> <input
 						style="margin-bottom: 18px; font-size: 20px; margin-left: 0.5em;"
 						id="inputText" type="text" name="content" placeholder="댓글 달기..."></input>
 

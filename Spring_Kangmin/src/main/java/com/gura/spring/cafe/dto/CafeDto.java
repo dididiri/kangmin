@@ -1,5 +1,7 @@
 package com.gura.spring.cafe.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class CafeDto {
 	private int num;
 	private String writer;
@@ -9,11 +11,10 @@ public class CafeDto {
 	private String regdate;
 	private int startRowNum;
 	private int endRowNum;
-	
+	private MultipartFile file; 
 	public CafeDto(){}
-
 	public CafeDto(int num, String writer, String title, String content, int viewCount, String regdate, int startRowNum,
-			int endRowNum) {
+			int endRowNum, MultipartFile file) {
 		super();
 		this.num = num;
 		this.writer = writer;
@@ -23,72 +24,64 @@ public class CafeDto {
 		this.regdate = regdate;
 		this.startRowNum = startRowNum;
 		this.endRowNum = endRowNum;
+		this.file = file;
 	}
-
 	public int getNum() {
 		return num;
 	}
-
 	public void setNum(int num) {
 		this.num = num;
 	}
-
 	public String getWriter() {
 		return writer;
 	}
-
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-
 	public String getTitle() {
 		return title;
 	}
-
 	public void setTitle(String title) {
 		this.title = title;
 	}
-
 	public String getContent() {
 		return content;
 	}
-
 	public void setContent(String content) {
 		this.content = content;
 	}
-
 	public int getViewCount() {
 		return viewCount;
 	}
-
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
 	}
-
 	public String getRegdate() {
 		return regdate;
 	}
-
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-
 	public int getStartRowNum() {
 		return startRowNum;
 	}
-
 	public void setStartRowNum(int startRowNum) {
 		this.startRowNum = startRowNum;
 	}
-
 	public int getEndRowNum() {
 		return endRowNum;
 	}
-
 	public void setEndRowNum(int endRowNum) {
 		this.endRowNum = endRowNum;
 	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
 
+	
 	
 	
 }
