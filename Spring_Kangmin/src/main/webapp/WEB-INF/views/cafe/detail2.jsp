@@ -133,11 +133,15 @@ a {
 }
 
 #heart {
-	font-size: 20px;
+	font-size: 22px;
 }
 
  a:hover{
     color: #ffffff;
+ }
+ 
+ #heart:hover{
+    color: red;
  }
 </style>
 </head>

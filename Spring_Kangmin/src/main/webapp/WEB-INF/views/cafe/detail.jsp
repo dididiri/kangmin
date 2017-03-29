@@ -118,6 +118,10 @@ a {
 a:hover{
     color: #ffffff;
  }
+ 
+ #heart:hover{
+    color: red;
+ }
  #fileBtn2 {
 		width: 100%;
 		background-color: #fdfdfd;
@@ -361,12 +365,12 @@ a:hover{
 			num++;
 
 			if (num <= 2) {
-				heart.style.color = "red";
+				
 				location.href = "likeup.do?num=${dto.num}&writer=${dto.writer}";
 			} else {
 				return false;
 			}
-		}
+		} 
 	
 		
 
