@@ -232,11 +232,11 @@
 				<select style="height: 55px;" name="condition" id="condition"
 					class="btn btn-default">
 					<option value="titlecontent"
-						<c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
+						<c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
 					<option value="title"
 						<c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 					<option value="writer"
-						<c:if test="${condition eq 'writer' }">selected</c:if>>작성자</option>
+						<c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
 				</select> <input style="height: 55px; width: 240px;" class="btn btn-default"
 					type="text" name="keyword" placeholder="검색어" value="${keyword }" />
 

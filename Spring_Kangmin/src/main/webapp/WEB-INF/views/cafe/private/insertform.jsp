@@ -41,13 +41,13 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<label style="
     color: #ffffff;" for="title">제목</label>
 	<input type="text" name="title" id="title"/><br/><br />
-    <label for="file" style="color: #ffffff;">첨부파일</label>
+    <label  for="file" style="color: #ffffff;">첨부파일</label>
 	<!--input type="file" name 속성의 value 는 FileDto 의 
 	MultipartFile Type 의 필드명과 같아야 한다.  -->
-	<input style="color: #ffffff;" type="file" name="file" id="file" /><br/>
-	<button id="id5" type="submit">업로드</button>
+	<input  style="color: #ffffff;" type="file" name="file" id="file" /><br/>
+	<button class="btn btn-info" id="id5" type="submit">업로드</button>
 </form>
-</div>	
+</div>	  
 <script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>

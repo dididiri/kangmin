@@ -31,6 +31,12 @@
        border-radius: 50%;
        
     }  
+     #block{
+		display: none;
+	}
+	#block2{
+		display: none;
+	}
 </style>
 </head>
 <body>
@@ -46,15 +52,21 @@
 		</div>
 		<div style="
 	    margin-top: 40px;">
-		<input type="hidden" name="id" value="${dto.id }"/>
-		<label style="margin-top: 3.5em; font-size: 20px;" for="pwd">새 비밀번호 입력</label>
+		<input type="hidden" name="id" id="id" value="${dto.id }"/>
+		<label style="margin-top: 2.5em; font-size: 20px;" for="pwd5">이전 비밀번호 입력</label>
+		<input style="width: 250px; height: 32px;" type="password" name="pwd" id="pwd5"/>
+		<p id="block" class="help-block">이전 비밀번호가 틀립니다.</p>
+		<p id="block2" class="help-block">OK!</p>
+		<span class="glyphicon form-control-feedback"></span>	
+		<br />
+		<label style="margin-top: 0.5em; font-size: 20px;" for="pwd">새 비밀번호 입력</label>
 		<input style="width: 250px; height: 32px;" type="password" name="pwd" id="pwd"
 			/><br/>
 		<label style="margin-top: 0.5em; margin-bottom: 1.5em; font-size: 20px;" for="pwd2">새 비밀번호 확인</label>
 		<input style="width: 250px; height: 32px;" type="password" id="pwd2" /><br/>
 		<input type="hidden" name="email" id="email" 
 			value="${dto.email }"/><br/>
-		<button id="upBtn" type="submit">비밀번호 변경</button>
+		<button class="btn btn-info" id="upBtn" type="submit">비밀번호 변경</button>
 	</div>
 </form>
 </div >
@@ -74,17 +86,66 @@
 	});
 	
 	$("#upBtn").click(function(){
-		 if($("#pwd").val() == ""){
-			 alert("비밀번호를 입력하세요.");
+		 if($("#pwd5").val() == ""){
+			 alert("이전 비밀번호를 입력하세요.");
 		  
-	     }else if($("#pwd2").val() == ""){
+	     }else if($("#pwd").val() == ""){
 	    	 alert("비밀번호를 입력하세요.");
 	     }
-		 else{  
+	     else if($("#pwd2").val() == ""){
+	    	 alert("비밀번호를 입력하세요.");
+	     }else{  
 			  return true;
 		  }
 		return false;
 	});
+	
+	$("#pwd5").on("keyup", function(){
+		
+				//입력한 아이디 읽어오기
+				var inputId=$("#id").val();
+				var inputPwd=$("#pwd5").val();
+				//ajax 요청을 이용해서 서버에 전송
+				
+				$.ajax({
+					url:"checkid3.do",
+					method:"get",
+					data:{"inputId":inputId,"inputPwd":inputPwd},
+					success:function(data){
+						console.log(data);
+						$("#pwd5").parent()
+						.removeClass("has-success has-error")
+						.find(".help-block")
+					    .hide();
+						if(data.canUse){
+							$("#pwd5")
+							.parent()
+							.addClass("has-success")
+							.find("#block2")
+							.show()
+							.parent()
+							.find(".glyphicon")
+							.removeClass("glyphicon-remove")
+							.addClass("glyphicon-ok");
+							
+							
+							
+						}else{
+							$("#pwd5")
+							.parent()
+							.addClass("has-error")
+							.find("#block")
+							.show()
+						    .parent()
+							.find(".glyphicon")
+							.removeClass("glyphicon-ok")
+							.addClass("glyphicon-remove");
+						}
+		 			}
+		 		});
+		 		
+		 		
+		 	});
 </script>
 </body>
 </html>

@@ -133,6 +133,25 @@ public class UsersController {
 	
 		return map;
 	}
+	@RequestMapping("users/private/checkid3")
+	@ResponseBody
+	public Map<String, Object> checkid31(@RequestParam String inputId,@RequestParam String inputPwd){
+		boolean canUse = false;
+		UsersDto dto=new UsersDto();
+		dto.setId(inputId);
+		dto.setPwd(inputPwd);
+		
+		boolean getId=usersService.isValid(dto);
+		 if(getId){
+			canUse=true;
+		}else{
+			canUse=false;
+		}
+		Map<String, Object> map=new HashMap<String,Object>();
+		map.put("canUse", canUse);
+	
+		return map;
+	}
 	
 	
 	@RequestMapping("cafe/checkid2")
