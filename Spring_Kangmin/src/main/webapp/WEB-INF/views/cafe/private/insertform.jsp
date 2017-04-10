@@ -96,19 +96,18 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	
 	.filebox .upload-thumb-wrap {
 	    display: inline-block;
-	    width: 54px;
-	    padding: 2px;
+	    
 	    vertical-align: middle;
 	    border: 1px solid #ddd;
-	    border-radius: 5px;
+	    
 	    background-color: #fff;
 	}
 	
 	.filebox .upload-display img {
 	    display: block;
 	    max-width: 100%;
-	    width: 100%;
-	    height: auto;
+	    width: 433px;
+	    height: 460px;
 	}
 	
 	.filebox.bs3-primary label {
@@ -116,26 +115,57 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	  background-color: #337ab7;
 	    border-color: #2e6da4;
 	}
+	  #M_img2{
+       width: 42px;
+       height: 42px;
+       border-radius: 50%;
+       margin-top:6px;
+       
+    }  
 </style>
 
 <body>
 <div class="container">
 <h3>이미지 게시판 입력 페이지 입니다.</h3>
 <form action="insert.do" method="post" enctype="multipart/form-data">
-    <label style="
-    color: #ffffff;" for="title">제목</label>
-	<input type="text" name="title" id="title"/><br/><br />
+<div style="
+    border: 1px solid #fff;
+    height: 55px;
+    width: 435px;  
+    position: relative;
+    border-bottom: 0px;">  
+    <img  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
+    <a style="color:#ffffff;position: relative;top: 3px;">${id }</a>   
+   </div>
 <div class="filebox bs3-primary preview-image">
+<div style="
+    border: 1px solid #fff;
+    height: 48px;
+    width: 435px;      
+    position: relative;
+    top: -6px;
+    border-top: 0px;">
+     
+    <a style="color:#ffffff;position: relative;top: 11px;left: 11px;">${id }#</a>
+    <input type="text" name="title" id="title" placeholder="제목 입력.." style=" width: 65%;
+    position: relative;top: 11px;left: 14px;  background-color: initial;
+    border: 0px; color:#ffffff;"/>
+</div>    
 	<input type="hidden" name="writer" value="${id }" />
 	
 	<input type="hidden" id="writer" 
 		value="${id }" disabled="disabled"/><br/>
 	
-    <label  for="file" style="color: #ffffff;">첨부파일</label>
+    <label  for="file" style="color: #ffffff; position: relative;top: -23px;">이미지파일</label>
 	<!--input type="file" name 속성의 value 는 FileDto 의 
 	MultipartFile Type 의 필드명과 같아야 한다.  -->
 	<input class="upload-hidden"  style="color: #ffffff;" type="file" name="file" id="file" /><br/>
-	<button class="btn btn-info" id="id5" type="submit">업로드</button>
+	<button class="btn btn-info" id="id5" type="submit" style="
+    position: relative;
+    text-align: left;
+    left: 363px;
+    bottom: 102px;
+">업로드</button>
     </div>	
 </form>
 </div>	  

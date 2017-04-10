@@ -22,7 +22,7 @@
     #h3Id{
         color: #ffffff;
         position: relative;
-       left: 40px;
+       left: 20px;
     }
     
      #M_img2{
@@ -53,7 +53,7 @@
 		<div style="
 	    margin-top: 40px;">
 		<input type="hidden" name="id" id="id" value="${dto.id }"/>
-		<label style="margin-top: 2.5em; font-size: 20px;" for="pwd5">이전 비밀번호 입력</label>
+		<label style="margin-top: 1.5em; font-size: 20px;" for="pwd5">이전 비밀번호 입력</label>
 		<input style="width: 250px; height: 32px;" type="password" name="pwd2" id="pwd5"/>
 		<span id="block" class="help-block">이전 비밀번호가 틀립니다.</span>
 		<span id="block2" class="help-block">OK!</span>

@@ -66,9 +66,12 @@ public class CafeController {
 	}
 
 	@RequestMapping("/cafe/private/insertform")
-	public ModelAndView authInsertForm() {
-
-		return new ModelAndView("cafe/private/insertform");
+	public ModelAndView authInsertForm(HttpSession session) {
+		String id=(String)session.getAttribute("id");
+		ModelAndView mView=new ModelAndView();
+		mView.addObject("dto2", fileService.getData(id));
+		mView.setViewName("cafe/private/insertform");
+		return mView;
 	}
 
 	@RequestMapping("/cafe/private/insert")
