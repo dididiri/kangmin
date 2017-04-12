@@ -49,9 +49,14 @@
     <div>
 	    <img style="float: left;margin-top: -35px;"  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
 		<h3 id="h3Id">${dto.id }</h3>
+		<br />
+		<br />
+		<br />
+		<span style="color:#ffffff; font-size: 17px;">게시물 : ${row } 개  |  </span>
+		<span style="color:#ffffff; font-size: 17px;">팔로우: 0 개  |  </span>
+		<span style="color:#ffffff; font-size: 17px;">팔로워: 0 개</span>
 		</div>
-		<div style="
-	    margin-top: 40px;">
+		<div >
 		<input type="hidden" name="id" id="id" value="${dto.id }"/>
 		<label style="margin-top: 1.5em; font-size: 20px;" for="pwd5">이전 비밀번호 입력</label>
 		<input style="width: 250px; height: 32px;" type="password" name="pwd2" id="pwd5"/>

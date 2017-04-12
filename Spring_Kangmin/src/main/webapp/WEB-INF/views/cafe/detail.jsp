@@ -346,10 +346,12 @@ a:hover{
 			<div class="modal-content">
 				<div class="filebox">
 					
-						<button id="fileBtn2" style="width: 100%; margin-top: -6px;"
-							type="submit">수정</button>
-						<button class="deleteBtn"  id="fileBtn2" style="width: 100%; margin-top: -6px;"
-							>삭제</button>
+						<!-- <button id="fileBtn2" style="width: 100%; margin-top: -6px;"
+							type="submit">수정</button> -->
+						<button class="deleteBtn"  id="fileBtn2" style="width: 100%; 
+						margin-top: -6px; border-radius: 4px;">삭제</button>
+						<button id="fileBtn2" data-dismiss="modal"
+						style="border-radius: 4px; width: 100%; margin-top: -4px;" type="submit">취소</button>
 					
 				</div>
 			</div>

@@ -62,7 +62,11 @@ public class CafeDaoImpl implements CafeDao{
 		int count=session.selectOne("cafe.getCount");
 		return count;
 	}
-	
+	@Override
+	public int getRow(String id) {
+		int row=session.selectOne("cafe.getRow", id);
+		return row;
+	}
 
 	
 

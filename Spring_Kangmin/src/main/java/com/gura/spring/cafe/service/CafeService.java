@@ -14,6 +14,7 @@ public interface CafeService {
 	public List<CafeDto> getList2(String writer);
 	public void insert(HttpServletRequest request,CafeDto dto);
 	public ModelAndView getData(int num);
+	public int getRow(String id);
 	public List<CafeDto> getData2();
 	public void update(CafeDto dto);
 	public void delete(int num);

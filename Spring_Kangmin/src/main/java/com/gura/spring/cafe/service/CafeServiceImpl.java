@@ -168,7 +168,12 @@ public class CafeServiceImpl implements CafeService{
 		return mView;
 	}
 	
-
+	@Override
+	public int getRow(String id) {
+		int row=cafeDao.getRow(id);
+		
+		return row;
+	}
 	
 
 }

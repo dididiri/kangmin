@@ -122,13 +122,26 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
        margin-top:6px;
        
     }  
+    #di1{
+      display: none;
+    }
+    #di2{
+      display: none;
+    }
+    #id5{
+      display:none;
+    }
+      
+    
 </style>
 
 <body>
 <div class="container">
 <h3>이미지 게시판 입력 페이지 입니다.</h3>
+<br />
+
 <form action="insert.do" method="post" enctype="multipart/form-data">
-<div style="
+<div id="di1" style="
     border: 1px solid #fff;
     height: 55px;
     width: 435px;  
@@ -137,8 +150,8 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     <img  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
     <a style="color:#ffffff;position: relative;top: 3px;">${id }</a>   
    </div>
-<div class="filebox bs3-primary preview-image">
-<div style="
+<div  class="filebox bs3-primary preview-image">
+<div  id="di2" style="
     border: 1px solid #fff;
     height: 48px;
     width: 435px;      
@@ -156,15 +169,14 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 	<input type="hidden" id="writer" 
 		value="${id }" disabled="disabled"/><br/>
 	
-    <label  for="file" style="color: #ffffff; position: relative;top: -23px;">이미지파일</label>
-	<!--input type="file" name 속성의 value 는 FileDto 의 
-	MultipartFile Type 의 필드명과 같아야 한다.  -->
+    <label   id="a" for="file" style="  color: #ffffff; position: relative;top: -23px;">이미지파일</label>
+	<br />
 	<input class="upload-hidden"  style="color: #ffffff;" type="file" name="file" id="file" /><br/>
 	<button class="btn btn-info" id="id5" type="submit" style="
     position: relative;
     text-align: left;
     left: 363px;
-    bottom: 102px;
+    bottom: 123px;
 ">업로드</button>
     </div>	
 </form>
@@ -178,12 +190,35 @@ $("#id5").click(function(){
 		
 	  }else if($("#file").val() == ""){
 		 alert("사진을 선택하세요.");
-	  
+	     
       }else{
 		  return true;
 	  }
 	return false;
 });
+
+
+$("#a").click(function(){
+	 var b= document.getElementById("a");
+	 var c= document.getElementById("id5");
+	 var di1=document.getElementById("di1");
+	 var di2=document.getElementById("di2");
+	 var id5=document.getElementById("id5");
+	 
+	 if(b.style.display=='block'){
+	        b.style.display = 'block';
+	       
+        }else{
+	        b.style.display = 'none';
+	        di1.style.display = 'block';
+	        di2.style.display = 'block';
+	        id5.style.display = 'block';
+	        c.style.bottom = '104px';
+	        
+	    }
+});
+
+
 
 $(document).ready(function(){
 	   var fileTarget = $('.filebox .upload-hidden');
