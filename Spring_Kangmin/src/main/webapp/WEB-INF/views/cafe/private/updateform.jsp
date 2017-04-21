@@ -109,6 +109,8 @@ function setDefaultFont() {
 	var nFontSize = 24;
 	oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
 }
+
+
 </script>
 </body>
 </html>

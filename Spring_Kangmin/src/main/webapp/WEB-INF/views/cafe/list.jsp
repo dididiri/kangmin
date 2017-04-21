@@ -73,9 +73,9 @@
 	    padding: 15px;
 	}
 	#col1{
-		padding-right: 5px;
-	    padding-left: 5px;
-	   	margin-bottom: -20px;
+		padding-right: 3px;
+	    padding-left: 3px;  
+	   	margin-bottom: 5px;  
     }
     
     body{  
@@ -233,6 +233,7 @@
 					class="btn btn-default">
 					<option value="titlecontent"
 						<c:if test="${condition eq 'titlecontent' }">selected</c:if>>제목+내용</option>
+						
 					<option value="title"
 						<c:if test="${condition eq 'title' }">selected</c:if>>제목</option>
 					<option value="writer"
@@ -310,7 +311,7 @@
 	<div class="row">  
 	    <c:forEach var="tmp" items="${list }"> 
 	    <div id="col1" class="col-xs-4 col-sm-4 col-md-3">  
-				<a id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
+				<a class="img-thumbnail" id="a1" href="detail2.do?num=${tmp.num }&writer=${tmp.writer}"><img src="${pageContext.request.contextPath }/upload/${tmp.content}" alt="" /></a>
 		</div>
 		</c:forEach>
 	</div>
@@ -364,7 +365,7 @@
 					</div>
 					<div class="form-group">
 						<label for="pwd">password</label> <input class="form-control"
-							type="password" name="pwd" id="pwd" />
+							type="password" name="pwd" id="pwd3" />
 					</div>
 					<label class="control-label" for="id4"></label> <input
 						type="hidden" id="senderName" name="senderName" value="김강민회사">
@@ -392,7 +393,7 @@
 						</span>
 					</div>
 					<label for=""></label>
-					<button id="id2" type="submit"
+					<button id="id10" type="submit"
 						class="btn btn-default btn-block m-t-md">SingUp</button>
 				</form>
 			</div>
@@ -423,7 +424,7 @@
 <script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 
 <script>
-	$("p").find('img').addClass("img-thumbnail").removeAttr('height:auto');
+	/* $("#a1").find('img').addClass("img-thumbnail").removeAttr('height:auto'); */
 	document.getElementById("message").value=Math.floor(Math.random()*800+1111);
 
 
@@ -532,11 +533,81 @@
 	 			}
 	 		});
 	 		
-	 		return false; //폼전송 막기 
+	 		
 	 	});
         
-	 	
-	 
+	 	var b=false;
+	 	$("#id10").click(function(){
+	 		var inputId2=$("#id3").val();
+	 		$.ajax({
+	 			url:"checkid2.do",
+	 			method:"get",
+	 			data:{"inputId2":inputId2},
+	 			success:function(data){
+	 				console.log(data);
+	 				
+	 				if(data.canUse){
+	 				 
+	 				  b=true;
+	 				  if($("#id3").val() == ""){
+	 					 alert("아이디를 입력하세요.");
+	 					 b=false;
+	 				  }else if($("#pwd3").val() == ""){
+	 					 alert("비밀번호를 입력하세요.");
+	 					 b=false; 
+	 				  }else if($("#email").val() == ""){
+		 					 alert("이메일를 입력하세요.");
+		 					 b=false; 
+		 			   }else if($("#message2").val() == ""){
+		 					 alert("인증번호를 입력하세요.");
+		 					 b=false; 
+		 			   }else{
+		 			    	var message2=$("#message2").val();
+		 					var message=$("#message").val();
+		 			    	$.ajax({
+		 						url:"ident.do",
+		 						method:"post",
+		 						data:{"message2":message2,"message":message},
+		 						success:function(data){
+		 						console.log(data);
+		 						if(data.canUse){
+		 							
+		 							b=true;
+		 							
+		 						}else{
+		 							
+		 							
+		 							b=false;
+		 						   }
+		 						
+		 						}
+		 						
+		 						
+		 			    	});
+		 			    	if(b==false){
+		 						return false;
+		 					}else if(b==true){
+		 						return true;
+		 					}	
+		 				
+		 			    
+		 			    }
+		 			
+	 				}else{
+	 				    b=false; 
+	 					      
+	 					           
+	 				}
+	 			}
+	 		    
+	 		
+	     	});   
+	 		if(b==false){
+	 		 return false;
+	 		}else if(b==true){
+	 			return true;
+	 		} 
+		});
 	 	
 		$("#checkBtn10").click(function(){
 			//입력한 id 읽어오기
@@ -554,10 +625,16 @@
 				data:{"senderName":senderName,"senderMail":senderMail,
 					"email":email,"subject":subject,"message":message},
 				success:function(data){
-					
+					if($("#email").val() == ""){
+				    	alert("이메일를 입력하세요.");
+				    	return false;
+				    }else if($("#email").val() != ""){
+				    	alert("인증번호가 전송됬습니다.");
+				    	return true;
+				    }
 				}
-			});
-			alert("인증번호가 전송됬습니다.");
+			});   
+		
 			return false; //폼전송 막기 
 		});
         
@@ -575,6 +652,9 @@
 				if(data.canUse){
 					alert("인증번호가 확인되었습니다.");
 					return true;
+				}else if($("#message2").val() == ""){
+					alert("인증번호를 입력하세요.");
+					return true;
 				}else{
 					alert("인증번호 일치하지 않습니다.");
 					return false;
@@ -584,6 +664,16 @@
 			});
 		
 			return false; //폼전송 막기 
+		});
+		
+		$("#fileBtn").click(function(){
+			 if($("#ex_file").val() == ""){
+				 alert("사진을 선택하세요.");
+			  
+		      }else{  
+				  return true;
+			  }
+			return false;
 		});
 		
 </script>

@@ -133,8 +133,16 @@ a {
 }
 
 #heart {
-	font-size: 20px;
+	font-size: 22px;
 }
+
+ a:hover{
+    color: #ffffff;
+ }
+ 
+ #heart:hover{
+    color: red;
+ }
 </style>
 </head>
 <body>
@@ -149,29 +157,153 @@ a {
 		<c:forEach var="tmp" items="${list3}">
 			<br />
 			<br />
-			<div class="imgbox" style="padding-top: 10px; padding-bottom: 10px;">
-				<a href="list2.do?writer=${tmp.writer }"> <c:forEach var="img"
+			<div class="imgbox" style="padding-top: 10px; height: 67px; padding-left: 12px;">
+				<a style="text-decoration: none;" href="list2.do?writer=${tmp.writer }"> <c:forEach var="img"
 						items="${list5}">
-						<c:if test="${tmp.writer eq img.writer }">
+					<c:if test="${tmp.writer eq img.writer }">
 							<img class="${tmp.num }" data-toggle="modal"
 								data-target="#myModal2" id="M_img2"
 								src="${pageContext.request.contextPath }/upload/${img.saveFileName}" />${tmp.writer }
-    </c:if>
+                            <c:if test="${tmp.regdate < 59}">
+                             <c:if test="${tmp.regdate > -1}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">${tmp.regdate }분</div>    
+                             </c:if>
+                            </c:if>
+                            <c:if test="${59 < tmp.regdate}">
+                                   <c:if test="${119> tmp.regdate  }">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">1시간</div>    
+                                   </c:if>   
+                            </c:if>
+                             <c:if test="${120< tmp.regdate  }">
+                                <c:if test="${179> tmp.regdate  }">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">2시간</div>    
+                                </c:if>
+                             </c:if>
+                             <c:if test="${180 <tmp.regdate}">
+                                <c:if test="${239> tmp.regdate  }"> 
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">3시간</div>    
+                                </c:if> 
+                            </c:if>
+                             <c:if test="${240 <tmp.regdate}">
+                                 <c:if test="${299 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">4시간</div>    
+                                 </c:if>
+                            </c:if>
+                             <c:if test="${300 <tmp.regdate}">
+                                   <c:if test="${359 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">6시간</div>    
+                                   </c:if>
+                            </c:if>
+                              <c:if test="${360 <tmp.regdate}">
+                                    <c:if test="${419 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">7시간</div>    
+                                    </c:if>
+                            </c:if>
+                              <c:if test="${420 <tmp.regdate}">
+                                     <c:if test="${479 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">8시간</div>    
+                                     </c:if>
+                            </c:if>
+                              <c:if test="${480 <tmp.regdate}">
+                                     <c:if test="${539 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">9시간</div>    
+                                     </c:if>
+                            </c:if>
+                              <c:if test="${540 <tmp.regdate}">
+                                      <c:if test="${599 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">10시간</div>    
+                                      </c:if>
+                            </c:if>
+                              <c:if test="${600 <tmp.regdate}">
+                                      <c:if test="${659 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">11시간</div>    
+                                      </c:if>
+                            </c:if>
+                              <c:if test="${660 <tmp.regdate}">
+                                       <c:if test="${719 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">12시간</div>    
+                                        </c:if>
+                            </c:if>
+                              <c:if test="${720 <tmp.regdate}">
+                                        <c:if test="${879 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">13시간</div>    
+                                         </c:if>
+                            </c:if>
+                              <c:if test="${880 <tmp.regdate}">
+                                         <c:if test="${939 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">14시간</div>    
+                                          </c:if>
+                            </c:if>
+                              <c:if test="${940 <tmp.regdate}">
+                                          <c:if test="${999 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">15시간</div>    
+                                          </c:if>
+                            </c:if>
+                              <c:if test="${1000 <tmp.regdate}">
+                                          <c:if test="${1059 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">16시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1060 <tmp.regdate}">
+                                          <c:if test="${1119 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">17시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1120 <tmp.regdate}">
+                                          <c:if test="${1179 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">18시간</div>    
+                                          </c:if>  
+                            </c:if>
+                             <c:if test="${1180 <tmp.regdate}">
+                                          <c:if test="${1239 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">19시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1240 <tmp.regdate}">
+                                          <c:if test="${1299 >tmp.regdate}"> 
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">20시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1300 <tmp.regdate}">
+                                          <c:if test="${1359 >tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">21시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1360 <tmp.regdate}">
+                                          <c:if test="${1419 > tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">22시간</div>    
+                                          </c:if>
+                            </c:if>
+                             <c:if test="${1420 <tmp.regdate}">
+                                          <c:if test="${1489 > tmp.regdate}">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">23시간</div>    
+                                           </c:if>
+                            </c:if>
+                           
+                          
+                          <c:if test="${-2 > tmp.regdate   }">
+                             <div style="text-align: end; position: relative; top: -34px; padding-right: 12px; font-size: 15px;">1일</div>    
+                            </c:if>
+                             
+                            
+                            
+                    </c:if>
 					</c:forEach>
-
+   
 				</a>
 			</div>
 
 
 			<div class="content"
-				<c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>>${tmp.content }</div>
+				<c:if test="${tmp.num eq param.num }">id="clickedImg"</c:if>><img src="${pageContext.request.contextPath }/upload/${tmp.content}" alt="" /></div>
 			<div class="titlebox">
 				<p id="result" style="margin-top: 15px; margin-bottom: 10px;">
-					<a href=""></a>좋아요 ${tmp.viewCount }개
+					<a style="text-decoration: none;" href=""></a>좋아요 ${tmp.viewCount }개
 				</p>
-				<a href="list2.do?writer=${tmp.writer }">${tmp.writer }</a>
+				<a style="text-decoration: none; " href="list2.do?writer=${tmp.writer }">${tmp.writer }</a>
 				${tmp.title }
-
+				
+                
 				<div class="comments">
 					<c:forEach var="ip" items="${commentList }">
 						<c:choose>
@@ -182,10 +314,12 @@ a {
 										<div class="reply_icon"></div>
 									</c:if>
 									<div>
-										<a href="list2.do?writer=${ip.writer}"
-											style="float: left; margin-right: 0.5em;">${ip.writer }</a>
+										<a style="text-decoration: none; " href="list2.do?writer=${ip.writer}"
+											style=" margin-right: 0.5em;">${ip.writer }</a>
+											<span style="margin-bottom: 7px; margin-top: 7px;">${ip.content }</span>
 									</div>
-									<div style="margin-bottom: 7px; margin-top: 7px;">${ip.content }</div>
+									
+									
 									<form action="comment_insert2.do" method="post">
 										<!-- 덧글 작성자 -->
 										<input type="hidden" name="writer" value="${id }" />
@@ -213,7 +347,7 @@ a {
 							<!-- 덧글 대상 -->
 							<input type="hidden" name="target_id" value="${tmp.writer }" />
 							<hr />
-							<span><a
+							<span><a style="text-decoration: none;"
 								href="likeup2.do?num=${tmp.num}&writer=${tmp.writer}"
 								class="glyphicon glyphicon-heart" id="heart"></a></span> <input
 								style="margin-bottom: 18px; font-size: 20px; margin-left: 0.5em;"

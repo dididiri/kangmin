@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.gura.spring.cafe.service.CafeService;
 import com.gura.spring.cafe.service.FileService;
 import com.gura.spring.model.email.EmailVo;
 import com.gura.spring.service.email.EmailService;
@@ -29,6 +30,8 @@ public class UsersController {
 	@Autowired
 	private FileService fileService;
 	
+	@Autowired
+	private CafeService cafeService;
 	@Inject
     EmailService emailService;
 	
@@ -60,6 +63,7 @@ public class UsersController {
 		
 		ModelAndView mView=usersService.getData(id);
 		mView.addObject("dto2", fileService.getData(id));
+		mView.addObject("row", cafeService.getRow(id));
 		mView.setViewName("users/private/updateform");
 		
 		return mView;
@@ -117,6 +121,25 @@ public class UsersController {
 	@RequestMapping("cafe/checkid")
 	@ResponseBody
 	public Map<String, Object> checkid(@RequestParam String inputId,@RequestParam String inputPwd){
+		boolean canUse = false;
+		UsersDto dto=new UsersDto();
+		dto.setId(inputId);
+		dto.setPwd(inputPwd);
+		
+		boolean getId=usersService.isValid(dto);
+		 if(getId){
+			canUse=true;
+		}else{
+			canUse=false;
+		}
+		Map<String, Object> map=new HashMap<String,Object>();
+		map.put("canUse", canUse);
+	
+		return map;
+	}
+	@RequestMapping("users/private/checkid3")
+	@ResponseBody
+	public Map<String, Object> checkid31(@RequestParam String inputId,@RequestParam String inputPwd){
 		boolean canUse = false;
 		UsersDto dto=new UsersDto();
 		dto.setId(inputId);

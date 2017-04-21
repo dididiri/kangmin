@@ -11,129 +11,129 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath }/resources/css/bootstrap.css" />
 <style>
-body {
-	background-image: url(../resources/images/bg3.jpg);
-}
-
-a img {
-	max-width: 100%;
-	width: 100%;
-	height: 360px !important;
-}
-
-#M_img {
-	border-radius: 50%;
-	position: relative;
-	max-width: 100%;
-	padding: 4px;
-	background-color: #fff;
-	width: 181px;
-	height: 186px;
-	margin-top: 60px;
-}
-
-#M_img3 {
-	border-radius: 50%;
-	position: relative;
-	max-width: 100%;
-	padding: 4px;
-	background-color: #fff;
-	width: 181px;
-	height: 186px;
-	text-align: center;
-	margin-top: 60px;
-}
-
-.filebox label {
-	display: inline-block;
-	padding: .5em .75em;
-	font-size: inherit;
-	line-height: normal;
-	vertical-align: middle;
-	background-color: #fdfdfd;
-	cursor: pointer;
-	border: 1px solid #ebebeb;
-	border-bottom-color: #e2e2e2;
-	border-radius: .25em;
-	width: 100%;
-	text-align: center;
-	font-size: 15pt;
-	font-weight: bold;
-}
-
-.filebox {
-	position: relative;
-	top: -21px;
-	height: 70px;
-}
-
-.filebox2 {
-	position: relative;
-	height: 70px;
-}
-
-.filebox input[type="file"] {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
-	border: 0;
-}
-
-#fileBtn {
-	width: 100%;
-	background-color: #fdfdfd;
-	padding: .5em .75em;
-	border: 1px solid #ebebeb;
-	font-size: 15pt;
-	font-weight: bold;
-	border-radius: 4px;
-}
-
-#fileBtn2 {
-	width: 100%;
-	background-color: #fdfdfd;
-	padding: .5em .75em;
-	border: 1px solid #ebebeb;
-	font-size: 15pt;
-	font-weight: bold;
-}
-
-h2 {
-	color: rgba(255, 255, 255, 0.65);
-	margin-bottom: 20px;
-	margin-top: 60px;
-	font-size: x-large;
-}
-
-#icon {
-	color: rgba(255, 255, 255, 0.65);
-	font-size: 25px;
-	border: solid 1px rgba(255, 255, 255, 0.25);
-	background-color: rgba(255, 255, 255, 0.075);
-	border-radius: 50%;
-	padding: 0.5em;
-	margin-left: 15px;
-	margin-right: 15px;
-	margin-bottom: 15px;
-	margin-top: 15px;
-}
-
-ul a {
-	color: #000000 !important;
-	font-size: -25px !important;
-}
-
-.dropdown-menu {
-	position: absolute;
-	left: 688px;
-	top: 450px;
-}
-
-@media ( max-width : 992px) {
+	body {
+		background-image: url(../resources/images/bg3.jpg);
+	}
+	
+	a img {
+		max-width: 100%;
+		width: 100%;
+		height: 360px !important;
+	}
+	
+	#M_img {
+		border-radius: 50%;
+		position: relative;
+		max-width: 100%;
+		padding: 4px;
+		background-color: #fff;
+		width: 181px;
+		height: 186px;
+		margin-top: 60px;
+	}
+	
+	#M_img3 {
+		border-radius: 50%;
+		position: relative;
+		max-width: 100%;
+		padding: 4px;
+		background-color: #fff;
+		width: 181px;
+		height: 186px;
+		text-align: center;
+		margin-top: 60px;
+	}
+	
+	.filebox label {
+		display: inline-block;
+		padding: .5em .75em;
+		font-size: inherit;
+		line-height: normal;
+		vertical-align: middle;
+		background-color: #fdfdfd;
+		cursor: pointer;
+		border: 1px solid #ebebeb;
+		border-bottom-color: #e2e2e2;
+		border-radius: .25em;
+		width: 100%;
+		text-align: center;
+		font-size: 15pt;
+		font-weight: bold;
+	}
+	
+	.filebox {
+		position: relative;
+		top: -21px;
+		height: 70px;
+	}
+	
+	.filebox2 {
+		position: relative;
+		height: 70px;
+	}
+	
+	.filebox input[type="file"] {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		padding: 0;
+		margin: -1px;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+	}
+	
+	#fileBtn {
+		width: 100%;
+		background-color: #fdfdfd;
+		padding: .5em .75em;
+		border: 1px solid #ebebeb;
+		font-size: 15pt;
+		font-weight: bold;
+		border-radius: 4px;
+	}
+	
+	#fileBtn2 {
+		width: 100%;
+		background-color: #fdfdfd;
+		padding: .5em .75em;
+		border: 1px solid #ebebeb;
+		font-size: 15pt;
+		font-weight: bold;
+	}
+	
+	h2 {
+		color: rgba(255, 255, 255, 0.65);
+		margin-bottom: 20px;
+		margin-top: 60px;
+		font-size: x-large;
+	}
+	
+	#icon {
+		color: rgba(255, 255, 255, 0.65);
+		font-size: 25px;
+		border: solid 1px rgba(255, 255, 255, 0.25);
+		background-color: rgba(255, 255, 255, 0.075);
+		border-radius: 50%;
+		padding: 0.5em;
+		margin-left: 15px;
+		margin-right: 15px;
+		margin-bottom: 15px;
+		margin-top: 15px;
+	}
+	
+	ul a {
+		color: #000000 !important;
+		font-size: -25px !important;
+	}
+	
+	.dropdown-menu {
+		position: absolute;
+		left: 688px;
+		top: 450px;
+	}
+	
+	@media ( max-width : 992px) {
 	p {
 		margin: -12px -15px -8px;
 	}
@@ -143,7 +143,8 @@ ul a {
 		height: 175px !important;
 	}
 	.img-thumbnail {
-		padding: 0px;
+		padding: 1px;
+		
 		border-radius: 0px;
 		background-color: #fff;
 		border: 0.5px solid #fff;
@@ -178,7 +179,9 @@ ul a {
 		margin-bottom: 10px;
 		margin-top: 10px;
 	}
-}
+	
+	
+
 </style>
 </head>
 <body>
@@ -249,13 +252,15 @@ ul a {
 
 		<div class="row">
 			<c:forEach var="tmp" items="${list2 }">
-				<div id="col1" class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
-					<a id="a1" href="detail.do?num=${tmp.num }&writer=${tmp.writer}">${tmp.content}</a>
+				<div style="  padding: 1px;"
+				     id="col1" class="col-xs-4 col-sm-4 col-md-3 col-lg-3">
+					<a id="a1" href="detail.do?num=${tmp.num }&writer=${tmp.writer}">
+					<img class="img-thumbnail" src="${pageContext.request.contextPath }/upload/${tmp.content}" alt="" /></a>
 				</div>
 			</c:forEach>
 		</div>
 	</div>
-
+  
 
 	<!-- 프로필  Modal 준비 -->
 	<div id="myModal5" class="modal fade" style="top: 238px;">
@@ -284,7 +289,7 @@ ul a {
 							type="hidden" name="title" id="title" value="zzz" /><br /> <label
 							for="ex_file">사진 선택</label> <input type="file" name="file"
 							id="ex_file" />
-						<button id="fileBtn" style="width: 100%; margin-top: -6px;"
+						<button id="fileBtn2" style="width: 100%; margin-top: -6px;"
 							type="submit">업로드</button>
 					</form>
 				</div>
@@ -294,13 +299,13 @@ ul a {
 
 
 
-	<script
+<script
 		src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
-	<script
+<script
 		src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 
-	<script>
-		$("p").find('img').addClass("img-thumbnail");
+<script>
+		/* $("#a1").find('img').addClass("img-thumbnail"); */
 
 		$(".singoutBtn1").click(function() {
 
@@ -313,7 +318,17 @@ ul a {
 			location.href = "../users/private/updateform.do";
 
 		});
-	</script>
+		
+		$("#fileBtn2").click(function(){
+			 if($("#ex_file").val() == ""){
+				 alert("사진을 선택하세요.");
+			  
+		      }else{  
+				  return true;
+			  }
+			return false;
+		});
+</script>
 </body>
 </html>
 

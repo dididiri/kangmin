@@ -28,78 +28,246 @@ minimum-scale=1, maximum-scale=1, user-scalable=no">
     td{
        color :#ffffff;
     }
+    body {margin: 10px;}
+	.where {
+	  display: block;
+	  margin: 25px 15px;
+	  font-size: 11px;
+	  color: #000;
+	  text-decoration: none;
+	  font-family: verdana;
+	  font-style: italic;
+	} 
+	
+	.filebox input[type="file"] {
+	    position: absolute;
+	    width: 1px;
+	    height: 1px;
+	    padding: 0;
+	    margin: -1px;
+	    overflow: hidden;
+	    clip:rect(0,0,0,0);
+	    border: 0;
+	}
+	
+	.filebox label {
+	    display: inline-block;
+	    padding: .5em .75em;
+	    color: #999;
+	    font-size: inherit;
+	    line-height: normal;
+	    vertical-align: middle;
+	    background-color: #fdfdfd;
+	    cursor: pointer;
+	    border: 1px solid #ebebeb;
+	    border-bottom-color: #e2e2e2;
+	    border-radius: .25em;
+	}
+	
+	/* named upload */
+	.filebox .upload-name {
+	    display: inline-block;
+	    padding: .5em .75em;
+	    font-size: inherit;
+	    font-family: inherit;
+	    line-height: normal;
+	    vertical-align: middle;
+	    background-color: #f5f5f5;
+	  border: 1px solid #ebebeb;
+	  border-bottom-color: #e2e2e2;
+	  border-radius: .25em;
+	  -webkit-appearance: none; 
+	  -moz-appearance: none;
+	  appearance: none;
+	}
+	
+	/* imaged preview */
+	.filebox .upload-display {
+	    margin-bottom: 5px;
+	}
+	
+	@media(min-width: 768px) {
+	    .filebox .upload-display {
+	        display: inline-block;
+	        margin-right: 5px;
+	        margin-bottom: 0;
+	    }
+	}
+	
+	.filebox .upload-thumb-wrap {
+	    display: inline-block;
+	    
+	    vertical-align: middle;
+	    border: 1px solid #ddd;
+	    
+	    background-color: #fff;
+	}
+	
+	.filebox .upload-display img {
+	    display: block;
+	    max-width: 100%;
+	    width: 433px;
+	    height: 460px;
+	}
+	
+	.filebox.bs3-primary label {
+	  color: #fff;
+	  background-color: #337ab7;
+	    border-color: #2e6da4;
+	}
+	  #M_img2{
+       width: 42px;
+       height: 42px;
+       border-radius: 50%;
+       margin-top:6px;
+       
+    }  
+    #di1{
+      display: none;
+    }
+    #di2{
+      display: none;
+    }
+    #id5{
+      display:none;
+    }
+      
+    
 </style>
 
 <body>
 <div class="container">
 <h3>이미지 게시판 입력 페이지 입니다.</h3>
-<form action="insert.do" method="post">
+<br />
+
+<form action="insert.do" method="post" enctype="multipart/form-data">
+<div id="di1" style="
+    border: 1px solid #fff;
+    height: 55px;
+    width: 435px;  
+    position: relative;
+    border-bottom: 0px;">  
+    <img  id="M_img2"  src="${pageContext.request.contextPath }/upload/${dto2.saveFileName}"/>
+    <a style="color:#ffffff;position: relative;top: 3px;">${id }</a>   
+   </div>
+<div  class="filebox bs3-primary preview-image">
+<div  id="di2" style="
+    border: 1px solid #fff;
+    height: 48px;
+    width: 435px;      
+    position: relative;
+    top: -6px;
+    border-top: 0px;">
+     
+    <a style="color:#ffffff;position: relative;top: 11px;left: 11px;">${id }#</a>
+    <input type="text" name="title" id="title" placeholder="제목 입력.." style=" width: 65%;
+    position: relative;top: 11px;left: 14px;  background-color: initial;
+    border: 0px; color:#ffffff;"/>
+</div>    
 	<input type="hidden" name="writer" value="${id }" />
 	
 	<input type="hidden" id="writer" 
 		value="${id }" disabled="disabled"/><br/>
-	<label style="
-    color: #ffffff;" for="title">제목</label>
-	<input type="text" name="title" id="title"/><br/>
-	<textarea name="content" id="ir1" style="width:766px;height:412px;display:none"></textarea>
-	<div>
-		
-		<input type="button" onclick="submitContents(this);" value="작성" />
-		
-	</div>	
+	
+    <label   id="a" for="file" style="  color: #ffffff; position: relative;top: -23px;">이미지파일</label>
+	<br />
+	<input class="upload-hidden"  style="color: #ffffff;" type="file" name="file" id="file" /><br/>
+	<button class="btn btn-info" id="id5" type="submit" style="
+    position: relative;
+    text-align: left;
+    left: 363px;
+    bottom: 123px;
+">업로드</button>
+    </div>	
 </form>
-</div>	
+</div>	  
+<script src="${pageContext.request.contextPath }/resources/js/jquery-3.1.1.js"></script>
+<script src="${pageContext.request.contextPath }/resources/js/bootstrap.js"></script>
 <script>
-var oEditors = [];
-
-//추가 글꼴 목록
-//var aAdditionalFontSet = [["MS UI Gothic", "MS UI Gothic"], ["Comic Sans MS", "Comic Sans MS"],["TEST","TEST"]];
-
-nhn.husky.EZCreator.createInIFrame({
-	oAppRef: oEditors,
-	elPlaceHolder: "ir1",
-	sSkinURI: "${pageContext.request.contextPath}/SmartEditor/SmartEditor2Skin.html",	
-	htParams : {
-		bUseToolbar : true,				// 툴바 사용 여부 (true:사용/ false:사용하지 않음)
-		bUseVerticalResizer : false,		// 입력창 크기 조절바 사용 여부 (true:사용/ false:사용하지 않음)
-		bUseModeChanger : false,			// 모드 탭(Editor | HTML | TEXT) 사용 여부 (true:사용/ false:사용하지 않음)
-		//aAdditionalFontList : aAdditionalFontSet,		// 추가 글꼴 목록
-		fOnBeforeUnload : function(){
-			//alert("완료!");
-		}
-	}, //boolean
-	fOnAppLoad : function(){
-		//예제 코드
-		//oEditors.getById["ir1"].exec("PASTE_HTML", ["로딩이 완료된 후에 본문에 삽입되는 text입니다."]);
-	},
-	fCreator: "createSEditor2"
+$("#id5").click(function(){
+	if($("#title").val() == ""){
+		 alert("제목을 입력하세요.");
+		
+	  }else if($("#file").val() == ""){
+		 alert("사진을 선택하세요.");
+	     
+      }else{
+		  return true;
+	  }
+	return false;
 });
 
-function pasteHTML() {
-	var sHTML = "<span style='color:#FF0000;'>이미지도 같은 방식으로 삽입합니다.<\/span>";
-	oEditors.getById["ir1"].exec("PASTE_HTML", [sHTML]);
-}
 
-function showHTML() {
-	var sHTML = oEditors.getById["ir1"].getIR();
-	alert(sHTML);
-}
-	
-function submitContents(elClickedObj) {
-	oEditors.getById["ir1"].exec("UPDATE_CONTENTS_FIELD", []);	// 에디터의 내용이 textarea에 적용됩니다.
-	
-	// 에디터의 내용에 대한 값 검증은 이곳에서 document.getElementById("ir1").value를 이용해서 처리하면 됩니다.
-	
-	try {
-		elClickedObj.form.submit();
-	} catch(e) {}
-}
+$("#a").click(function(){
+	 var b= document.getElementById("a");
+	 var c= document.getElementById("id5");
+	 var di1=document.getElementById("di1");
+	 var di2=document.getElementById("di2");
+	 var id5=document.getElementById("id5");
+	 
+	 if(b.style.display=='block'){
+	        b.style.display = 'block';
+	       
+        }else{
+	        b.style.display = 'none';
+	        di1.style.display = 'block';
+	        di2.style.display = 'block';
+	        id5.style.display = 'block';
+	        c.style.bottom = '104px';
+	        
+	    }
+});
 
-function setDefaultFont() {
-	var sDefaultFont = '궁서';
-	var nFontSize = 24;
-	oEditors.getById["ir1"].setDefaultFont(sDefaultFont, nFontSize);
-}
+
+
+$(document).ready(function(){
+	   var fileTarget = $('.filebox .upload-hidden');
+
+	    fileTarget.on('change', function(){
+	        if(window.FileReader){
+	            // 파일명 추출
+	            var filename = $(this)[0].files[0].name;
+	        } 
+
+	        else {
+	            // Old IE 파일명 추출
+	            var filename = $(this).val().split('/').pop().split('\\').pop();
+	        };
+
+	        $(this).siblings('.upload-name').val(filename);
+	    });
+
+	    //preview image 
+	    var imgTarget = $('.preview-image .upload-hidden');
+
+	    imgTarget.on('change', function(){
+	        var parent = $(this).parent();
+	        parent.children('.upload-display').remove();
+
+	        if(window.FileReader){
+	            //image 파일만
+	            if (!$(this)[0].files[0].type.match(/image\//)) return;
+	            
+	            var reader = new FileReader();
+	            reader.onload = function(e){
+	                var src = e.target.result;
+	                parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img src="'+src+'" class="upload-thumb"></div></div>');
+	            }
+	            reader.readAsDataURL($(this)[0].files[0]);
+	        }
+
+	        else {
+	            $(this)[0].select();
+	            $(this)[0].blur();
+	            var imgSrc = document.selection.createRange().text;
+	            parent.prepend('<div class="upload-display"><div class="upload-thumb-wrap"><img class="upload-thumb"></div></div>');
+
+	            var img = $(this).siblings('.upload-display').find('img');
+	            img[0].style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";        
+	        }
+	    });
+	});
+
 </script>
 </body>
 </html>
